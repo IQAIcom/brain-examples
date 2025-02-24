@@ -39,6 +39,7 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
+		// .withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
