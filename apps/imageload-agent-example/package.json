@@ -1,7 +1,7 @@
 {
-	"name": "@iqai/fraxlend-agent-example",
+	"name": "@iqai/imageload-agent-example",
 	"version": "1.0.0",
-	"description": "Fraxlend Agent example",
+	"description": "Agent that posts a daily twitter image and also posts on discord",
 	"main": "src/index.js",
 	"type": "module",
 	"private": true,

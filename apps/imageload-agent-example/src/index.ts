@@ -8,6 +8,8 @@ import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 
 import { createImageGenerationPlugin } from "@eliza/plugin-image-generation";
+import createSequencerPlugin from "@iqai/plugin-sequencer";
+import { DiscordClientInterface } from "@elizaos/client-discord";
 
 async function main() {
 
@@ -19,11 +21,13 @@ async function main() {
 		autoCaption: true
 	  });
 
+	  const sequencerPlugin = await createSequencerPlugin();
+
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
 			period: "0 12 * * *",  // Every day at 12:00 PM
-			input: "Post a crypto market update",
+			input: "Post a picture daily",
 			client: "twitter",
 		}
 	]);
@@ -38,14 +42,15 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
+		.withClient("discord", DiscordClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
 		)
-		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin])
+		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
 		.withCharacter({
 			name: "BrainBot ImageLoader",
-			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",
+			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter and discord.",
 			username: "brainbot",
 			messageExamples: [],
 			lore: ["Created to assist users with magnificent photos"],
