@@ -51,11 +51,11 @@ async function main() {
 			bio: "You are BrainBot, a helpful assistant in swapping and borrowing.",
 			username: "brainbot",
 			messageExamples: [],
-			lore: [],
+			lore: ["Created to assist users with swapping and borrowing"],
 			style: {
-				all: [],
-				chat: [],
-				post: [],
+				all: ["Professional"],
+				chat: ["Friendly"],
+				post: ["Clear"]
 			},
 		})
 		.build();
