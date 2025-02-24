@@ -171,6 +171,61 @@ importers:
         specifier: ^5.4.2
         version: 5.7.3
 
+  apps/imageload-agent-example:
+    dependencies:
+      '@elizaos/adapter-sqlite':
+        specifier: 0.1.9
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
+      '@elizaos/client-direct':
+        specifier: 0.25.6-alpha.1
+        version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/core':
+        specifier: 0.1.9
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
+      '@elizaos/plugin-bootstrap':
+        specifier: 0.1.9
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
+      '@iqai/agent':
+        specifier: ^0.0.5
+        version: 0.0.5(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
+      '@iqai/plugin-atp':
+        specifier: ^0.1.9
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.24.2)
+      '@iqai/plugin-fraxlend':
+        specifier: ^0.1.10
+        version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.24.2)
+      '@iqai/plugin-heartbeat':
+        specifier: ^0.1.10
+        version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)
+      '@types/better-sqlite3':
+        specifier: ^7.6.12
+        version: 7.6.12
+      better-sqlite3:
+        specifier: 11.8.1
+        version: 11.8.1
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
+      viem:
+        specifier: ^2.23.3
+        version: 2.23.4(typescript@5.7.3)(zod@3.24.2)
+    devDependencies:
+      ts-node:
+        specifier: 10.9.2
+        version: 10.9.2(@types/node@22.13.4)(typescript@5.7.3)
+      tsup:
+        specifier: 8.3.6
+        version: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+      tsx:
+        specifier: ^4.7.1
+        version: 4.19.2
+      typescript:
+        specifier: ^5.4.2
+        version: 5.7.3
+
 packages:
 
   /@0no-co/graphql.web@1.1.1(graphql@16.10.0):
@@ -3717,7 +3772,7 @@ packages:
       '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
-      viem: 2.23.3(typescript@5.7.3)(zod@3.24.2)
+      viem: 2.23.4(typescript@5.7.3)(zod@3.24.2)
     transitivePeerDependencies:
       - '@google-cloud/vertexai'
       - '@langchain/anthropic'
@@ -4067,7 +4122,7 @@ packages:
     resolution: {integrity: sha512-/+8S6XpAnN9X6pCiA7eBD+QtEWOtYhlN7Osrf9K59G6E8q6SdXUbJzuNpNBHtlZV+Pm7zm4zOhnwnpvShLD0Xg==}
     engines: {node: '>=18.0.0'}
     optionalDependencies:
-      viem: 2.23.3(typescript@5.7.3)(zod@3.23.8)
+      viem: 2.23.4(typescript@5.7.3)(zod@3.23.8)
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -5159,7 +5214,7 @@ packages:
   /@types/ws@7.4.7:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
-      '@types/node': 12.20.55
+      '@types/node': 22.13.4
     dev: false
 
   /@types/ws@8.5.14:
@@ -9963,6 +10018,30 @@ packages:
       - zod
     dev: false
 
+  /viem@2.23.4(typescript@5.7.3)(zod@3.23.8):
+    resolution: {integrity: sha512-UQquuolKlS1w5H5e0Fd1KKoUlIPJryIEBzY5AUhGyV1ka+9O6+3uYVhUzj6RbvGK0PtsMKn2ddwPZFwjNDVU/A==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@noble/curves': 1.8.1
+      '@noble/hashes': 1.7.1
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.7.3)(zod@3.23.8)
+      isows: 1.0.6(ws@8.18.0)
+      ox: 0.6.7(typescript@5.7.3)(zod@3.23.8)
+      typescript: 5.7.3
+      ws: 8.18.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+    dev: false
+    optional: true
+
   /viem@2.23.4(typescript@5.7.3)(zod@3.24.2):
     resolution: {integrity: sha512-UQquuolKlS1w5H5e0Fd1KKoUlIPJryIEBzY5AUhGyV1ka+9O6+3uYVhUzj6RbvGK0PtsMKn2ddwPZFwjNDVU/A==}
     requiresBuild: true
@@ -9986,7 +10065,6 @@ packages:
       - utf-8-validate
       - zod
     dev: false
-    optional: true
 
   /vite-node@2.1.5(@types/node@22.13.4):
     resolution: {integrity: sha512-rd0QIgx74q4S1Rd56XIiL2cYEdyWn13cunYBIuqh9mpmQr7gGS0IxXoP8R6OaZtNQQLyXSWbd4rXKYUbhFpK5w==}
