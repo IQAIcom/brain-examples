@@ -44,7 +44,7 @@ async function main() {
 		)
 		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin])
 		.withCharacter({
-			name: "BrainBot Lender",
+			name: "BrainBot ImageLoader",
 			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",
 			username: "brainbot",
 			messageExamples: [],
