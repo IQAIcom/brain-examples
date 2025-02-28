@@ -26,18 +26,23 @@ The **Sequencer Plugin** facilitates complex multi-step operations by:
 
 The **Telegram/Discord Client** allows your agent to interact with Discord servers, supporting message handling, voice interactions, and slash commands.
 
+## Setup
+
+To get started, clone this repository and navigate to the project folder:
+
+```bash
+git clone https://github.com/IQAIcom/brain-examples.git
+cd brain-examples/apps/odosBAMM-agent-example
+```
+
+Then, follow the installation instructions below.
+
 ## Installation
 
 Ensure all required packages are installed by running:
 
 ```bash
 pnpm install
-```
-
-If any packages are missing, install them using:
-
-```bash
-pnpm add @elizaos/client-discord @elizaos/client-telegram @elizaos/core @iqai/plugin-odos @iqai/plugin-bamm @iqai/agent @iqai/plugin-sequencer @eliza/plugin-bootstrap viem/chains @elizaos/adapter-sqlite @elizaos/client-direct node:path node:fs
 ```
 
 To run the agent, open a terminal in your project directory and execute:
@@ -59,7 +64,7 @@ DISCORD_API_TOKEN=your_bot_token
 
 ## Query Examples
 
-- **Sample Querries:**
+- **Sample Queries:**
 
   ```plaintext
   Get me a quote for swapping 1 wfrxEth to FRAX on Fraxtal then get me All bamm pools
@@ -70,10 +75,10 @@ DISCORD_API_TOKEN=your_bot_token
   ```
 
   ```plaintext
-  PSwap 100 DAI to FXS then add 100k collateral of 0xCc3023635dF54FC0e43F47bc4BeB90c3d1fbDa9f to this 0xC5B225cF058915BF28D7d9DFA3043BD53C63Ea84 bamm and finally post my Bamm postions on Discord
+  Swap 100 DAI to FXS then add 100k collateral of 0xCc3023635dF54FC0e43F47bc4BeB90c3d1fbDa9f to this 0xC5B225cF058915BF28D7d9DFA3043BD53C63Ea84 bamm and finally post my Bamm postions on Discord
   ```
 
-### More Queries: try any combination of queires in the following doc
+### More Queries: Try any combination of queries in the following doc
 
-[Odos Doc] (https://brain.iqai.com/plugins/odos)
-[Bamm Doc] (https://brain.iqai.com/plugins/bamm)
+[Odos Doc](https://brain.iqai.com/plugins/odos)
+[Bamm Doc](https://brain.iqai.com/plugins/bamm)
