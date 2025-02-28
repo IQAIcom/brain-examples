@@ -20,17 +20,6 @@ async function main() {
 	});
 	const sequencerPlugin = await createSequencerPlugin();
 
-	interface Agent {
-		name: string;
-		ticker: string;
-		currentPriceInUSD: number;
-	}
-	  
-	interface TopAgentsResponse {
-		agents: Agent[];
-	}
-
-
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 	{
@@ -44,46 +33,6 @@ async function main() {
 	]);
 	
 	
-	const topAgentsPlugin = createSimplePlugin({
-		name: "top-agents",
-		description: "This plugin fetches the top 5 AI agent tokens by market capitalization (mcap).",
-		actions: [
-		  {
-			name: "TOP_AGENTS",
-			description: "Fetch the top 5 AI agent tokens.",
-			similes: ["top AI agent","top AI agents","top 5 AI agents", "top AI agents by mcap", "top AI agents"],
-			handler: async (opts) => {
-			  try {
-				console.log("Fetching top 5 agents...");
-				const res = await fetch("https://app.iqai.com/api/agents/top?limit=1");
-				const data = await res.json() as TopAgentsResponse;
-	  
-				if (data.agents.length === 0) {
-				  opts.callback?.({
-					text: "No top AI agents found at the moment. Please try again later.",
-				  });
-				  return true;
-				}
-				
-				const topAgent = data.agents[0] as Agent;
-				const responseText = `The top AI agent by market capitalization is **${topAgent.name} (${topAgent.ticker})**, currently priced at $${topAgent.currentPriceInUSD.toFixed(6)} USD.`;
-	  
-				opts.callback?.({
-				  text: responseText,
-				});
-				return true;
-			  } catch (error) {
-				console.error('Error in action handler:', error);
-				opts.callback?.({
-				  text: "❌ Sorry, something went wrong while fetching the top AI agents. Please try again later.",
-				});
-				return false;
-			  }
-			},
-		  },
-		],
-	  });
-
 	const IQ_TOKEN_ADDRESS = '0xcc3023635df54fc0e43f47bc4beb90c3d1fbda9f'
 
 	const publicClient = createPublicClient({
@@ -153,7 +102,7 @@ async function main() {
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([atpPlugin, bootstrapPlugin, topAgentsPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
+		.withPlugins([atpPlugin, bootstrapPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
 		.withCharacter({
 			name: "BrainBot Trader",
 			bio: "You are BrainBot, a helpful assistant in trading.",

@@ -1,4 +1,4 @@
-# odosBAMM Agent Example
+# FraxLend Agent Example
 
 ## Overview
 
@@ -14,18 +14,23 @@ The **FraxLend Plugin** allows your agent to lending, borrowing, withdrawing, an
 
 The **Heartbeat** Plugin enables automated scheduling of tasks and social media interactions
 
+## Setup
+
+To get started, clone this repository and navigate to the project folder:
+
+```bash
+git clone https://github.com/IQAIcom/brain-examples.git
+cd brain-examples/apps/fraxlend-agent-example
+```
+
+Then, follow the installation instructions below.
+
 ## Installation
 
 Ensure all required packages are installed by running:
 
 ```bash
 pnpm install
-```
-
-If any packages are missing, install them using:
-
-```bash
-pnpm add @elizaos/core @iqai/plugin-heartbeat @iqai/plugin-fraxlend @iqai/agent @iqai/plugin-sequencer @eliza/plugin-bootstrap viem/chains @elizaos/adapter-sqlite @elizaos/client-direct node:path node:fs
 ```
 
 To run the agent, open a terminal in your project directory and execute:
@@ -46,13 +51,13 @@ OPENAI_API_KEY="sk-openai-api-key"
 
 ## Query Examples
 
-- **Sample Querries:**
+- **Sample Queries:**
 
   ```plaintext
   Check if APR of new pools are > 3% of his current positions, then borrow and lend daily
   ```
 
-### More Queries: try any combination of queires in the following doc
+### More Queries: Try any combination of queries in the following doc
 
-[FraxLend Doc] (https://brain.iqai.com/plugins/fraxlend)
-[Heartbeat Doc] (https://brain.iqai.com/plugins/heartbeat)
+[FraxLend Doc](https://brain.iqai.com/plugins/fraxlend)
+[Heartbeat Doc](https://brain.iqai.com/plugins/heartbeat)

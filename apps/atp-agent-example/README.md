@@ -1,4 +1,4 @@
-# odosBAMM Agent Example
+# ATP Agent Example
 
 ## Overview
 
@@ -26,18 +26,23 @@ The **Sequencer Plugin** facilitates complex multi-step operations by:
 - Handling state and context across actions.
 - Providing detailed execution feedback.
 
+## Setup
+
+To get started, clone this repository and navigate to the project folder:
+
+```bash
+git clone https://github.com/IQAIcom/brain-examples.git
+cd brain-examples/apps/atp-agent-example
+```
+
+Then, follow the installation instructions below.
+
 ## Installation
 
 Ensure all required packages are installed by running:
 
 ```bash
 pnpm install
-```
-
-If any packages are missing, install them using:
-
-```bash
-pnpm add @elizaos/core @iqai/plugin-heartbeat @eliza/plugin-atp @iqai/agent @iqai/plugin-sequencer @eliza/plugin-bootstrap @elizaos/adapter-sqlite @elizaos/client-direct node:path node:fs @iqai/plugin-sequencer
 ```
 
 To run the agent, open a terminal in your project directory and execute:
@@ -58,13 +63,13 @@ TELEGRAM_CHAT_ID="bot-token"
 
 ## Query Examples
 
-- **Sample Querries:**
+- **Sample Queries:**
 
   ```plaintext
   Check and post top agent, check my IQ balance then buy tokens using 1% of his IQ holdings daily
   ```
 
-### More Queries: try any combination of queires in the following doc
+### More Queries: Try any combination of queries in the following doc
 
-[ATP Doc] (https://brain.iqai.com/plugins/atp)
-[Heartbeat Doc] (https://brain.iqai.com/plugins/heartbeat)
+[ATP Doc](https://brain.iqai.com/plugins/atp)
+[Heartbeat Doc](https://brain.iqai.com/plugins/heartbeat)
