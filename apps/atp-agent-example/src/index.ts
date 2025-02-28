@@ -18,12 +18,15 @@ async function main() {
 	const atpPlugin = await createATPPlugin({
 	walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
 	});
+
 	const sequencerPlugin = await createSequencerPlugin();
 
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 	{
-		period: "0 12 * * *",  // Every day at 12:00 PM
+		// period: "0 12 * * *",  // Every day at 12:00 PM
+		period: "*/5 * * * * *", // Every 5 seconds
+		// period: "* * * * *", // Every minute
 		input: "Post a crypto market update",
 		client: "telegram",
 		config: {
