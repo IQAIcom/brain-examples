@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:23.8.0
+FROM node:23
 
 # Set the working directory in the container
 WORKDIR /app
@@ -20,7 +20,7 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 # Approve build scripts
-RUN pnpm approve-builds --yes
+# RUN pnpm build
 
 # Rebuild native addons
 RUN pnpm rebuild
