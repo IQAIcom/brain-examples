@@ -2,7 +2,13 @@
 FROM node:23.8.0
 
 # Set the working directory in the container
-WORKDIR /src
+WORKDIR /app
+
+# Install build tools and dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy package.json and pnpm-lock.yaml
 COPY package*.json pnpm-lock.yaml ./
@@ -13,16 +19,20 @@ RUN npm install -g pnpm
 # Install dependencies
 RUN pnpm install
 
+# Approve build scripts
+RUN pnpm approve-builds --yes
+
+# Rebuild native addons
+RUN pnpm rebuild
+
 # Copy the rest of the application code
 COPY . .
 
-# Install typescript
-RUN npm install -g typescript
-# Compile the TypeScript code to JavaScript
-RUN tsc
+# Install tsx globally within the container
+RUN npm install -g tsx
 
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Define the command to run the app
-CMD ["node", "index.js"]
+CMD ["tsx", "src/index.ts"]
