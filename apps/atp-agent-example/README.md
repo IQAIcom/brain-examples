@@ -66,7 +66,7 @@ TELEGRAM_CHAT_ID="bot-token"
 - **Sample Queries:**
 
   ```plaintext
-  Check and post top agent, check my IQ balance then buy tokens using 1% of his IQ holdings daily
+  Check and post top agent, check my IQ balance then buy tokens using 1% of his IQ holdings
   ```
 
 ### More Queries: Try any combination of queries in the following doc

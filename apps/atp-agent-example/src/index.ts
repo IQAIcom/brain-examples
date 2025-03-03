@@ -1,6 +1,5 @@
 import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
-import TelegramClientInterface from "@elizaos/client-telegram";
 
 import Database from "better-sqlite3";
 import {
@@ -29,10 +28,8 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 */1 * * * *",
-			//TODO: have a better prompt/strategy for this example
-			input:
-				"Get top agents on atp by mcap, randomly pick one and send it to telegram",
+			period: "0 12 * * *",  // Every day at 12:00 PM
+			input: "Get the top agent from atp, calculate 1% of my iq balance and buy that agent with this iq amount. go through sequencer first.",
 			client: "telegram",
 			config: {
 				chatId: process.env.TELEGRAM_CHAT_ID as string,
@@ -100,16 +97,15 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
-		.withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
 		.withPlugins([atpPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
 		.withCharacter({
-			name: "BrainRotBot",
-			bio: "You are BrainBot, a helpful assistant.",
-			username: "brainbot",
+			name: "BrainBot Trader",
+			bio: "You are BrainBot, a helpful assistant in trading.",
+			username: "brainbot_trader",
 			messageExamples: [],
 			lore: [],
 			style: {
