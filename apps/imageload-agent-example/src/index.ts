@@ -1,6 +1,5 @@
 import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
-import { TelegramClientInterface } from "@elizaos/client-telegram";
 import Database from "better-sqlite3";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import * as fs from "node:fs";
@@ -8,26 +7,25 @@ import * as path from "node:path";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 
-import { createFraxlendPlugin } from "@iqai/plugin-fraxlend";
-import { fraxtal } from "viem/chains";
+import { createImageGenerationPlugin } from "@eliza/plugin-image-generation";
 
 async function main() {
-	// Initialize FraxLend plugin
-	const fraxlendPlugin = await createFraxlendPlugin({
-		chain: fraxtal,
-		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
-	});
+
+	// Initialize Image plugin
+	const imagePlugin = createImageGenerationPlugin({
+		provider: "anthropic",
+		apiKey: process.env.ANTHROPIC_API_KEY,
+		defaultSize: "1024x1024",
+		autoCaption: true
+	  });
 
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
-	{
-		period: "0 12 * * *",  // Every day at 12:00 PM
-		input: "Check if APR of new pools are > 3% of his current positions, then borrow or lend and show result",
-		client: "telegram",
-		config: {
-			chatId: process.env.TELEGRAM_CHAT_ID as string
+		{
+			period: "0 12 * * *",  // Every day at 12:00 PM
+			input: "Post a crypto market update",
+			client: "twitter",
 		}
-	}
 	]);
 	
 	// Setup database
@@ -40,22 +38,21 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
-		.withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
 		)
-		.withPlugins([fraxlendPlugin, bootstrapPlugin, heartbeatPlugin])
+		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin])
 		.withCharacter({
-			name: "BrainBot Lender",
-			bio: "You are BrainBot, a helpful assistant in lending.",
+			name: "BrainBot DailyImages",
+			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",
 			username: "brainbot",
 			messageExamples: [],
-			lore: [],
+			lore: ["Created to assist users with magnificent photos"],
 			style: {
-				all: [],
-				chat: [],
-				post: [],
+				all: ["Professional"],
+				chat: ["Friendly"],
+				post: ["Clear"]
 			},
 		})
 		.build();
