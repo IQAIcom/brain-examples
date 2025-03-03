@@ -14,9 +14,7 @@
 	"dependencies": {
 		"@elizaos/adapter-sqlite": "0.1.9",
 		"@elizaos/client-direct": "0.1.9",
-		"@elizaos/client-telegram": "0.25.6-alpha.1",
 		"@elizaos/core": "0.1.9",
-		"@elizaos/plugin-bootstrap": "0.1.9",
 		"@iqai/agent": "^0.0.6",
 		"@iqai/plugin-atp": "^0.2.0",
 		"@iqai/plugin-heartbeat": "^0.1.10",
