@@ -22,6 +22,8 @@ async function main() {
 	const atpPlugin = await createAtpPlugin({
 		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
 	});
+
+
 	const sequencerPlugin = await createSequencerPlugin();
 
 	// Initialize Heartbeat plugin
