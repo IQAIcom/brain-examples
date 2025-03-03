@@ -14,6 +14,7 @@
 	"dependencies": {
 		"@elizaos/adapter-sqlite": "0.1.9",
 		"@elizaos/client-direct": "0.25.6-alpha.1",
+		"@elizaos/client-twitter": "0.1.9",
 		"@elizaos/core": "0.1.9",
 		"@elizaos/plugin-bootstrap": "0.1.9",
 		"@iqai/agent": "^0.0.5",
@@ -25,8 +26,6 @@
 		"sharp": "^0.33.5"
 	},
 	"devDependencies": {
-		"ts-node": "10.9.2",
-		"tsup": "8.3.6",
 		"tsx": "^4.7.1",
 		"typescript": "^5.4.2"
 	},
