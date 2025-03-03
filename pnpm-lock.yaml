@@ -26,6 +26,9 @@ importers:
       '@elizaos/client-direct':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(@types/node@22.13.5)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.23.8)
+      '@elizaos/client-telegram':
+        specifier: 0.1.9
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
       '@elizaos/core':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
@@ -1883,6 +1886,40 @@ packages:
       - ws
       - yaml
       - zod
+    dev: false
+
+  /@elizaos/client-telegram@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0):
+    resolution: {integrity: sha512-gTpaM7GRWEy/Vsl0626mYE2dzlE5i7Zec9DjYYUkAYLT/R5Ibep8dkgHQOA+xWPG6H04fk1ZotdYPiBpyuJxZQ==}
+    dependencies:
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
+      '@telegraf/types': 7.1.0
+      telegraf: 4.16.3
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - aws-crt
+      - axios
+      - cheerio
+      - debug
+      - encoding
+      - peggy
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - typeorm
+      - vue
+      - ws
     dev: false
 
   /@elizaos/client-telegram@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(ws@8.18.0)(zod@3.24.2):
@@ -8077,8 +8114,8 @@ packages:
       p-retry: 4.6.2
       uuid: 10.0.0
       yaml: 2.7.0
-      zod: 3.23.8
-      zod-to-json-schema: 3.24.3(zod@3.23.8)
+      zod: 3.24.2
+      zod-to-json-schema: 3.24.3(zod@3.24.2)
     transitivePeerDependencies:
       - encoding
       - openai
@@ -8143,8 +8180,8 @@ packages:
       p-retry: 4.6.2
       uuid: 10.0.0
       yaml: 2.7.0
-      zod: 3.23.8
-      zod-to-json-schema: 3.24.3(zod@3.23.8)
+      zod: 3.24.2
+      zod-to-json-schema: 3.24.3(zod@3.24.2)
     transitivePeerDependencies:
       - encoding
       - openai
@@ -8209,8 +8246,8 @@ packages:
       p-retry: 4.6.2
       uuid: 10.0.0
       yaml: 2.7.0
-      zod: 3.23.8
-      zod-to-json-schema: 3.24.3(zod@3.23.8)
+      zod: 3.24.2
+      zod-to-json-schema: 3.24.3(zod@3.24.2)
     transitivePeerDependencies:
       - encoding
       - openai

@@ -25,9 +25,8 @@ async function main() {
 	const heartbeatPlugin = await createHeartbeatPlugin([
 	{
 		// period: "0 12 * * *",  // Every day at 12:00 PM
-		period: "*/5 * * * * *", // Every 5 seconds
-		// period: "* * * * *", // Every minute
-		input: "Post a crypto market update",
+		period: "*/25 * * * * *", // Every 25 seconds
+		input: "Get my holdings on ATP and buy token using 1% of his IQ holdings",
 		client: "telegram",
 		config: {
 			chatId: process.env.TELEGRAM_CHAT_ID as string
@@ -75,6 +74,8 @@ async function main() {
 			// Convert balance from wei to token units (assuming 18 decimals)
 			const formattedBalance = (Number(balance) / 1e18).toFixed(2)
 
+			console.log(`💰 IQ Balance: ${formattedBalance} IQ`)
+
 			opts.callback?.({
 				text: `💰 IQ Balance: ${formattedBalance} IQ`
 			})
@@ -105,7 +106,7 @@ async function main() {
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([atpPlugin, bootstrapPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
+		.withPlugins([atpPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
 		.withCharacter({
 			name: "BrainBot Trader",
 			bio: "You are BrainBot, a helpful assistant in trading.",
