@@ -178,7 +178,7 @@ importers:
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
       '@elizaos/client-direct':
         specifier: 0.25.6-alpha.1
-        version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
+        version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
       '@elizaos/client-twitter':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
@@ -210,12 +210,6 @@ importers:
         specifier: ^0.33.5
         version: 0.33.5
     devDependencies:
-      ts-node:
-        specifier: 10.9.2
-        version: 10.9.2(@types/node@22.13.4)(typescript@5.7.3)
-      tsup:
-        specifier: 8.3.6
-        version: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
       tsx:
         specifier: ^4.7.1
         version: 4.19.2
@@ -1765,15 +1759,15 @@ packages:
       - zod
     dev: false
 
-  /@elizaos/client-direct@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2):
+  /@elizaos/client-direct@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2):
     resolution: {integrity: sha512-4HHVmB7baGeutb1JF2dp8hSkzMUp2NclOOgXrs3Gt/E6P4BncP2qhomLMv4UAwYgm27b6r5Sr9mwt62oeA+u6g==}
     peerDependencies:
       whatwg-url: 7.1.0
     dependencies:
-      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@7.5.10)(zod@3.24.2)
-      '@elizaos/plugin-image-generation': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
-      '@elizaos/plugin-tee-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
-      '@elizaos/plugin-tee-verifiable-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
+      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/plugin-image-generation': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/plugin-tee-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/plugin-tee-verifiable-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
       '@types/body-parser': 1.19.5
       '@types/cors': 2.8.17
       '@types/express': 5.0.0
@@ -1833,15 +1827,15 @@ packages:
       - zod
     dev: false
 
-  /@elizaos/client-direct@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2):
+  /@elizaos/client-direct@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2):
     resolution: {integrity: sha512-4HHVmB7baGeutb1JF2dp8hSkzMUp2NclOOgXrs3Gt/E6P4BncP2qhomLMv4UAwYgm27b6r5Sr9mwt62oeA+u6g==}
     peerDependencies:
       whatwg-url: 7.1.0
     dependencies:
-      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@8.18.0)(zod@3.24.2)
-      '@elizaos/plugin-image-generation': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
-      '@elizaos/plugin-tee-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
-      '@elizaos/plugin-tee-verifiable-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@7.5.10)(zod@3.24.2)
+      '@elizaos/plugin-image-generation': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
+      '@elizaos/plugin-tee-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
+      '@elizaos/plugin-tee-verifiable-log': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
       '@types/body-parser': 1.19.5
       '@types/cors': 2.8.17
       '@types/express': 5.0.0
@@ -2855,13 +2849,13 @@ packages:
       - zod
     dev: false
 
-  /@elizaos/plugin-tee-verifiable-log@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2):
+  /@elizaos/plugin-tee-verifiable-log@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2):
     resolution: {integrity: sha512-KXh2Ek60GCJZFsd0R3HB/nVL5bv6LotFXk+L0OwaKKnhfGy5HNccnkyF8Kaliatdm7J7+OBavFSBRIbpaA4Xhg==}
     peerDependencies:
       whatwg-url: 7.1.0
     dependencies:
-      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@7.5.10)(zod@3.24.2)
-      '@elizaos/plugin-tee': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
+      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/plugin-tee': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
       dompurify: 3.2.2
       elliptic: 6.6.1
       ethereum-cryptography: 3.1.0
@@ -2918,13 +2912,13 @@ packages:
       - zod
     dev: false
 
-  /@elizaos/plugin-tee-verifiable-log@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2):
+  /@elizaos/plugin-tee-verifiable-log@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2):
     resolution: {integrity: sha512-KXh2Ek60GCJZFsd0R3HB/nVL5bv6LotFXk+L0OwaKKnhfGy5HNccnkyF8Kaliatdm7J7+OBavFSBRIbpaA4Xhg==}
     peerDependencies:
       whatwg-url: 7.1.0
     dependencies:
-      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@8.18.0)(zod@3.24.2)
-      '@elizaos/plugin-tee': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.24.2)
+      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(ws@7.5.10)(zod@3.24.2)
+      '@elizaos/plugin-tee': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.24.2)
       dompurify: 3.2.2
       elliptic: 6.6.1
       ethereum-cryptography: 3.1.0

@@ -6,10 +6,11 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import { TwitterClientInterface } from "@elizaos/client-twitter";
+
 import { createImageGenerationPlugin } from "@eliza/plugin-image-generation";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
-import { DiscordClientInterface } from "@elizaos/client-discord";
+// import { DiscordClientInterface } from "@elizaos/client-discord";
+import { TwitterClientInterface } from "@elizaos/client-twitter";
 
 async function main() {
 
@@ -27,7 +28,7 @@ async function main() {
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
 			period: "0 12 * * *",  // Every day at 12:00 PM
-			input: "Post a picture daily",
+			input: "Post an AI Cat photo  daily",
 			client: "twitter",
 		}
 	]);
@@ -42,7 +43,7 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
-		.withClient("discord", DiscordClientInterface)
+		// .withClient("discord", DiscordClientInterface)
 		.withClient("twitter", TwitterClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
@@ -51,7 +52,7 @@ async function main() {
 		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
 		.withCharacter({
 			name: "BrainBot ImageLoader",
-			bio: "You are BrainBot, a helpful assistant in posting daily images (daily AI cat photos) on twitter and discord.",
+			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter and discord.",
 			username: "brainbot",
 			messageExamples: [],
 			lore: ["Created to assist users with magnificent photos"],
