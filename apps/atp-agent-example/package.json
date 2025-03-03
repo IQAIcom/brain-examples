@@ -2,11 +2,11 @@
 	"name": "@iqai/atp-agent-example",
 	"version": "1.0.0",
 	"description": "ATP Agent example",
-	"main": "src/index.js",
+	"main": "src/index.ts",
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"start": "tsx src/index.js",
+		"start": "tsx src/index.ts",
 		"dev": "tsx watch src/index.ts",
 		"check-types": "tsc --noEmit",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -14,10 +14,11 @@
 	"dependencies": {
 		"@elizaos/adapter-sqlite": "0.1.9",
 		"@elizaos/client-direct": "0.1.9",
+		"@elizaos/client-telegram": "0.25.6-alpha.1",
 		"@elizaos/core": "0.1.9",
 		"@elizaos/plugin-bootstrap": "0.1.9",
-		"@iqai/agent": "^0.0.5",
-		"@iqai/plugin-atp": "^0.1.9",
+		"@iqai/agent": "^0.0.6",
+		"@iqai/plugin-atp": "^0.2.0",
 		"@iqai/plugin-heartbeat": "^0.1.10",
 		"@iqai/plugin-sequencer": "^0.1.11",
 		"@types/better-sqlite3": "^7.6.12",

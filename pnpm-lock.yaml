@@ -25,10 +25,10 @@ importers:
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
       '@elizaos/client-direct':
         specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(@types/node@22.13.5)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.23.8)
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(@types/node@22.13.4)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.23.8)
       '@elizaos/client-telegram':
         specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
+        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
       '@elizaos/core':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
@@ -36,17 +36,17 @@ importers:
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
       '@iqai/agent':
-        specifier: ^0.0.5
-        version: 0.0.5(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
+        specifier: ^0.0.6
+        version: 0.0.6(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
       '@iqai/plugin-atp':
-        specifier: ^0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8)
+        specifier: ^0.2.0
+        version: 0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8)
       '@iqai/plugin-heartbeat':
         specifier: ^0.1.10
         version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)
       '@iqai/plugin-sequencer':
         specifier: ^0.1.11
-        version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)
+        version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)
       '@types/better-sqlite3':
         specifier: ^7.6.12
         version: 7.6.12
@@ -1888,10 +1888,10 @@ packages:
       - zod
     dev: false
 
-  /@elizaos/client-telegram@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0):
+  /@elizaos/client-telegram@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0):
     resolution: {integrity: sha512-gTpaM7GRWEy/Vsl0626mYE2dzlE5i7Zec9DjYYUkAYLT/R5Ibep8dkgHQOA+xWPG6H04fk1ZotdYPiBpyuJxZQ==}
     dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
       '@telegraf/types': 7.1.0
       telegraf: 4.16.3
       zod: 3.23.8
@@ -1922,37 +1922,7 @@ packages:
       - ws
     dev: false
 
-  /@elizaos/client-telegram@0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(ws@8.18.0)(zod@3.24.2):
-    resolution: {integrity: sha512-F5Zhs4wl7RmCXWipMWp4Q5kr7dwscm+rVLLclxb9DiCR9TSOhqGMqjnViS/qT2zUbIOQf/eP9Tut7NpVgXaL5A==}
-    dependencies:
-      '@elizaos/core': 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(ws@8.18.0)(zod@3.24.2)
-      '@telegraf/types': 7.1.0
-      telegraf: 4.16.3
-    transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
-      - aws-crt
-      - axios
-      - cheerio
-      - debug
-      - encoding
-      - peggy
-      - react
-      - supports-color
-      - typeorm
-      - ws
-      - zod
-    dev: false
-
-  /@elizaos/core@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@7.5.10):
+  /@elizaos/core@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@7.5.10):
     resolution: {integrity: sha512-rsAAyiPfc0HWWNVrROdQfR0BonVCgb1D1EHi7gLCrag8ZZqGd3UI/xjSiAUmU73e0dPcEo/JQzteAoehZ/ouXQ==}
     dependencies:
       '@ai-sdk/amazon-bedrock': 1.1.0(zod@3.23.8)
@@ -4036,14 +4006,50 @@ packages:
       - vue
       - ws
     dev: false
+    
+  /@iqai/agent@0.0.6(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0):
+    resolution: {integrity: sha512-ddpVUg8YhoyU3sv9irA/cI5hGQmjTBOERCR3YIZ6ItFQU74xkli5W3n0gaLePcmm//wrUFPp1XtEnBPHXylPBw==}
+    engines: {node: '>=22'}
+    dependencies:
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(vue@3.5.13)(ws@8.18.0)
+      better-sqlite3: 11.8.1
+      dedent: 1.5.3
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - aws-crt
+      - axios
+      - babel-plugin-macros
+      - cheerio
+      - debug
+      - encoding
+      - peggy
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - typeorm
+      - vue
+      - ws
+    dev: false
 
-  /@iqai/plugin-atp@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8):
+  /@iqai/plugin-atp@0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.24.2):
     resolution: {integrity: sha512-VqqeKHQ+e3ieGzrrsmY5CaChHaG6u57qv2tz39Jd20xsl8Pz4iuacTaDAMm9wWW8gBEq5CNBNokmqTwrNuXu/A==}
     dependencies:
       '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
       dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.23.5(typescript@5.7.3)(zod@3.23.8)
+      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+      viem: 2.23.3(typescript@5.7.3)(zod@3.24.2)
     transitivePeerDependencies:
       - '@google-cloud/vertexai'
       - '@langchain/anthropic'
@@ -4082,13 +4088,13 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-bamm@0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.24.2):
-    resolution: {integrity: sha512-1O1tYO5LT6f4J2nQlwPxvUIexYoxe13BLrGcAwe5/wbS/ZCVeyoSDJg04GaBa4tcIPlDfrEKEsL1ewtC950d7w==}
+  /@iqai/plugin-atp@0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8):
+    resolution: {integrity: sha512-qf8ztHr78yg845FIpjEHfxp6R2R1UX3GTkFCLSYrq/V5fBgnazQNA6mqQgPOZXDt7SaCorMtRZA4YRk8veT8Hg==}
     dependencies:
       '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
       dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.23.5(typescript@5.7.3)(zod@3.24.2)
+      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+      viem: 2.23.4(typescript@5.7.3)(zod@3.23.8)
     transitivePeerDependencies:
       - '@google-cloud/vertexai'
       - '@langchain/anthropic'
@@ -4264,7 +4270,7 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-sequencer@0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0):
+  /@iqai/plugin-sequencer@0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.40)(react@19.0.0)(svelte@5.20.2)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0):
     resolution: {integrity: sha512-hlWGSw8PfG8IyZVFiCwKMMrswWkzw7KE43AHtM8HmZgTeReQ5nqzjDB3XZrTr6FQnc6MvKWgbnVmTdvS5dLgOA==}
     dependencies:
       '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.41)(react@19.0.0)(svelte@5.20.5)(vue@3.5.13)(ws@8.18.0)
@@ -4483,7 +4489,7 @@ packages:
     resolution: {integrity: sha512-/+8S6XpAnN9X6pCiA7eBD+QtEWOtYhlN7Osrf9K59G6E8q6SdXUbJzuNpNBHtlZV+Pm7zm4zOhnwnpvShLD0Xg==}
     engines: {node: '>=18.0.0'}
     optionalDependencies:
-      viem: 2.23.5(typescript@5.7.3)(zod@3.23.8)
+      viem: 2.23.4(typescript@5.7.3)(zod@3.23.8)
     transitivePeerDependencies:
       - bufferutil
       - typescript
@@ -10563,8 +10569,56 @@ packages:
       - zod
     dev: false
 
-  /viem@2.23.5(typescript@5.7.3)(zod@3.24.2):
-    resolution: {integrity: sha512-cUfBHdFQHmBlPW0loFXda0uZcoU+uJw3NRYQRwYgkrpH6PgovH8iuVqDn6t1jZk82zny4wQL54c9dCX2W9kLMg==}
+  /viem@2.23.3(typescript@5.7.3)(zod@3.24.2):
+    resolution: {integrity: sha512-ON/Uybteajqxn3iFyhV/6Ybm+QKhcrsVyTZf/9v2w0CvYQIoyJYCfHSsQR9zpsbOGrR7d2p62w6jzb6fqzzacg==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@noble/curves': 1.8.1
+      '@noble/hashes': 1.7.1
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.7.3)(zod@3.24.2)
+      isows: 1.0.6(ws@8.18.0)
+      ox: 0.6.7(typescript@5.7.3)(zod@3.24.2)
+      typescript: 5.7.3
+      ws: 8.18.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+    dev: false
+
+  /viem@2.23.4(typescript@5.7.3)(zod@3.23.8):
+    resolution: {integrity: sha512-UQquuolKlS1w5H5e0Fd1KKoUlIPJryIEBzY5AUhGyV1ka+9O6+3uYVhUzj6RbvGK0PtsMKn2ddwPZFwjNDVU/A==}
+    requiresBuild: true
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@noble/curves': 1.8.1
+      '@noble/hashes': 1.7.1
+      '@scure/bip32': 1.6.2
+      '@scure/bip39': 1.5.4
+      abitype: 1.0.8(typescript@5.7.3)(zod@3.23.8)
+      isows: 1.0.6(ws@8.18.0)
+      ox: 0.6.7(typescript@5.7.3)(zod@3.23.8)
+      typescript: 5.7.3
+      ws: 8.18.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+    dev: false
+
+  /viem@2.23.4(typescript@5.7.3)(zod@3.24.2):
+    resolution: {integrity: sha512-UQquuolKlS1w5H5e0Fd1KKoUlIPJryIEBzY5AUhGyV1ka+9O6+3uYVhUzj6RbvGK0PtsMKn2ddwPZFwjNDVU/A==}
+    requiresBuild: true
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
