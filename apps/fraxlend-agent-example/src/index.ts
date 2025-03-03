@@ -1,5 +1,6 @@
 import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
+import { TelegramClientInterface } from "@elizaos/client-telegram";
 import Database from "better-sqlite3";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import * as fs from "node:fs";
@@ -21,7 +22,7 @@ async function main() {
 	const heartbeatPlugin = await createHeartbeatPlugin([
 	{
 		period: "0 12 * * *",  // Every day at 12:00 PM
-		input: "Post a crypto market update",
+		input: "Check if APR of new pools are > 3% of his current positions, then borrow or lend and show result",
 		client: "telegram",
 		config: {
 			chatId: process.env.TELEGRAM_CHAT_ID as string
@@ -39,7 +40,7 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
-		// .withClient("telegram", TelegramClientInterface)
+		.withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
