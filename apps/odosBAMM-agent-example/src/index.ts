@@ -1,7 +1,7 @@
 import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
-import { DiscordClientInterface } from "@elizaos/client-discord";
+// import { DiscordClientInterface } from "@elizaos/client-discord";
 import Database from "better-sqlite3";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import * as fs from "node:fs";
@@ -40,7 +40,7 @@ async function main() {
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
 		.withClient("telegram", TelegramClientInterface)
-		.withClient("discord", DiscordClientInterface)
+		// .withClient("discord", DiscordClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
