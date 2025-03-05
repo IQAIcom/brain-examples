@@ -1,7 +1,7 @@
 {
-	"name": "@iqai/fraxlend-agent-example",
+	"name": "@iqai/imageload-agent-example",
 	"version": "1.0.0",
-	"description": "Fraxlend Agent example",
+	"description": "Image Load Agent example",
 	"main": "src/index.js",
 	"type": "module",
 	"private": true,

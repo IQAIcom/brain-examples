@@ -1,32 +1,27 @@
-FROM node:23-slim
+FROM --platform=linux/amd64 node:23-slim
 
 WORKDIR /app
 
 # Install build dependencies
 RUN apt-get update && apt-get install -y python3 make g++ curl git
 
-# Copy package.json files for workspace setup
+# Copy package management files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/atp-agent-example/package.json ./apps/atp-agent-example/
-
-# Install pnpm and tsx
-RUN npm install -g pnpm tsx
-
-# Install dependencies
-RUN pnpm install --no-frozen-lockfile
-
-# Copy source code
-COPY apps/atp-agent-example ./apps/atp-agent-example
 COPY packages ./packages
+
+# Install dependencies globally
+RUN npm install -g pnpm tsx
+RUN pnpm install --filter="./apps/atp-agent-example..." --frozen-lockfile
+
+# Copy only the ATP agent code
+COPY apps/atp-agent-example ./apps/atp-agent-example
+
+# Create data directory for SQLite
+RUN mkdir -p ./apps/atp-agent-example/data
 
 # Set working directory to the app
 WORKDIR /app/apps/atp-agent-example
 
-# Install dependencies directly in the app
-RUN pnpm install --no-frozen-lockfile
-
-# Create data directory for SQLite
-RUN mkdir -p ./data
-
-# Directly run the TypeScript file
+# Run the app
 CMD ["tsx", "src/index.ts"]
