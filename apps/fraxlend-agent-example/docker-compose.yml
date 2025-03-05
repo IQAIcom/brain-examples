@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  fraxlend-agent-example:
+    build:
+      context: ../..
+      dockerfile: apps/fraxlend-agent-example/Dockerfile
+    container_name: fraxlend-agent-example
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/apps/fraxlend-agent-example/data
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"

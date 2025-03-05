@@ -58,7 +58,7 @@ WALLET_PRIVATE_KEY=your-wallet-private-key
 SERVER_PORT="3000"
 USE_OPENAI_EMBEDDING="TRUE"
 OPENAI_API_KEY="sk-openai-api-key"
-TELEGRAM_CHAT_ID="bot-token"
+TELEGRAM_BOT_TOKEN="bot-token"
 ```
 
 ## Query Examples

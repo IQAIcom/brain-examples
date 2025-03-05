@@ -7,23 +7,27 @@ import * as path from "node:path";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 
-import { createImageGenerationPlugin } from "@eliza/plugin-image-generation";
+import { imageGenerationPlugin } from "@elizaos/plugin-image-generation";
+import createSequencerPlugin from "@iqai/plugin-sequencer";
+import { TwitterClientInterface } from "@elizaos/client-twitter";
 
 async function main() {
 
 	// Initialize Image plugin
-	const imagePlugin = createImageGenerationPlugin({
-		provider: "anthropic",
-		apiKey: process.env.ANTHROPIC_API_KEY,
-		defaultSize: "1024x1024",
-		autoCaption: true
-	  });
+	// const imagePlugin = imageGenerationPlugin({
+	// 	provider: "anthropic",
+	// 	apiKey: process.env.ANTHROPIC_API_KEY,
+	// 	defaultSize: "1024x1024",
+	// 	autoCaption: true
+	//   });
+
+	  const sequencerPlugin = await createSequencerPlugin();
 
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
 			period: "0 12 * * *",  // Every day at 12:00 PM
-			input: "Post a crypto market update",
+			input: "Post an AI Cat photo  daily",
 			client: "twitter",
 		}
 	]);
@@ -38,13 +42,14 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
+		.withClient("twitter", TwitterClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
 		)
-		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin])
+		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
 		.withCharacter({
-			name: "BrainBot DailyImages",
+			name: "BrainBot ImageLoader",
 			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",
 			username: "brainbot",
 			messageExamples: [],
