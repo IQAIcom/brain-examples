@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/fraxlend-agent-example",
+	"name": "@iqai/imageload-agent-example",
 	"version": "1.0.0",
 	"description": "Fraxlend Agent example",
 	"main": "src/index.js",
@@ -14,10 +14,13 @@
 	"dependencies": {
 		"@elizaos/adapter-sqlite": "0.1.9",
 		"@elizaos/client-direct": "0.25.6-alpha.1",
+		"@elizaos/client-twitter": "0.25.6-alpha.1",
 		"@elizaos/core": "0.1.9",
 		"@elizaos/plugin-bootstrap": "0.1.9",
+		"@elizaos/plugin-image-generation": "0.25.6-alpha.1",
 		"@iqai/agent": "^0.0.5",
 		"@iqai/plugin-heartbeat": "^0.1.10",
+		"@iqai/plugin-sequencer": "^0.1.11",
 		"@types/better-sqlite3": "^7.6.12",
 		"better-sqlite3": "11.8.1",
 		"dotenv": "^16.4.7",
