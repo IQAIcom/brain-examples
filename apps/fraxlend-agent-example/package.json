@@ -19,7 +19,7 @@
 		"@elizaos/plugin-bootstrap": "0.1.9",
 		"@iqai/agent": "^0.0.5",
 		"@iqai/plugin-fraxlend": "^0.1.11",
-		"@iqai/plugin-heartbeat": "^0.1.10",
+		"@iqai/plugin-heartbeat": "^0.1.11",
 		"@types/better-sqlite3": "^7.6.12",
 		"better-sqlite3": "11.8.1",
 		"dotenv": "^16.4.7",
