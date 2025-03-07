@@ -5,30 +5,28 @@ import Database from "better-sqlite3";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
+import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-
-import { createFraxlendPlugin } from "@iqai/plugin-fraxlend";
+import { createOdosPlugin } from "@iqai/plugin-odos";
+import { createBAMMPlugin } from '@iqai/plugin-bamm';
 import { fraxtal } from "viem/chains";
 
 async function main() {
-	// Initialize FraxLend plugin
-	const fraxlendPlugin = await createFraxlendPlugin({
-		chain: fraxtal,
-		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
+
+	// Initialize BAMM plugin
+	const bammPlugin = await createBAMMPlugin({
+	walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
+	chain: fraxtal,
 	});
 
-	// Initialize Heartbeat plugin
-	const heartbeatPlugin = await createHeartbeatPlugin([
-	{
-		period: "0 12 * * *",  // Every day at 12:00 PM
-		input: "Check if APR of new pools are greater 3% of his current positions, lend else borrow and show result",
-		client: "telegram",
-		config: {
-			chatId: process.env.TELEGRAM_CHAT_ID as string
-		}
-	}
-	]);
+	// Initialize Odos plugin
+	const odosPlugin = await createOdosPlugin({
+		chain: fraxtal,
+		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
+	  });
+
+	// Initialize Sequencer plugin
+	const sequencerPlugin = await createSequencerPlugin();
 	
 	// Setup database
 	const dataDir = path.join(process.cwd(), "./data");
@@ -45,17 +43,17 @@ async function main() {
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
 		)
-		.withPlugins([fraxlendPlugin, bootstrapPlugin, heartbeatPlugin])
+		.withPlugins([bammPlugin, bootstrapPlugin, sequencerPlugin, odosPlugin])
 		.withCharacter({
-			name: "BrainBot Lender",
-			bio: "You are BrainBot, a helpful assistant in lending.",
+			name: "BrainBot SwapLender",
+			bio: "You are BrainBot, a helpful assistant in swapping and borrowing.",
 			username: "brainbot",
 			messageExamples: [],
-			lore: [],
+			lore: ["Created to assist users with swapping and borrowing"],
 			style: {
-				all: [],
-				chat: [],
-				post: [],
+				all: ["Professional"],
+				chat: ["Friendly"],
+				post: ["Clear"]
 			},
 		})
 		.build();

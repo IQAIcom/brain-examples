@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  odosbamm-agent:
+    build:
+      context: ../..
+      dockerfile: apps/odosbamm-agent-example/Dockerfile
+    container_name: odosbamm-agent
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/apps/odosbamm-agent-example/data
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3001:3000"
