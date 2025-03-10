@@ -1,7 +1,8 @@
 import type { Plugin } from "@elizaos/core";
-import { monitorBridgeAction } from "./actions/bridge-monitor.ts";
+import { elizaLogger } from "@elizaos/core";
 import { BridgeMonitorService } from "./services/bridge-monitor.ts";
 import type { IQBridgeMonitorParams } from "./types.ts";
+import { getBridgeStatusAction } from "./actions/bridge-status.ts";
 
 export async function createIQBridgeMonitorPlugin(
 	opts: IQBridgeMonitorParams,
@@ -12,16 +13,22 @@ export async function createIQBridgeMonitorPlugin(
 
 	const bridgeMonitorService = new BridgeMonitorService(opts.funderPrivateKey);
 
-	await bridgeMonitorService.startMonitoring();
+	try {
+		await bridgeMonitorService.startMonitoring();
+		elizaLogger.info("🚀 IQ Bridge Monitor started successfully");
+	} catch (error) {
+		elizaLogger.error("❌ Failed to start IQ Bridge Monitor", { error });
+		throw error;
+	}
 
 	return {
 		name: "IQ Bridge Monitor",
 		description:
-			"Monitors IQ token bridge transactions and funds Fraxtal addresses with ETH",
+			"Monitors IQ token bridge transactions and automatically funds Fraxtal addresses with ETH",
 		providers: [],
 		evaluators: [],
 		services: [],
-		actions: [monitorBridgeAction(bridgeMonitorService)],
+		actions: [getBridgeStatusAction(bridgeMonitorService)],
 	};
 }
 

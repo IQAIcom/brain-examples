@@ -22,6 +22,7 @@
 		"@iqai/plugin-sequencer": "^0.1.10",
 		"@types/better-sqlite3": "^7.6.12",
 		"better-sqlite3": "11.8.1",
+		"dedent": "^1.5.3",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
 		"viem": "^2.23.3"

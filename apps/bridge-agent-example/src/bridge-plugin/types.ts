@@ -1,3 +1,27 @@
 export interface IQBridgeMonitorParams {
-	funderPrivateKey?: string; // Private key of wallet with frxETH on Fraxtal
+	funderPrivateKey: string;
+	fundingAmount?: bigint;
+	minIQThreshold?: bigint;
+	checkIntervalMs?: number;
+}
+
+export interface BridgeEvent {
+	blockNumber: number;
+	txHash: string;
+	from: string;
+	to: string;
+	amount: bigint;
+	timestamp: number;
+}
+
+export interface BridgeStats {
+	lastBridgeEvent?: BridgeEvent;
+	lastFundingEvent?: {
+		recipient: string;
+		amount: bigint;
+		txHash: string;
+		timestamp: number;
+	};
+	isMonitoring: boolean;
+	funderBalance: bigint;
 }
