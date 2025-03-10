@@ -1,7 +1,7 @@
 {
-	"name": "@iqai/imageload-agent-example",
+	"name": "@iqai/near-agent-example",
 	"version": "1.0.0",
-	"description": "Fraxlend Agent example",
+	"description": "Near Agent example",
 	"main": "src/index.js",
 	"type": "module",
 	"private": true,

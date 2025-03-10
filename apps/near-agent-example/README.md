@@ -1,14 +1,18 @@
-# ImageLoad Agent Example
+# Near Agent Example
 
-## Overview
-
-The **ImageLoad Agent Example** integrates multiple plugins to enable your agent generate images and captions, and post them on a daily basis.
+The **Near Agent Example** provides a seamless integration with the NEAR Protocol blockchain, enabling smart contract interactions, transaction handling, and event listening capabilities directly from your agent.
 
 ## Plugins Overview
 
+The **Near Plugin** provides a seamless integration with the NEAR Protocol blockchain, enabling smart contract interactions, transaction handling, and event listening capabilities directly from your agent.
+
+### Heartbeat Plugin
+
+The **Heartbeat** Plugin enables automated scheduling of tasks and social media interactions.
+
 ### Image Plugin
 
-The **Image Plugin** allows your agent to generate AI images using Anthropic and Together services, with automatic captions generation.
+The **Near Plugin** provides a seamless integration with the NEAR Protocol blockchain, enabling smart contract interactions, transaction handling, and event listening capabilities directly from your agent.
 
 ### Heartbeat Plugin
 
@@ -20,7 +24,7 @@ To get started, clone this repository and navigate to the project folder:
 
 ```bash
 git clone https://github.com/IQAIcom/brain-examples.git
-cd brain-examples/apps/imageload-agent-example
+cd brain-examples/apps/near-agent-example
 ```
 
 Then, follow the installation instructions below.
@@ -42,13 +46,11 @@ pnpm dev
 Ensure you have the following environment variables set in your .env file:
 
 ```env
-ANTHROPIC_API_KEY=your-anthropic-key
-TOGETHER_API_KEY=your-together-key
 SERVER_PORT="3000"
 USE_OPENAI_EMBEDDING="TRUE"
 OPENAI_API_KEY="sk-openai-api-key"
-TWITTER_USERNAME=your_twitter_username
-TWITTER_PASSWORD=your_twitter_password
+NEAR_ACCOUNT_ID=your_near_account_id
+NEAR_PRIVATE_KEY=your_near_private_key
 ```
 
 ## Feature
@@ -61,5 +63,4 @@ TWITTER_PASSWORD=your_twitter_password
 
 ### More Queries: Try any combination of queries in the following doc
 
-[Images Doc](https://brain.iqai.com/plugins/image-gen)
-[Heartbeat Doc](https://brain.iqai.com/plugins/heartbeat)
+[Near Doc](https://brain.iqai.com/plugins/near)
