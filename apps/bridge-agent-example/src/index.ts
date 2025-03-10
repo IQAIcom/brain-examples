@@ -2,18 +2,14 @@ import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
 import Database from "better-sqlite3";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import {
-	AgentBuilder,
-	ModelProviderName,
-	createSimplePlugin,
-} from "@iqai/agent";
+import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { createIQBridgeMonitorPlugin } from "../src/bridge-plugin/index.ts";
 
 async function main() {
 	const iqBridgeMonitorPlugin = await createIQBridgeMonitorPlugin({
-		funderPrivateKey: process.env.WALLET_PRIVATE_KEY,
+		funderPrivateKey: process.env.WALLET_PRIVATE_KEY as string,
 	});
 	// Setup database
 	const dataDir = path.join(process.cwd(), "./data");
