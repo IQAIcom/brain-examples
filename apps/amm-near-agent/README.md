@@ -39,7 +39,6 @@ pnpm install
 Create a `.env` file in the `apps/amm-near-agent` directory with the following variables:
 
 ```
-NEAR_NETWORK=testnet
 NEAR_ACCOUNT_ID=your-testnet-account.testnet
 NEAR_PRIVATE_KEY=your-private-key
 ```
