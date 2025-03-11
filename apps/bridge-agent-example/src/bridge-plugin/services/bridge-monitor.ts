@@ -29,6 +29,8 @@ export class BridgeMonitorService {
 	private walletService: WalletService;
 	private checkIntervalMs: number = 10 * 60 * 1000; // Default: check every 10 minutes
 	private unwatch: (() => void) | null = null;
+	private lastKnownNonce: number | null = null;
+	private maxRetries: number = 3;
 
 	private stats: BridgeStats = {
 		isMonitoring: false,
@@ -203,55 +205,100 @@ export class BridgeMonitorService {
 		userAddress: string,
 		frxEthBalance: bigint,
 	): Promise<void> {
-		try {
-			if (!this.walletClient || !this.walletClient.account) {
-				throw new Error("Wallet client not initialized. Cannot fund address.");
+		let retryCount = 0;
+		let backoffMs = 1000; // Start with 1 second backoff
+
+		const attemptFunding = async (): Promise<boolean> => {
+			try {
+				if (!this.walletClient || !this.walletClient.account) {
+					throw new Error("Wallet client not initialized. Cannot fund address.");
+				}
+
+				this.stats.funderBalance = await this.fraxtalClient.getBalance({
+					address: this.walletClient.account.address,
+				});
+
+				if (this.stats.funderBalance < this.fundingAmount) {
+					elizaLogger.error(
+						`Funding wallet balance too low: ${formatEther(this.stats.funderBalance)} ETH. Skipping funding.`,
+					);
+					return false;
+				}
+
+				const fundingAmount = this.fundingAmount - frxEthBalance;
+				
+				// Get the current nonce if we don't have one
+				if (this.lastKnownNonce === null) {
+					this.lastKnownNonce = await this.fraxtalClient.getTransactionCount({
+						address: this.walletClient.account.address,
+					});
+				}
+
+				const hash = await this.walletClient.sendTransaction({
+					to: userAddress as Address,
+					value: fundingAmount,
+					chain: fraxtal,
+					account: this.walletClient.account,
+					nonce: this.lastKnownNonce, // Use our tracked nonce
+				});
+
+				// Increment nonce for next transaction
+				this.lastKnownNonce++;
+				
+				elizaLogger.info(`Funding transaction initiated: ${hash}`);
+
+				const receipt = await this.fraxtalClient.waitForTransactionReceipt({
+					hash,
+				});
+
+				if (receipt.status === "success") {
+					this.stats.lastFundingEvent = {
+						recipient: userAddress,
+						amount: fundingAmount,
+						txHash: hash,
+						timestamp: Date.now(),
+					};
+
+					elizaLogger.info(
+						`Successfully funded ${userAddress} with ${formatEther(fundingAmount)} ETH on Fraxtal (tx: ${hash})`,
+					);
+					return true;
+				} else {
+					elizaLogger.error(`Funding transaction failed: ${hash}`);
+					return false;
+				}
+			} catch (error) {
+				const errorMsg = (error as Error).message;
+				
+				// Check for nonce-related errors
+				if (errorMsg.includes("nonce") || errorMsg.includes("replacement")) {
+					elizaLogger.warn(`Nonce issue detected: ${errorMsg}`);
+					// Reset nonce on nonce errors
+					this.lastKnownNonce = null;
+				}
+				
+				elizaLogger.error(`Error funding user address: ${errorMsg}`);
+				return false;
 			}
+		};
 
-			this.stats.funderBalance = await this.fraxtalClient.getBalance({
-				address: this.walletClient.account.address,
-			});
-
-			if (this.stats.funderBalance < this.fundingAmount) {
-				elizaLogger.error(
-					`Funding wallet balance too low: ${formatEther(this.stats.funderBalance)} ETH. Skipping funding.`,
-				);
-				return;
-			}
-
-			const fundingAmount = this.fundingAmount - frxEthBalance;
-
-			const hash = await this.walletClient.sendTransaction({
-				to: userAddress as Address,
-				value: fundingAmount,
-				chain: fraxtal,
-				account: this.walletClient.account,
-			});
-
-			elizaLogger.info(`Funding transaction initiated: ${hash}`);
-
-			const receipt = await this.fraxtalClient.waitForTransactionReceipt({
-				hash,
-			});
-
-			if (receipt.status === "success") {
-				this.stats.lastFundingEvent = {
-					recipient: userAddress,
-					amount: fundingAmount,
-					txHash: hash,
-					timestamp: Date.now(),
-				};
-
-				elizaLogger.info(
-					`Successfully funded ${userAddress} with ${formatEther(fundingAmount)} ETH on Fraxtal (tx: ${hash})`,
-				);
-			} else {
-				elizaLogger.error(`Funding transaction failed: ${hash}`);
-			}
-		} catch (error) {
-			elizaLogger.error(
-				`Error funding user address: ${(error as Error).message}`,
-			);
+		// Initial attempt
+		let success = await attemptFunding();
+		
+		// Retry logic with exponential backoff
+		while (!success && retryCount < this.maxRetries) {
+			retryCount++;
+			elizaLogger.info(`Retrying funding (attempt ${retryCount}/${this.maxRetries}) in ${backoffMs}ms...`);
+			
+			// Wait with exponential backoff
+			await new Promise(resolve => setTimeout(resolve, backoffMs));
+			backoffMs *= 2; // Exponential backoff
+			
+			success = await attemptFunding();
+		}
+		
+		if (!success && retryCount >= this.maxRetries) {
+			elizaLogger.error(`Failed to fund ${userAddress} after ${this.maxRetries} attempts`);
 		}
 	}
 
