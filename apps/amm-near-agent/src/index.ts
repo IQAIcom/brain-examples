@@ -21,13 +21,13 @@ async function main() {
 		listeners: [
 			{
 				eventName: "run_agent",
-				contractId: "amm-iqai.testnet",
+				contractId: "amm-iqai.near",
 				responseMethodName: "agent_response",
 				handler: async (payload, { account }) => {
 					const request = JSON.parse(payload.message);
 
 					const balances = await account.viewFunction({
-						contractId: "amm-iqai.testnet",
+						contractId: "amm-iqai.near",
 						methodName: "get_swap_balances",
 						args: {
 							token_in: request.token_in,
@@ -53,8 +53,8 @@ async function main() {
 			},
 		],
 		networkConfig: {
-			networkId: "testnet",
-			nodeUrl: "https://test.rpc.fastnear.com",
+			networkId: "mainnet",
+			nodeUrl: "https://near.lava.build",
 		},
 	});
 
