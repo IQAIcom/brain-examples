@@ -50,6 +50,16 @@ NEAR_PRIVATE_KEY=your-private-key
 pnpm run start
 ```
 
+## 🔍 Example Transactions
+
+We've deployed the NEAR contract on mainnet, which you can view at [https://nearblocks.io/address/amm-iqai.near](https://nearblocks.io/address/amm-iqai.near). Here are some example transactions:
+
+- [Creating new pool for USDT and wNEAR](https://nearblocks.io/txns/ADq5gcUy6DKLoFcFgCc9ged9S1eD6KiNhRfYXSHuR1kC)
+- [Swap USDT with wNEAR](https://nearblocks.io/txns/Doz8W9sJQ2wgvGeAHwYYmULLsjeiHrvFHXSRhi8K91Rq#execution#5g4KuV8HR6z8DZW8k3gXSJ9Np5JcevsZC84sv1kNGxBd)
+- [Agent response to the swap transaction](https://nearblocks.io/txns/CJ7Vb9Pvm7gGjruF9PdS3DB9K5gYFqorqUG3koWgX8ao)
+- [FT Transfer](https://nearblocks.io/txns/QXQUMTMKmYH9L55HzWygb9oYnzUyUcpA9jCduvVaxA9#execution#ACuByCKyJ3qhFJCcK7JBv74usyGYAcqb5Skf8pgxiqvp)
+
+
 ## 📚 Additional Resources
 - [Brain Near Plugin](https://brain.iqai.com/plugins/near)
 - [NEAR Protocol Documentation](https://docs.near.org/docs/develop/basics/create-account)
