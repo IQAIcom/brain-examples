@@ -3,6 +3,7 @@ import { elizaLogger } from "@elizaos/core";
 import { BridgeMonitorService } from "./services/bridge-monitor.ts";
 import type { IQBridgeMonitorParams } from "./types.ts";
 import { getBridgeStatusAction } from "./actions/bridge-status.ts";
+import { getStartMonitoringAction, getStopMonitoringAction } from "./actions/bridge-control.ts";
 
 export async function createIQBridgeMonitorPlugin(
 	opts: IQBridgeMonitorParams,
@@ -11,7 +12,7 @@ export async function createIQBridgeMonitorPlugin(
 		throw new Error("Funder private key is required for IQ Bridge Monitor");
 	}
 
-	const bridgeMonitorService = new BridgeMonitorService(opts.funderPrivateKey);
+	const bridgeMonitorService = new BridgeMonitorService(opts);
 
 	try {
 		await bridgeMonitorService.startMonitoring();
@@ -28,7 +29,11 @@ export async function createIQBridgeMonitorPlugin(
 		providers: [],
 		evaluators: [],
 		services: [],
-		actions: [getBridgeStatusAction(bridgeMonitorService)],
+		actions: [
+			getBridgeStatusAction(bridgeMonitorService),
+			getStartMonitoringAction(bridgeMonitorService),
+			getStopMonitoringAction(bridgeMonitorService)
+		],
 	};
 }
 
