@@ -1,6 +1,6 @@
 import type { Action, Handler } from "@elizaos/core";
 import { elizaLogger } from "@elizaos/core";
-import type { BridgeMonitorService } from "../services/bridge-monitor.ts";
+import { BridgeMonitorService } from "../services/bridge-monitor.ts";
 import dedent from "dedent";
 import { formatEther } from "viem";
 import {
@@ -9,9 +9,7 @@ import {
 	BRIDGE_ADDRESS,
 } from "../lib/constants.ts";
 
-export const getBridgeStatusAction = (
-	bridgeMonitorService: BridgeMonitorService,
-): Action => {
+export const getBridgeStatusAction = (service: BridgeMonitorService): Action => {
 	return {
 		name: "IQ_BRIDGE_STATUS",
 		description: "Check the status of the IQ ETH-FRAXTAL bridge monitor",
@@ -23,7 +21,7 @@ export const getBridgeStatusAction = (
 			"BRIDGE_INFO",
 		],
 		validate: async () => true,
-		handler: handler(bridgeMonitorService),
+		handler: handler(service),
 		examples: [
 			[
 				{
@@ -41,42 +39,40 @@ export const getBridgeStatusAction = (
 	};
 };
 
-const handler =
-	(bridgeMonitorService: BridgeMonitorService): Handler =>
-	async (_runtime, _message, _state, _options, callback) => {
-		try {
-			const stats = await bridgeMonitorService.getStats();
+const handler = (service: BridgeMonitorService): Handler => async (_runtime, _message, _state, _options, callback) => {
+	try {
+		const stats = await service.getStats();
 
-			const statusText = stats.isMonitoring ? "Active" : "Inactive";
+		const statusText = stats.isMonitoring ? "Active" : "Inactive";
 
-			let lastEventInfo = "No bridge events detected yet";
-			if (stats.lastBridgeEvent) {
-				const timeAgo = Math.floor(
-					(Date.now() - stats.lastBridgeEvent.timestamp) / 60000,
-				);
-				lastEventInfo = dedent`
+		let lastEventInfo = "No bridge events detected yet";
+		if (stats.lastBridgeEvent) {
+			const timeAgo = Math.floor(
+				(Date.now() - stats.lastBridgeEvent.timestamp) / 60000,
+			);
+			lastEventInfo = dedent`
         Last bridge event: ${timeAgo} minutes ago
         - From: ${stats.lastBridgeEvent.from}
         - Amount: ${formatEther(stats.lastBridgeEvent.amount)} IQ
         - TX: ${stats.lastBridgeEvent.txHash}
       `;
-			}
+		}
 
-			let fundingInfo = "No users funded yet";
-			if (stats.lastFundingEvent) {
-				const timeAgo = Math.floor(
-					(Date.now() - stats.lastFundingEvent.timestamp) / 60000,
-				);
-				fundingInfo = dedent`
+		let fundingInfo = "No users funded yet";
+		if (stats.lastFundingEvent) {
+			const timeAgo = Math.floor(
+				(Date.now() - stats.lastFundingEvent.timestamp) / 60000,
+			);
+			fundingInfo = dedent`
         Last funding: ${timeAgo} minutes ago
         - Recipient: ${stats.lastFundingEvent.recipient}
         - Amount: ${formatEther(stats.lastFundingEvent.amount)} ETH
         - TX: ${stats.lastFundingEvent.txHash}
       `;
-			}
+		}
 
-			callback?.({
-				text: dedent`
+		callback?.({
+			text: dedent`
         *IQ Bridge Monitor Status: ${statusText}*
 
          Monitoring bridge at ${BRIDGE_ADDRESS}
@@ -90,17 +86,17 @@ const handler =
         *Latest Funding:*
         ${fundingInfo}
       `,
-			});
-			return true;
-		} catch (error) {
-			elizaLogger.error("❌ Error getting bridge monitor status", { error });
-			callback?.({
-				text: dedent`
+		});
+		return true;
+	} catch (error) {
+		elizaLogger.error("❌ Error getting bridge monitor status", { error });
+		callback?.({
+			text: dedent`
         *Bridge Status Error*
         
         Failed to retrieve bridge monitor status: ${(error as Error).message}
       `,
-			});
-			return false;
-		}
-	};
+		});
+		return false;
+	}
+};

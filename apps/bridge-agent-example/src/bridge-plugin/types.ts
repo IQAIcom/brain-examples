@@ -25,3 +25,10 @@ export interface BridgeStats {
 	isMonitoring: boolean;
 	funderBalance: bigint;
 }
+
+export interface BridgeMonitorOptions {
+	funderPrivateKey: string;
+	fundingAmount?: bigint;
+	minIQThreshold?: bigint;
+	checkIntervalMs?: number;
+}
