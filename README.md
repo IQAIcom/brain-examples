@@ -35,6 +35,6 @@ pnpm dev
 
 ## 📚 List of Examples
 
-You can find the list of available examples and their brief description in [brain docs](https://brain.iqai.com/docs/examples)
+You can find the list of available examples and their brief description in [brain docs](https://brain.iqai.com/getting-started/example-agents)
 
 You can also find them here on [Github](https://github.com/IQAIcom/brain-examples/tree/main/apps)
