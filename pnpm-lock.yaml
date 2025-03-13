@@ -20,24 +20,18 @@ importers:
 
   apps/amm-near-agent:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
       '@elizaos/core':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(axios@1.7.9)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
       '@iqai/agent':
         specifier: ^0.0.6
         version: 0.0.6(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
       '@iqai/plugin-near':
         specifier: 0.1.10
         version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -60,15 +54,15 @@ importers:
 
   apps/atp-agent-example:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/client-direct':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(@types/node@22.13.10)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)(zod@3.23.8)
       '@elizaos/core':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.0.6
         version: 0.0.6(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
@@ -81,12 +75,6 @@ importers:
       '@iqai/plugin-sequencer':
         specifier: ^0.1.11
         version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -112,9 +100,6 @@ importers:
 
   apps/bridge-agent-example:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
       '@elizaos/client-direct':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(@types/node@22.13.10)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)(zod@3.23.8)
@@ -124,6 +109,9 @@ importers:
       '@elizaos/plugin-bootstrap':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
       '@iqai/agent':
         specifier: ^0.0.5
         version: 0.0.5(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
@@ -136,12 +124,6 @@ importers:
       '@iqai/plugin-sequencer':
         specifier: ^0.1.10
         version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dedent:
         specifier: ^1.5.3
         version: 1.5.3
@@ -170,9 +152,6 @@ importers:
 
   apps/dummy-example:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
       '@elizaos/client-direct':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(@types/node@22.13.10)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.23.8)
@@ -182,15 +161,12 @@ importers:
       '@elizaos/plugin-bootstrap':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
       '@iqai/agent':
         specifier: ^0.0.3
         version: 0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@7.5.10)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -213,9 +189,6 @@ importers:
 
   apps/fraxlend-agent-example:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/client-direct':
         specifier: 0.25.6-alpha.1
         version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(@types/node@22.13.10)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)(zod@3.24.2)
@@ -228,6 +201,9 @@ importers:
       '@elizaos/plugin-bootstrap':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.0.5
         version: 0.0.5(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
@@ -237,12 +213,6 @@ importers:
       '@iqai/plugin-heartbeat':
         specifier: ^0.1.11
         version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -268,9 +238,6 @@ importers:
 
   apps/imageload-agent-example:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/client-direct':
         specifier: 0.25.6-alpha.1
         version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)(zod@3.24.2)
@@ -283,18 +250,15 @@ importers:
       '@elizaos/plugin-image-generation':
         specifier: 0.25.6-alpha.1
         version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)(zod@3.24.2)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.0.5
         version: 0.0.5(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
       '@iqai/plugin-heartbeat':
         specifier: ^0.1.10
         version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -314,9 +278,6 @@ importers:
 
   apps/odosbamm-agent-example:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/client-direct':
         specifier: 0.25.6-alpha.1
         version: 0.25.6-alpha.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(@types/node@22.13.10)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)(zod@3.24.2)
@@ -329,6 +290,9 @@ importers:
       '@elizaos/plugin-bootstrap':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.0.5
         version: 0.0.5(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
@@ -341,12 +305,6 @@ importers:
       '@iqai/plugin-sequencer':
         specifier: ^0.1.11
         version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
-      '@types/better-sqlite3':
-        specifier: ^7.6.12
-        version: 7.6.12
-      better-sqlite3:
-        specifier: 11.8.1
-        version: 11.8.1
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -372,9 +330,6 @@ importers:
 
   packages/shared-deps:
     dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: 0.1.9
-        version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
       '@elizaos/client-direct':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(fastestsmallesttextencoderdecoder@1.0.22)(react@19.0.0)(svelte@5.23.0)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)(zod@3.23.8)
@@ -384,6 +339,9 @@ importers:
       '@elizaos/plugin-bootstrap':
         specifier: 0.1.9
         version: 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(typescript@5.7.3)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
+      '@iqai/adapter-sqlite':
+        specifier: 0.0.1
+        version: 0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
       better-sqlite3:
         specifier: 11.8.1
         version: 11.8.1
@@ -5161,6 +5119,120 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@iqai/adapter-sqlite@0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10):
+    resolution: {integrity: sha512-0Xw0HI5fgfIqbyFjnfyqwurt7nT1ux0NjCc1Wz8wYgNLvvGGSXxEbMsaG0XH0OG4rLwqp18sZTMHIeNHTgdJ5A==}
+    engines: {node: '>=22'}
+    dependencies:
+      '@elizaos/adapter-sqlite': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@7.5.10)
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@7.5.10)
+      better-sqlite3: 11.8.1
+      dedent: 1.5.3
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - aws-crt
+      - axios
+      - babel-plugin-macros
+      - cheerio
+      - debug
+      - encoding
+      - peggy
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - typeorm
+      - vue
+      - whatwg-url
+      - ws
+    dev: false
+
+  /@iqai/adapter-sqlite@0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0):
+    resolution: {integrity: sha512-0Xw0HI5fgfIqbyFjnfyqwurt7nT1ux0NjCc1Wz8wYgNLvvGGSXxEbMsaG0XH0OG4rLwqp18sZTMHIeNHTgdJ5A==}
+    engines: {node: '>=22'}
+    dependencies:
+      '@elizaos/adapter-sqlite': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.0)
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(axios@1.7.9)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
+      better-sqlite3: 11.8.1
+      dedent: 1.5.3
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - aws-crt
+      - axios
+      - babel-plugin-macros
+      - cheerio
+      - debug
+      - encoding
+      - peggy
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - typeorm
+      - vue
+      - whatwg-url
+      - ws
+    dev: false
+
+  /@iqai/adapter-sqlite@0.0.1(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1):
+    resolution: {integrity: sha512-0Xw0HI5fgfIqbyFjnfyqwurt7nT1ux0NjCc1Wz8wYgNLvvGGSXxEbMsaG0XH0OG4rLwqp18sZTMHIeNHTgdJ5A==}
+    engines: {node: '>=22'}
+    dependencies:
+      '@elizaos/adapter-sqlite': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(whatwg-url@7.1.0)(ws@8.18.1)
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
+      better-sqlite3: 11.8.1
+      dedent: 1.5.3
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - aws-crt
+      - axios
+      - babel-plugin-macros
+      - cheerio
+      - debug
+      - encoding
+      - peggy
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - typeorm
+      - vue
+      - whatwg-url
+      - ws
+    dev: false
 
   /@iqai/agent@0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@7.5.10):
     resolution: {integrity: sha512-g6fG2YaehlllfdIjR+uDOPBGZlUERwHlEfxMPFN3qquYvDSm+EZX6QR9b2S8MugI6Li6n2X0E+qnQJ9ILUvuvg==}

@@ -12,7 +12,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
-		"@elizaos/adapter-sqlite": "0.1.9",
+		"@iqai/adapter-sqlite": "0.0.1",
 		"@elizaos/client-direct": "0.25.6-alpha.1",
 		"@elizaos/client-telegram": "0.1.9",
 		"@elizaos/core": "0.1.9",
@@ -20,8 +20,6 @@
 		"@iqai/agent": "^0.0.5",
 		"@iqai/plugin-fraxlend": "^0.1.11",
 		"@iqai/plugin-heartbeat": "^0.1.11",
-		"@types/better-sqlite3": "^7.6.12",
-		"better-sqlite3": "11.8.1",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
 		"viem": "^2.23.5"
