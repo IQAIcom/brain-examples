@@ -1,14 +1,10 @@
-import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
-import Database from "better-sqlite3";
-import { AgentBuilder, ModelProviderName } from "@iqai/agent";
-import * as fs from "node:fs";
-import * as path from "node:path";
-import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-
+import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
+import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createFraxlendPlugin } from "@iqai/plugin-fraxlend";
+import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { fraxtal } from "viem/chains";
 
 async function main() {
@@ -20,21 +16,19 @@ async function main() {
 
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
-	{
-		period: "0 12 * * *",  // Every day at 12:00 PM
-		input: "Check if APR of new pools are greater 3% of his current positions, lend else borrow and show result",
-		client: "telegram",
-		config: {
-			chatId: process.env.TELEGRAM_CHAT_ID as string
-		}
-	}
+		{
+			period: "0 12 * * *", // Every day at 12:00 PM
+			input:
+				"Check if APR of new pools are greater 3% of his current positions, lend else borrow and show result",
+			client: "telegram",
+			config: {
+				chatId: process.env.TELEGRAM_CHAT_ID as string,
+			},
+		},
 	]);
-	
+
 	// Setup database
-	const dataDir = path.join(process.cwd(), "./data");
-	fs.mkdirSync(dataDir, { recursive: true });
-	const dbPath = path.join(dataDir, "db.sqlite");
-	const databaseAdapter = new SqliteDatabaseAdapter(new Database(dbPath));
+	const databaseAdapter = new SqliteDatabaseAdapter();
 
 	// Create agent with plugin
 	const agent = new AgentBuilder()
@@ -42,8 +36,8 @@ async function main() {
 		.withClient("direct", DirectClientInterface)
 		.withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
-		ModelProviderName.OPENAI,
-		process.env.OPENAI_API_KEY as string
+			ModelProviderName.OPENAI,
+			process.env.OPENAI_API_KEY as string,
 		)
 		.withPlugins([fraxlendPlugin, bootstrapPlugin, heartbeatPlugin])
 		.withCharacter({
@@ -60,7 +54,7 @@ async function main() {
 		})
 		.build();
 
-  		await agent.start();
+	await agent.start();
 }
 
 main().catch(console.error);
