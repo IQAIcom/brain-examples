@@ -11,7 +11,6 @@ import {
 import { createAtpPlugin } from "@iqai/plugin-atp";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
-import Database from "better-sqlite3";
 import { http, createPublicClient } from "viem";
 import { erc20Abi } from "viem";
 import { fraxtal } from "viem/chains";
