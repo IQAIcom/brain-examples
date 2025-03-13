@@ -1,36 +1,32 @@
 import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
 import DirectClientInterface from "@elizaos/client-direct";
+import { TelegramClientInterface } from "@elizaos/client-telegram";
 import Database from "better-sqlite3";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
-import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-
-import { imageGenerationPlugin } from "@elizaos/plugin-image-generation";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
-import { TwitterClientInterface } from "@elizaos/client-twitter";
+import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
+import { createOdosPlugin } from "@iqai/plugin-odos";
+import { createBAMMPlugin } from '@iqai/plugin-bamm';
+import { fraxtal } from "viem/chains";
 
 async function main() {
 
-	// Initialize Image plugin
-	// const imagePlugin = imageGenerationPlugin({
-	// 	provider: "anthropic",
-	// 	apiKey: process.env.ANTHROPIC_API_KEY,
-	// 	defaultSize: "1024x1024",
-	// 	autoCaption: true
-	//   });
+	// Initialize BAMM plugin
+	const bammPlugin = await createBAMMPlugin({
+	walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
+	chain: fraxtal,
+	});
 
-	  const sequencerPlugin = await createSequencerPlugin();
+	// Initialize Odos plugin
+	const odosPlugin = await createOdosPlugin({
+		chain: fraxtal,
+		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
+	  });
 
-	// Initialize Heartbeat plugin
-	const heartbeatPlugin = await createHeartbeatPlugin([
-		{
-			period: "0 12 * * *",  // Every day at 12:00 PM
-			input: "Post an AI Cat photo  daily",
-			client: "twitter",
-		}
-	]);
+	// Initialize Sequencer plugin
+	const sequencerPlugin = await createSequencerPlugin();
 	
 	// Setup database
 	const dataDir = path.join(process.cwd(), "./data");
@@ -42,18 +38,18 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
-		.withClient("twitter", TwitterClientInterface)
+		.withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
 		)
-		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
+		.withPlugins([bammPlugin, bootstrapPlugin, sequencerPlugin, odosPlugin])
 		.withCharacter({
-			name: "BrainBot ImageLoader",
-			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",
+			name: "BrainBot SwapLender",
+			bio: "You are BrainBot, a helpful assistant in swapping and borrowing.",
 			username: "brainbot",
 			messageExamples: [],
-			lore: ["Created to assist users with magnificent photos"],
+			lore: ["Created to assist users with swapping and borrowing"],
 			style: {
 				all: ["Professional"],
 				chat: ["Friendly"],

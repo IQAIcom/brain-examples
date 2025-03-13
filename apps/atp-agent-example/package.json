@@ -2,11 +2,11 @@
 	"name": "@iqai/atp-agent-example",
 	"version": "1.0.0",
 	"description": "ATP Agent example",
-	"main": "src/index.js",
+	"main": "src/index.ts",
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"start": "tsx src/index.js",
+		"start": "tsx src/index.ts",
 		"dev": "tsx watch src/index.ts",
 		"check-types": "tsc --noEmit",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -15,23 +15,23 @@
 		"@elizaos/adapter-sqlite": "0.1.9",
 		"@elizaos/client-direct": "0.1.9",
 		"@elizaos/core": "0.1.9",
-		"@elizaos/plugin-bootstrap": "0.1.9",
-		"@iqai/agent": "^0.0.5",
-		"@iqai/plugin-atp": "^0.1.9",
-		"@iqai/plugin-heartbeat": "^0.1.10",
-		"@iqai/plugin-sequencer": "^0.1.10",
+		"@iqai/agent": "^0.0.6",
+		"@iqai/plugin-atp": "^0.2.0",
+		"@iqai/plugin-heartbeat": "^0.1.11",
+		"@iqai/plugin-sequencer": "^0.1.11",
 		"@types/better-sqlite3": "^7.6.12",
 		"better-sqlite3": "11.8.1",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
-		"viem": "^2.23.3"
+		"viem": "^2.23.5"
 	},
 	"devDependencies": {
 		"ts-node": "10.9.2",
 		"tsup": "8.3.6",
-		"tsx": "^4.7.1",
-		"typescript": "^5.4.2"
+		"tsx": "^4.19.3",
+		"typescript": "^5.7.3"
 	},
+	"packageManager": "pnpm@8.15.6",
 	"engines": {
 		"node": "23.x"
 	}
