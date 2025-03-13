@@ -29,7 +29,6 @@ export class BridgeMonitorService {
 	private bridgeAddress: Address = BRIDGE_ADDRESS as Address;
 	private isMonitoring = false;
 	private walletService: WalletService;
-	private checkIntervalMs: number = 5 * 60 * 1000; // Default: check every 5 minutes
 	private unwatch: (() => void) | null = null;
 	private lastKnownNonce: number | null = null;
 	private maxRetries: number = 3;
@@ -46,7 +45,6 @@ export class BridgeMonitorService {
 
 		if (opts.fundingAmount) this.fundingAmount = opts.fundingAmount;
 		if (opts.minIQThreshold) this.minIQThreshold = opts.minIQThreshold;
-		if (opts.checkIntervalMs) this.checkIntervalMs = opts.checkIntervalMs;
 
 		this.ethClient = this.walletService.getEthClient();
 		this.fraxtalClient = this.walletService.getFraxtalClient();
@@ -63,8 +61,7 @@ export class BridgeMonitorService {
   - IQ token (L1): ${this.iqAddresses.ethereum}
   - IQ token (L2): ${this.iqAddresses.fraxtal}
   - Funding amount: ${formatEther(this.fundingAmount)} ETH
-  - Min IQ threshold: ${formatEther(this.minIQThreshold)} IQ
-  - Check interval: ${this.checkIntervalMs / 1000} seconds`);
+  - Min IQ threshold: ${formatEther(this.minIQThreshold)} IQ`);
 	}
 
 	async initialize() {
@@ -102,15 +99,17 @@ export class BridgeMonitorService {
 				address: this.bridgeAddress,
 				abi: BRIDGE_EVENT_ABI,
 				eventName: "ERC20BridgeInitiated",
-				onLogs: (logs) => this.handleBridgeEvents(logs),
-				pollingInterval: this.checkIntervalMs,
-				batch: true,
+				onLogs: (logs) => {
+					elizaLogger.info(`Received ${logs.length} logs from watchContractEvent`);
+					this.handleBridgeEvents(logs);
+				},
+				fromBlock: 22032073n,
 			});
 
 			this.isMonitoring = true;
 			this.stats.isMonitoring = true;
 			elizaLogger.info(
-				"Bridge monitoring active for ERC20BridgeInitiated events",
+				"Bridge monitoring active for ERC20BridgeInitiated events"
 			);
 		} catch (error) {
 			elizaLogger.error(
