@@ -259,6 +259,9 @@ importers:
       '@iqai/plugin-heartbeat':
         specifier: ^0.1.10
         version: 0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
+      '@iqai/plugin-sequencer':
+        specifier: ^0.1.11
+        version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -5823,6 +5826,48 @@ packages:
     resolution: {integrity: sha512-6aUwFbSX5gln+ZYELCu2Mx24MlCaPF1tX3R8Pjm1ahoMRGjQ8fKat8C+bO0cGMsvzFxHY2AXUpCcSE5L8vptXg==}
     dependencies:
       '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(axios@1.7.9)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
+      dedent: 1.5.3
+      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - aws-crt
+      - axios
+      - babel-plugin-macros
+      - cheerio
+      - debug
+      - encoding
+      - jiti
+      - peggy
+      - postcss
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - tsx
+      - typeorm
+      - typescript
+      - vue
+      - ws
+      - yaml
+    dev: false
+
+  /@iqai/plugin-sequencer@0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1):
+    resolution: {integrity: sha512-hlWGSw8PfG8IyZVFiCwKMMrswWkzw7KE43AHtM8HmZgTeReQ5nqzjDB3XZrTr6FQnc6MvKWgbnVmTdvS5dLgOA==}
+    dependencies:
+      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
       zod: 3.24.2

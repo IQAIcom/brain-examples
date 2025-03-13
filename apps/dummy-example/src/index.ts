@@ -1,10 +1,7 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
 import DirectClientInterface from "@elizaos/client-direct";
 import { ModelProviderName } from "@elizaos/core";
 import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 import { AgentBuilder } from "@iqai/agent";
-import Database from "better-sqlite3";
 
 async function main() {
 	// Setup database

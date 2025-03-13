@@ -1,10 +1,7 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
 import DirectClientInterface from "@elizaos/client-direct";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
-import Database from "better-sqlite3";
 import { createIQBridgeMonitorPlugin } from "../src/bridge-plugin/index.ts";
 
 async function main() {

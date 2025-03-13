@@ -1,5 +1,3 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
 import DirectClientInterface from "@elizaos/client-direct";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
@@ -8,7 +6,6 @@ import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createBAMMPlugin } from "@iqai/plugin-bamm";
 import { createOdosPlugin } from "@iqai/plugin-odos";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
-import Database from "better-sqlite3";
 import { fraxtal } from "viem/chains";
 
 async function main() {

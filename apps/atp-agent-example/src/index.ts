@@ -1,8 +1,6 @@
 import DirectClientInterface from "@elizaos/client-direct";
 import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 
-import * as fs from "node:fs";
-import * as path from "node:path";
 import {
 	AgentBuilder,
 	ModelProviderName,

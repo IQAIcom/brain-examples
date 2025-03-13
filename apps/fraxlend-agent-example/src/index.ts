@@ -1,14 +1,10 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
 import DirectClientInterface from "@elizaos/client-direct";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
-import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
-import Database from "better-sqlite3";
-
 import { createFraxlendPlugin } from "@iqai/plugin-fraxlend";
+import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import { fraxtal } from "viem/chains";
 
 async function main() {
