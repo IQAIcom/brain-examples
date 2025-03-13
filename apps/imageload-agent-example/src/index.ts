@@ -1,14 +1,8 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
 import DirectClientInterface from "@elizaos/client-direct";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
-import Database from "better-sqlite3";
-
-import { TwitterClientInterface } from "@elizaos/client-twitter";
-import { imageGenerationPlugin } from "@elizaos/plugin-image-generation";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
 
 async function main() {
@@ -38,17 +32,11 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(databaseAdapter)
 		.withClient("direct", DirectClientInterface)
-		.withClient("twitter", TwitterClientInterface)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([
-			imagePlugin,
-			bootstrapPlugin,
-			heartbeatPlugin,
-			sequencerPlugin,
-		])
+		.withPlugins([bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
 		.withCharacter({
 			name: "BrainBot ImageLoader",
 			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",
