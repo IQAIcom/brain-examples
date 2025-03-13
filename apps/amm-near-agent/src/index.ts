@@ -67,7 +67,6 @@ async function main() {
 	await agent.start();
 }
 
-
 function setupDatabaseAdapter() {
 	const dataDir = path.join(process.cwd(), "./data");
 	fs.mkdirSync(dataDir, { recursive: true });

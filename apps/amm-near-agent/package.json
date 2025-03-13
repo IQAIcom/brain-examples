@@ -13,9 +13,7 @@
 	},
 	"dependencies": {
 		"@elizaos/adapter-sqlite": "0.1.9",
-		"@elizaos/client-direct": "0.1.9",
 		"@elizaos/core": "0.1.9",
-		"@elizaos/plugin-bootstrap": "0.1.9",
 		"@iqai/agent": "^0.0.6",
 		"@iqai/plugin-near": "0.1.10",
 		"@types/better-sqlite3": "^7.6.12",
