@@ -47,7 +47,7 @@ async function main() {
 		ModelProviderName.OPENAI,
 		process.env.OPENAI_API_KEY as string
 		)
-		.withPlugins([imagePlugin, bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
+		.withPlugins([bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
 		.withCharacter({
 			name: "BrainBot ImageLoader",
 			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",

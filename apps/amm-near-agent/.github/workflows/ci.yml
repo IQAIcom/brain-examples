@@ -3,8 +3,12 @@ name: AMM Near Agent CI/CD
 on:
   push:
     branches: [main]
+    paths:
+      - "apps/amm-near-agent/**"
   pull_request:
     branches: [main]
+    paths:
+      - "apps/amm-near-agent/**"
 
 jobs:
   build:
@@ -67,7 +71,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+        with:
+          files: |
+            apps/amm-near-agent/**
+
       - name: Deploy to Server
+        if: steps.changed-files.outputs.any_changed == 'true'
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.DIGITALOCEAN_HOST }}
