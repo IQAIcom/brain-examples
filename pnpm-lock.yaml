@@ -4961,7 +4961,7 @@ packages:
     resolution: {integrity: sha512-MNCnE5icY+OM5ahgYJItmydZ7AxhtzhgA5tQI13jVntzhLT0z+tetHIlAL1VA0XFZgldDzqxeTf9Pr5TW3VErg==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@msgpack/msgpack': 3.0.1
+      '@msgpack/msgpack': 3.1.1
       eventsource-parser: 1.1.2
       robot3: 0.4.1
     dev: false
@@ -5838,7 +5838,7 @@ packages:
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.19
-      langsmith: 0.3.13
+      langsmith: 0.3.14
       mustache: 4.2.0
       p-queue: 6.6.2
       p-retry: 4.6.2
@@ -5927,8 +5927,8 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
-  /@msgpack/msgpack@3.0.1:
-    resolution: {integrity: sha512-9qysoVTITLcOFIIJeXbdtUgvvY25ojUp+WWfLc0O4H4KKWeamUNAqkjS5mej/PnVDnH70llWKNa7pzv5U4TqVQ==}
+  /@msgpack/msgpack@3.1.1:
+    resolution: {integrity: sha512-DnBpqkMOUGayNVKyTLlkM6ILmU/m/+VUxGkuQlPQVAcvreLz5jn1OlQnWd8uHKL/ZSiljpM12rjRhr51VtvJUQ==}
     engines: {node: '>= 18'}
     dev: false
 
@@ -7547,7 +7547,7 @@ packages:
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.13.4
+      '@types/node': 22.13.10
     dev: false
 
   /@types/connect@3.4.38:
@@ -7559,7 +7559,7 @@ packages:
   /@types/cors@2.8.17:
     resolution: {integrity: sha512-8CGDvrBj1zgo2qE+oS3pOCyYNqCPryMWY2bGfwA0dcfopWGgxs+78df0Rs3rc9THP4JkOhLsAa+15VdpAqkcUA==}
     dependencies:
-      '@types/node': 22.13.4
+      '@types/node': 22.13.10
     dev: false
 
   /@types/diff-match-patch@1.0.36:
@@ -7975,13 +7975,7 @@ packages:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
     dependencies:
-      acorn: 8.14.0
-    dev: true
-
-  /acorn@8.14.0:
-    resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
+      acorn: 8.14.1
     dev: true
 
   /acorn@8.14.1:
@@ -10682,8 +10676,8 @@ packages:
       uuid: 10.0.0
     dev: false
 
-  /langsmith@0.3.13:
-    resolution: {integrity: sha512-iI5MO5FP1EFxU1jyQvB2cM4qKqXXwnsd124MKWWhBuV2O/EjdwzsyKPBVlBPFjAQbgCGtzqdJWbv9xld60hb+Q==}
+  /langsmith@0.3.14:
+    resolution: {integrity: sha512-MzoxdRkFFV/6140vpP5V2e2fkTG6x/0zIjw77bsRwAXEMjPRTUyDazfXeSyrS5uJvbLgxAXc+MF1h6vPWe6SXQ==}
     peerDependencies:
       openai: '*'
     peerDependenciesMeta:
@@ -12702,7 +12696,7 @@ packages:
   /together-ai@0.7.0:
     resolution: {integrity: sha512-/be/HOecBSwRTDHB14vCvHbp1WiNsFxyS4pJlyBoMup1X3n7xD1b/Gm5Z5amlKzD2zll9Y5wscDk7Ut5OsT1nA==}
     dependencies:
-      '@types/node': 18.19.76
+      '@types/node': 18.19.80
       '@types/node-fetch': 2.6.12
       abort-controller: 3.0.0
       agentkeepalive: 4.6.0

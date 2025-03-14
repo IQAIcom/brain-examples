@@ -28,10 +28,8 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			// period: "0 12 * * *",  // Every day at 12:00 PM
-			period: "*/2 * * * *", // Every 2 minutes
-			// input: "Get the top agent from atp, calculate 1% of my iq balance and buy that agent with this iq amount.",
-			input: "get my iq balance",
+			period: "0 12 * * *",  // Every day at 12:00 PM
+			input: "Buy 10 IQ worth of agent 0x4dBcC239b265295500D2Fe2d0900629BDcBBD0fB and sell 10 IQ worth of agent 0x4dBcC239b265295500D2Fe2d0900629BDcBBD0fB",
 			client: "telegram",
 			config: {
 				chatId: process.env.TELEGRAM_CHAT_ID as string,
@@ -39,8 +37,7 @@ async function main() {
 		},
 	]);
 
-	// const IQ_TOKEN_ADDRESS = "0xcc3023635df54fc0e43f47bc4beb90c3d1fbda9f";
-	const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
+	const IQ_TOKEN_ADDRESS = "0x6efb84bda519726fa1c65558e520b92b51712101";
 	
 	const publicClient = createPublicClient({
 		chain: fraxtal,
@@ -73,7 +70,7 @@ async function main() {
 
 						// Convert balance from wei to token units (assuming 18 decimals)
 						const formattedBalance = (Number(balance) / 1e18).toFixed(2);
-						console.log("IQ Balance:", formattedBalance);
+						console.log("💰 IQ Balance:", formattedBalance);
 
 						opts.callback?.({
 							text: `💰 IQ Balance: ${formattedBalance} IQ`,
