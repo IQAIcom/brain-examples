@@ -1,0 +1,34 @@
+{
+	"name": "@iqai/sophia-agent",
+	"version": "1.0.0",
+	"description": "Sophia goes brr",
+	"main": "src/index.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"start": "tsx src/index.js",
+		"dev": "tsx watch src/index.ts",
+		"check-types": "tsc --noEmit",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@elizaos/adapter-sqlite": "0.1.9",
+		"@elizaos/client-telegram": "0.25.6-alpha.1",
+		"@elizaos/client-twitter": "0.25.6-alpha.1",
+		"@elizaos/core": "0.1.9",
+		"@iqai/plugin-heartbeat": "^0.1.11",
+		"@types/better-sqlite3": "^7.6.12",
+		"better-sqlite3": "11.8.1",
+		"dotenv": "^16.4.7",
+		"sharp": "^0.33.5"
+	},
+	"devDependencies": {
+		"ts-node": "10.9.2",
+		"tsup": "8.3.6",
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.2"
+	},
+	"engines": {
+		"node": "23.x"
+	}
+}
