@@ -143,11 +143,10 @@ async function main() {
 					shouldRespondOnlyToMentions: false,
 					shouldOnlyJoinInAllowedGroups: false,
 					messageSimilarityThreshold: 0.8,
-					autoPost: {
-						enabled: true,
-						minTimeBetweenPosts: 60,
-						mainChannelId: "@brainheartbeats1",
-					},
+					// autoPost: { // Does not work as expected. heartbeat plugin can be used instead.
+					// 	enabled: true,
+					// 	minTimeBetweenPosts: 60,
+					// },
 				},
 			},
 		})
