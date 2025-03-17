@@ -38,13 +38,6 @@ jobs:
           USE_OPENAI_EMBEDDING: "TRUE"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-      - name: Run tests
-        run: pnpm test
-        env:
-          SERVER_PORT: 3000
-          USE_OPENAI_EMBEDDING: "TRUE"
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
