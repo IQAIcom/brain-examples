@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          WALLET_PRIVATE_KEY: ${{ secrets.WALLET_PRIVATE_KEY }}
+          WALLET_PRIVATE_KEY: ${{ secrets.WALLET_PRIVATE_KEY_ATP }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SERVER_PORT: 3000
           USE_OPENAI_EMBEDDING: "TRUE"

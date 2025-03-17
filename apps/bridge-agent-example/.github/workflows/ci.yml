@@ -37,6 +37,7 @@ jobs:
           SERVER_PORT: 3000
           USE_OPENAI_EMBEDDING: "TRUE"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WALLET_PRIVATE_KEY: ${{ secrets.WALLET_PRIVATE_KEY_BRIDGE }}
 
   deploy:
     needs: build
