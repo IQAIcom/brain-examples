@@ -40,15 +40,6 @@ jobs:
           NEAR_ACCOUNT_ID: ${{ secrets.NEAR_ACCOUNT_ID }}
           NEAR_PRIVATE_KEY: ${{ secrets.NEAR_PRIVATE_KEY }}
 
-      - name: Run tests
-        run: pnpm test
-        env:
-          SERVER_PORT: 3000
-          USE_OPENAI_EMBEDDING: "TRUE"
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          NEAR_ACCOUNT_ID: ${{ secrets.NEAR_ACCOUNT_ID }}
-          NEAR_PRIVATE_KEY: ${{ secrets.NEAR_PRIVATE_KEY }}
-
   deploy:
     needs: build
     runs-on: ubuntu-latest

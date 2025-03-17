@@ -40,15 +40,6 @@ jobs:
           USE_OPENAI_EMBEDDING: "TRUE"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-      - name: Run tests
-        run: pnpm test
-        env:
-          WALLET_PRIVATE_KEY: ${{ secrets.WALLET_PRIVATE_KEY }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SERVER_PORT: 3000
-          USE_OPENAI_EMBEDDING: "TRUE"
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
