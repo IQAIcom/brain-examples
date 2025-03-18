@@ -1,16 +1,13 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
-import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
+import SqliteAdapter from "@elizaos/adapter-sqlite";
 import { ModelProviderName } from "@elizaos/core";
 import { AgentBuilder } from "@iqai/agent";
-import Database from "better-sqlite3";
-import TwitterClientInterface from "@elizaos/client-twitter";
-import TelegramClientInterface from "@elizaos/client-telegram";
+import TelegramClient from "@elizaos/client-telegram";
 import createHeartbeatPlugin from "@iqai/plugin-heartbeat";
+import createWikiPlugin from "@iqai/plugin-wiki";
 
 async function main() {
 	// Setup database
-	const databaseAdapter = setupDatabaseAdapter();
+	const pluginWiki = await createWikiPlugin();
 	const heartbeat = await createHeartbeatPlugin([
 		// {
 		// 	client: "twitter",
@@ -29,18 +26,9 @@ async function main() {
 
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
-		.withPlugin(heartbeat)
-		.withClients([
-			{
-				name: "twitter",
-				client: TwitterClientInterface,
-			},
-			{
-				name: "telegram",
-				client: TelegramClientInterface,
-			},
-		])
+		.withDatabase(SqliteAdapter)
+		.withPlugins([heartbeat, pluginWiki])
+		.withClients([TelegramClient])
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
@@ -154,13 +142,4 @@ async function main() {
 
 	await agent.start();
 }
-
-function setupDatabaseAdapter() {
-	const dataDir = path.join(process.cwd(), "./data");
-	fs.mkdirSync(dataDir, { recursive: true });
-	const dbPath = path.join(dataDir, "db.sqlite");
-	const databaseAdapter = new SqliteDatabaseAdapter(new Database(dbPath));
-	return databaseAdapter;
-}
-
 main().catch(console.error);
