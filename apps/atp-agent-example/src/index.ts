@@ -1,5 +1,5 @@
-import DirectClientInterface from "@elizaos/client-direct";
-import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
+import SqliteAdapter from "@elizaos/adapter-sqlite";
+import DirectClient from "@elizaos/client-direct";
 
 import {
 	AgentBuilder,
@@ -84,13 +84,10 @@ async function main() {
 		],
 	});
 
-	// Setup database
-	const databaseAdapter = new SqliteDatabaseAdapter();
-
 	// Create agent with plugin
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
-		.withClient("direct", DirectClientInterface)
+		.withDatabase(SqliteAdapter)
+		.withClient(DirectClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,

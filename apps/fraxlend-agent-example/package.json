@@ -12,25 +12,23 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
-		"@iqai/adapter-sqlite": "0.0.1",
-		"@elizaos/client-direct": "0.25.6-alpha.1",
-		"@elizaos/client-telegram": "0.1.9",
-		"@elizaos/core": "0.1.9",
-		"@elizaos/plugin-bootstrap": "0.1.9",
-		"@iqai/agent": "^0.0.5",
-		"@iqai/plugin-fraxlend": "^0.1.11",
-		"@iqai/plugin-heartbeat": "^0.1.11",
+		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
+		"@elizaos/client-direct": "0.25.9",
+		"@elizaos/client-telegram": "github:elizaos-plugins/client-telegram",
+		"@elizaos/core": "0.25.9",
+		"@elizaos/plugin-bootstrap": "0.25.9",
+		"@iqai/agent": "^0.2.0",
+		"@iqai/plugin-fraxlend": "^0.2.0",
+		"@iqai/plugin-heartbeat": "^0.2.0",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
 		"viem": "^2.23.5"
 	},
 	"devDependencies": {
-		"ts-node": "10.9.2",
-		"tsup": "8.3.6",
 		"tsx": "^4.19.3",
 		"typescript": "^5.7.3"
 	},
 	"engines": {
-		"node": "23.x"
+		"node": ">=22"
 	}
 }

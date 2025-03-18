@@ -1,7 +1,7 @@
-import DirectClientInterface from "@elizaos/client-direct";
+import SqliteAdapter from "@elizaos/adapter-sqlite";
+import DirectClient from "@elizaos/client-direct";
 import { TelegramClientInterface } from "@elizaos/client-telegram";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createBAMMPlugin } from "@iqai/plugin-bamm";
 import { createOdosPlugin } from "@iqai/plugin-odos";
@@ -24,13 +24,10 @@ async function main() {
 	// Initialize Sequencer plugin
 	const sequencerPlugin = await createSequencerPlugin();
 
-	// Setup database
-	const databaseAdapter = new SqliteDatabaseAdapter();
-
 	// Create agent with plugin
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
-		.withClient("direct", DirectClientInterface)
+		.withDatabase(SqliteAdapter)
+		.withClient(DirectClient)
 		.withClient("telegram", TelegramClientInterface)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
