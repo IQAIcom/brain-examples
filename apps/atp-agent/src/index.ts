@@ -27,9 +27,9 @@ async function main() {
 			period: "0 12 * * *", // Every day at 12:00 PM
 			input:
 				"Get the top agent from atp, calculate 1% of my iq balance and buy that agent with this iq amount. go through sequencer first.",
-			client: "telegram",
+			client: "callback",
 			config: {
-				chatId: process.env.TELEGRAM_CHAT_ID as string,
+				callback: async (res) => console.log(res),
 			},
 		},
 	]);
