@@ -1,19 +1,12 @@
-import DirectClientInterface from "@elizaos/client-direct";
+import SqliteAdapter from "@elizaos/adapter-sqlite";
+import DirectClient from "@elizaos/client-direct";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
+import imageGenerationPlugin from "@elizaos/plugin-image-generation";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
 
 async function main() {
-	// Initialize Image plugin
-	// const imagePlugin = imageGenerationPlugin({
-	// 	provider: "anthropic",
-	// 	apiKey: process.env.ANTHROPIC_API_KEY,
-	// 	defaultSize: "1024x1024",
-	// 	autoCaption: true
-	//   });
-
 	const sequencerPlugin = await createSequencerPlugin();
 
 	// Initialize Heartbeat plugin
@@ -25,18 +18,20 @@ async function main() {
 		},
 	]);
 
-	// Setup database
-	const databaseAdapter = new SqliteDatabaseAdapter();
-
 	// Create agent with plugin
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
-		.withClient("direct", DirectClientInterface)
+		.withDatabase(SqliteAdapter)
+		.withClient(DirectClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
+		.withPlugins([
+			bootstrapPlugin,
+			heartbeatPlugin,
+			sequencerPlugin,
+			imageGenerationPlugin,
+		])
 		.withCharacter({
 			name: "BrainBot ImageLoader",
 			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",

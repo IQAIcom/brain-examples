@@ -1,5 +1,5 @@
-import DirectClientInterface from "@elizaos/client-direct";
-import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
+import SqliteAdapter from "@elizaos/adapter-sqlite";
+import DirectClient from "@elizaos/client-direct";
 
 import {
 	AgentBuilder,
@@ -12,6 +12,8 @@ import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { http, createPublicClient } from "viem";
 import { erc20Abi } from "viem";
 import { fraxtal } from "viem/chains";
+
+const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
 
 async function main() {
 	// Initialize ATP plugin
@@ -27,14 +29,12 @@ async function main() {
 			period: "0 12 * * *", // Every day at 12:00 PM
 			input:
 				"Get the top agent from atp, calculate 1% of my iq balance and buy that agent with this iq amount. go through sequencer first.",
-			client: "telegram",
+			client: "callback",
 			config: {
-				chatId: process.env.TELEGRAM_CHAT_ID as string,
+				callback: async (res) => console.log(res),
 			},
 		},
 	]);
-
-	const IQ_TOKEN_ADDRESS = "0xcc3023635df54fc0e43f47bc4beb90c3d1fbda9f";
 
 	const publicClient = createPublicClient({
 		chain: fraxtal,
@@ -84,13 +84,10 @@ async function main() {
 		],
 	});
 
-	// Setup database
-	const databaseAdapter = new SqliteDatabaseAdapter();
-
 	// Create agent with plugin
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
-		.withClient("direct", DirectClientInterface)
+		.withDatabase(SqliteAdapter)
+		.withClient(DirectClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,

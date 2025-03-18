@@ -1,12 +1,9 @@
+import SqliteAdapter from "@elizaos/adapter-sqlite";
 import { ModelProviderName } from "@elizaos/core";
-import { SqliteDatabaseAdapter } from "@iqai/adapter-sqlite";
 import { AgentBuilder } from "@iqai/agent";
 import { createNearPlugin } from "@iqai/plugin-near";
 
 async function main() {
-	// Setup database
-	const databaseAdapter = new SqliteDatabaseAdapter();
-
 	// Setup Near plugin
 	const nearPlugin = await createNearPlugin({
 		accountId: process.env.NEAR_ACCOUNT_ID as string,
@@ -53,7 +50,7 @@ async function main() {
 
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
+		.withDatabase(SqliteAdapter)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
