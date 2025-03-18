@@ -1,0 +1,37 @@
+{
+	"name": "@iqai/imageload-agent-example",
+	"version": "1.0.0",
+	"description": "Agent that posts a daily twitter image and also posts on discord",
+	"main": "src/index.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"start": "tsx src/index.js",
+		"dev": "tsx watch src/index.ts",
+		"check-types": "tsc --noEmit",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@elizaos/adapter-sqlite": "0.1.9",
+		"@elizaos/client-direct": "0.25.6-alpha.1",
+		"@elizaos/client-twitter": "0.25.6-alpha.1",
+		"@elizaos/core": "0.1.9",
+		"@elizaos/plugin-bootstrap": "0.1.9",
+		"@elizaos/plugin-image-generation": "0.25.6-alpha.1",
+		"@iqai/agent": "^0.0.5",
+		"@iqai/plugin-heartbeat": "^0.1.10",
+		"@iqai/plugin-sequencer": "^0.1.11",
+		"@types/better-sqlite3": "^7.6.12",
+		"better-sqlite3": "11.8.1",
+		"dotenv": "^16.4.7",
+		"sharp": "^0.33.5",
+		"viem": "^2.23.3"
+	},
+	"devDependencies": {
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.2"
+	},
+	"engines": {
+		"node": "23.x"
+	}
+}
