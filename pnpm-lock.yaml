@@ -52,7 +52,7 @@ importers:
         specifier: ^5.4.2
         version: 5.7.3
 
-  apps/atp-agent-example:
+  apps/atp-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
@@ -70,11 +70,11 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8)
       '@iqai/plugin-heartbeat':
-        specifier: ^0.1.11
-        version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
+        specifier: ^0.2.0
+        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-sequencer':
-        specifier: ^0.1.11
-        version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
+        specifier: ^0.2.0
+        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -98,32 +98,32 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  apps/bridge-agent-example:
+  apps/bridge-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
       '@elizaos/client-direct':
         specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)
+        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@elizaos/plugin-bootstrap':
         specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)
+        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-atp':
         specifier: ^0.2.0
-        version: 0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8)
+        version: 0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8)
       '@iqai/plugin-heartbeat':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-sequencer':
         specifier: ^0.2.0
-        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent:
         specifier: ^1.5.3
         version: 1.5.3
@@ -135,59 +135,22 @@ importers:
         version: 0.33.5
       viem:
         specifier: ^2.23.3
-        version: 2.23.4(typescript@5.7.3)(zod@3.23.8)
+        version: 2.23.10(typescript@5.7.3)(zod@3.23.8)
     devDependencies:
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@22.13.10)(typescript@5.7.3)
       tsup:
         specifier: 8.3.6
-        version: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+        version: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
       tsx:
         specifier: ^4.7.1
-        version: 4.19.2
+        version: 4.19.3
       typescript:
         specifier: ^5.4.2
         version: 5.7.3
 
-  apps/dummy-example:
-    dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: github:elizaos-plugins/adapter-sqlite
-        version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
-      '@elizaos/client-direct':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)
-      '@elizaos/core':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
-      '@elizaos/plugin-bootstrap':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0)
-      '@iqai/agent':
-        specifier: ^0.0.3
-        version: 0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
-      dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
-      sharp:
-        specifier: ^0.33.5
-        version: 0.33.5
-    devDependencies:
-      ts-node:
-        specifier: 10.9.2
-        version: 10.9.2(@types/node@22.13.10)(typescript@5.7.3)
-      tsup:
-        specifier: 8.3.6
-        version: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
-      tsx:
-        specifier: ^4.7.1
-        version: 4.19.2
-      typescript:
-        specifier: ^5.4.2
-        version: 5.7.3
-
-  apps/fraxlend-agent-example:
+  apps/fraxlend-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
@@ -230,7 +193,7 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  apps/imageload-agent-example:
+  apps/imageload-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
@@ -246,16 +209,16 @@ importers:
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/plugin-image-generation':
         specifier: github:elizaos-plugins/plugin-image-generation
-        version: github.com/elizaos-plugins/plugin-image-generation/440c3462c05df31d1a370e2ed1649eeac4634102(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0)
+        version: github.com/elizaos-plugins/plugin-image-generation/440c3462c05df31d1a370e2ed1649eeac4634102(tsx@4.19.3)(typescript@5.7.3)(whatwg-url@7.1.0)
       '@iqai/agent':
         specifier: ^0.2.0
         version: 0.2.0(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-heartbeat':
         specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.2.0(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-sequencer':
         specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.2.0(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -268,12 +231,12 @@ importers:
     devDependencies:
       tsx:
         specifier: ^4.7.1
-        version: 4.19.2
+        version: 4.19.3
       typescript:
         specifier: ^5.4.2
         version: 5.7.3
 
-  apps/odosbamm-agent-example:
+  apps/odosbamm-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
@@ -1493,48 +1456,6 @@ packages:
     resolution: {integrity: sha512-qEpKRT2oUaWDH6tjRxLHjdzMqRUGYDnGZlKrnL4dJ77JVMcP2Hpo3NYnOSPKdZdeec57B6QPprCUFg0picx5Pw==}
     dev: false
 
-  /@elizaos/client-direct@0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0):
-    resolution: {integrity: sha512-WxXZVujOPfllaOCxD6Oi7FLv8TRq2ukNFnrAurFSXNx5zAef5y6JdDETBoKPkHocdNhRKiwFtrlmgN2AO0AvPg==}
-    peerDependencies:
-      whatwg-url: 7.1.0
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
-      '@types/body-parser': 1.19.5
-      '@types/cors': 2.8.17
-      body-parser: 1.20.3
-      cors: 2.8.5
-      express: 4.21.1
-      multer: 1.4.5-lts.1
-      openai: 4.73.0(zod@3.24.2)
-      path-to-regexp: 1.9.0
-      whatwg-url: 7.1.0
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - typescript
-      - utf-8-validate
-      - ws
-    dev: false
-
   /@elizaos/client-direct@0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1):
     resolution: {integrity: sha512-WxXZVujOPfllaOCxD6Oi7FLv8TRq2ukNFnrAurFSXNx5zAef5y6JdDETBoKPkHocdNhRKiwFtrlmgN2AO0AvPg==}
     peerDependencies:
@@ -1890,39 +1811,6 @@ packages:
       viem: 2.21.58(typescript@5.7.3)(zod@3.24.2)
       vitest: 3.0.9(@types/node@22.13.10)
       zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - typescript
-      - utf-8-validate
-      - ws
-    dev: false
-
-  /@elizaos/plugin-bootstrap@0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.0):
-    resolution: {integrity: sha512-HBk/5E79IJ9B6XFGg8rzMrXDfEctP+IcWYE5SqhqgxgfeEe4YFHpFRzmNlLanpU9zEqFTfxep4N/TCvTgyus2Q==}
-    peerDependencies:
-      whatwg-url: 7.1.0
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
-      whatwg-url: 7.1.0
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@types/debug'
@@ -3060,42 +2948,6 @@ packages:
     dev: false
     optional: true
 
-  /@iqai/agent@0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0):
-    resolution: {integrity: sha512-g6fG2YaehlllfdIjR+uDOPBGZlUERwHlEfxMPFN3qquYvDSm+EZX6QR9b2S8MugI6Li6n2X0E+qnQJ9ILUvuvg==}
-    engines: {node: '>=22'}
-    dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(axios@1.7.9)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
-      better-sqlite3: 11.8.1
-      dedent: 1.5.3
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
-      - aws-crt
-      - axios
-      - babel-plugin-macros
-      - cheerio
-      - debug
-      - encoding
-      - peggy
-      - react
-      - solid-js
-      - sswr
-      - supports-color
-      - svelte
-      - typeorm
-      - vue
-      - ws
-    dev: false
-
   /@iqai/agent@0.2.0(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0):
     resolution: {integrity: sha512-u/ga30eI4/cRycml0yhkUzccfrXm93jZ+NnCP2Os8cbohWPzjjCa0sLlB5dulD5oAIaOK8jGpkWLQG2PZVok0A==}
     engines: {node: '>=22'}
@@ -3196,51 +3048,6 @@ packages:
       - typescript
       - utf-8-validate
       - ws
-    dev: false
-
-  /@iqai/plugin-atp@0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8):
-    resolution: {integrity: sha512-qf8ztHr78yg845FIpjEHfxp6R2R1UX3GTkFCLSYrq/V5fBgnazQNA6mqQgPOZXDt7SaCorMtRZA4YRk8veT8Hg==}
-    dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(axios@1.7.9)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.0)
-      dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
-      viem: 2.23.10(typescript@5.7.3)(zod@3.23.8)
-    transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - aws-crt
-      - axios
-      - babel-plugin-macros
-      - bufferutil
-      - cheerio
-      - debug
-      - encoding
-      - jiti
-      - peggy
-      - postcss
-      - react
-      - solid-js
-      - sswr
-      - supports-color
-      - svelte
-      - tsx
-      - typeorm
-      - typescript
-      - utf-8-validate
-      - vue
-      - ws
-      - yaml
-      - zod
     dev: false
 
   /@iqai/plugin-atp@0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8):
@@ -3376,95 +3183,13 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-heartbeat@0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1):
-    resolution: {integrity: sha512-UqbAkjonfo+rAUpC+u061Rd3AisN1T5MfbXvH6NpTujl/63+/Z29R8HURvig33+GMVEOHE6nThXUGAwj6KxuWg==}
+  /@iqai/plugin-heartbeat@0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
+    resolution: {integrity: sha512-16Vd2G3F/V/GnEWp7plZT4nTZ/6FmZNtIF4hnMZxZaCCv/3aBlZk4EDPK8ndWnI/7c22U+1YQITBpThbKt7uIQ==}
     dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       node-cron: 3.0.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-    transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - aws-crt
-      - axios
-      - babel-plugin-macros
-      - cheerio
-      - debug
-      - encoding
-      - jiti
-      - peggy
-      - postcss
-      - react
-      - solid-js
-      - sswr
-      - supports-color
-      - svelte
-      - tsx
-      - typeorm
-      - typescript
-      - vue
-      - ws
-      - yaml
-    dev: false
-
-  /@iqai/plugin-heartbeat@0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.0):
-    resolution: {integrity: sha512-16Vd2G3F/V/GnEWp7plZT4nTZ/6FmZNtIF4hnMZxZaCCv/3aBlZk4EDPK8ndWnI/7c22U+1YQITBpThbKt7uIQ==}
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
-  /@iqai/plugin-heartbeat@0.2.0(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.1):
-    resolution: {integrity: sha512-16Vd2G3F/V/GnEWp7plZT4nTZ/6FmZNtIF4hnMZxZaCCv/3aBlZk4EDPK8ndWnI/7c22U+1YQITBpThbKt7uIQ==}
-    dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@microsoft/api-extractor'
@@ -3629,89 +3354,6 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-sequencer@0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1):
-    resolution: {integrity: sha512-hlWGSw8PfG8IyZVFiCwKMMrswWkzw7KE43AHtM8HmZgTeReQ5nqzjDB3XZrTr6FQnc6MvKWgbnVmTdvS5dLgOA==}
-    dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
-      dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - aws-crt
-      - axios
-      - babel-plugin-macros
-      - cheerio
-      - debug
-      - encoding
-      - jiti
-      - peggy
-      - postcss
-      - react
-      - solid-js
-      - sswr
-      - supports-color
-      - svelte
-      - tsx
-      - typeorm
-      - typescript
-      - vue
-      - ws
-      - yaml
-    dev: false
-
-  /@iqai/plugin-sequencer@0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.0):
-    resolution: {integrity: sha512-ZC9PEWeQuIkgpgminO7qVyIxuYn4MkvroIoxSt0GwYd+C5P6J2i3V/g6pJP70/tBVJ6/aaU7uPHUiwHN4Zc4Jw==}
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
-      dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
-      vitest: 3.0.9(@types/node@22.13.10)
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
   /@iqai/plugin-sequencer@0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-ZC9PEWeQuIkgpgminO7qVyIxuYn4MkvroIoxSt0GwYd+C5P6J2i3V/g6pJP70/tBVJ6/aaU7uPHUiwHN4Zc4Jw==}
     dependencies:
@@ -3753,12 +3395,12 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-sequencer@0.2.0(react@19.0.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.1):
+  /@iqai/plugin-sequencer@0.2.0(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-ZC9PEWeQuIkgpgminO7qVyIxuYn4MkvroIoxSt0GwYd+C5P6J2i3V/g6pJP70/tBVJ6/aaU7uPHUiwHN4Zc4Jw==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
       vitest: 3.0.9(@types/node@22.13.10)
       zod: 3.24.2
     transitivePeerDependencies:
@@ -4906,7 +4548,7 @@ packages:
   /@types/connect@3.4.38:
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
     dependencies:
-      '@types/node': 22.13.4
+      '@types/node': 22.13.10
     dev: false
 
   /@types/cors@2.8.17:
@@ -9349,7 +8991,7 @@ packages:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
     dev: false
 
-  /tsup@8.3.5(tsx@4.19.2)(typescript@5.7.3):
+  /tsup@8.3.5(tsx@4.19.3)(typescript@5.7.3):
     resolution: {integrity: sha512-Tunf6r6m6tnZsG9GYWndg0z8dEV7fD733VBFzFJ5Vcm1FtlXB8xBD/rtrBi2a3YKEV7hHtxiZtW5EAVADoe1pA==}
     engines: {node: '>=18'}
     hasBin: true
@@ -9376,7 +9018,7 @@ packages:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(tsx@4.19.2)
+      postcss-load-config: 6.0.1(tsx@4.19.3)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
@@ -10104,7 +9746,7 @@ packages:
       - supports-color
     dev: false
 
-  github.com/elizaos-plugins/plugin-image-generation/440c3462c05df31d1a370e2ed1649eeac4634102(tsx@4.19.2)(typescript@5.7.3)(whatwg-url@7.1.0):
+  github.com/elizaos-plugins/plugin-image-generation/440c3462c05df31d1a370e2ed1649eeac4634102(tsx@4.19.3)(typescript@5.7.3)(whatwg-url@7.1.0):
     resolution: {tarball: https://codeload.github.com/elizaos-plugins/plugin-image-generation/tar.gz/440c3462c05df31d1a370e2ed1649eeac4634102}
     id: github.com/elizaos-plugins/plugin-image-generation/440c3462c05df31d1a370e2ed1649eeac4634102
     name: '@elizaos-plugins/plugin-image-generation'
@@ -10112,7 +9754,7 @@ packages:
     peerDependencies:
       whatwg-url: 7.1.0
     dependencies:
-      tsup: 8.3.5(tsx@4.19.2)(typescript@5.7.3)
+      tsup: 8.3.5(tsx@4.19.3)(typescript@5.7.3)
       whatwg-url: 7.1.0
     transitivePeerDependencies:
       - '@microsoft/api-extractor'
