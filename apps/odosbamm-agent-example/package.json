@@ -18,9 +18,9 @@
 		"@elizaos/core": "0.25.9",
 		"@elizaos/plugin-bootstrap": "0.25.9",
 		"@iqai/agent": "^0.2.0",
-		"@iqai/plugin-bamm": "^0.0.3",
+		"@iqai/plugin-bamm": "^0.1.0",
 		"@iqai/plugin-odos": "^0.26.0",
-		"@iqai/plugin-sequencer": "^0.1.11",
+		"@iqai/plugin-sequencer": "^0.2.0",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
 		"viem": "^2.23.5"

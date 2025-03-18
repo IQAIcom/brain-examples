@@ -1,6 +1,6 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
 import DirectClient from "@elizaos/client-direct";
-import { TelegramClientInterface } from "@elizaos/client-telegram";
+import TelegramClient from "@elizaos/client-telegram";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createBAMMPlugin } from "@iqai/plugin-bamm";
@@ -28,7 +28,7 @@ async function main() {
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
 		.withClient(DirectClient)
-		.withClient("telegram", TelegramClientInterface)
+		.withClient(TelegramClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,

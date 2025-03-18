@@ -294,14 +294,14 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-bamm':
-        specifier: ^0.0.3
-        version: 0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8)
+        specifier: ^0.1.0
+        version: 0.1.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-odos':
         specifier: ^0.26.0
-        version: 0.26.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.23.8)
+        version: 0.26.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-sequencer':
-        specifier: ^0.1.11
-        version: 0.1.11(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)
+        specifier: ^0.2.0
+        version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -310,7 +310,7 @@ importers:
         version: 0.33.5
       viem:
         specifier: ^2.23.5
-        version: 2.23.10(typescript@5.7.3)(zod@3.23.8)
+        version: 2.23.10(typescript@5.7.3)(zod@3.24.2)
     devDependencies:
       ts-node:
         specifier: 10.9.2
@@ -3854,46 +3854,42 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-bamm@0.0.3(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8):
-    resolution: {integrity: sha512-1O1tYO5LT6f4J2nQlwPxvUIexYoxe13BLrGcAwe5/wbS/ZCVeyoSDJg04GaBa4tcIPlDfrEKEsL1ewtC950d7w==}
+  /@iqai/plugin-bamm@0.1.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
+    resolution: {integrity: sha512-/mr/kZanjga7OLlUkDKru6RgB/VsYyNZWYVJs/IZ5m3fYFDuObuvliaVv5H7VYeFX9piicD3fjw5FdmjwW2ZiA==}
     dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(vue@3.5.13)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.23.10(typescript@5.7.3)(zod@3.23.8)
+      viem: 2.23.10(typescript@5.7.3)(zod@3.24.2)
     transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
+      - '@edge-runtime/vm'
       - '@microsoft/api-extractor'
       - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
       - aws-crt
-      - axios
       - babel-plugin-macros
       - bufferutil
-      - cheerio
-      - debug
       - encoding
+      - happy-dom
       - jiti
-      - peggy
+      - jsdom
+      - less
+      - lightningcss
+      - msw
       - postcss
       - react
-      - solid-js
-      - sswr
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
       - supports-color
-      - svelte
+      - terser
       - tsx
-      - typeorm
       - typescript
       - utf-8-validate
-      - vue
       - ws
       - yaml
       - zod
@@ -4159,13 +4155,13 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-odos@0.26.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.23.8):
+  /@iqai/plugin-odos@0.26.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-NzUihx/QaRVpavSGVA9IUzXo+A+X7htiMuYbXWRfy6dxPs+E92iipRLkG/c4NCANeeeyffHAHJu8BEPVOud+Xg==}
     dependencies:
       '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.23.10(typescript@5.7.3)(zod@3.23.8)
+      viem: 2.23.10(typescript@5.7.3)(zod@3.24.2)
       vitest: 3.0.9(@types/node@22.13.10)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -4291,6 +4287,47 @@ packages:
       '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.0)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.2)(typescript@5.7.3)
+      vitest: 3.0.9(@types/node@22.13.10)
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+    dev: false
+
+  /@iqai/plugin-sequencer@0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
+    resolution: {integrity: sha512-ZC9PEWeQuIkgpgminO7qVyIxuYn4MkvroIoxSt0GwYd+C5P6J2i3V/g6pJP70/tBVJ6/aaU7uPHUiwHN4Zc4Jw==}
+    dependencies:
+      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+      dedent: 1.5.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
       vitest: 3.0.9(@types/node@22.13.10)
       zod: 3.24.2
     transitivePeerDependencies:
