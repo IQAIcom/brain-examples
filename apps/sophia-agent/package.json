@@ -17,6 +17,7 @@
 		"@elizaos/client-twitter": "0.25.6-alpha.1",
 		"@elizaos/core": "0.1.9",
 		"@iqai/plugin-heartbeat": "^0.1.11",
+		"@iqai/plugin-wiki": "^0.0.2",
 		"@types/better-sqlite3": "^7.6.12",
 		"better-sqlite3": "11.8.1",
 		"dotenv": "^16.4.7",
