@@ -67,8 +67,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-atp':
-        specifier: ^0.2.0
-        version: 0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8)
+        specifier: ^0.3.0
+        version: 0.3.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-heartbeat':
         specifier: ^0.2.0
         version: 0.2.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
@@ -83,7 +83,7 @@ importers:
         version: 0.33.5
       viem:
         specifier: ^2.23.5
-        version: 2.23.10(typescript@5.7.3)(zod@3.23.8)
+        version: 2.23.10(typescript@5.7.3)(zod@3.24.2)
     devDependencies:
       ts-node:
         specifier: 10.9.2
@@ -3090,6 +3090,48 @@ packages:
       - typescript
       - utf-8-validate
       - vue
+      - ws
+      - yaml
+      - zod
+    dev: false
+
+  /@iqai/plugin-atp@0.3.0(@types/node@22.13.10)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
+    resolution: {integrity: sha512-Ly+h+a8DkLEOEl4i7tmpM8tsfCokJocU3mOyaYZhQD+f5SnSxey9S/337VE5SEsqzQtybVy8/Tp6RHdyL68U4Q==}
+    dependencies:
+      '@elizaos/core': 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+      dedent: 1.5.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
+      viem: 2.23.10(typescript@5.7.3)(zod@3.24.2)
+      vitest: 3.0.9(@types/node@22.13.10)
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
       - ws
       - yaml
       - zod
