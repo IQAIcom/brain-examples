@@ -4,11 +4,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "apps/atp-agent-example/**"
+      - "apps/atp-agent/**"
   pull_request:
     branches: [main]
     paths:
-      - "apps/atp-agent-example/**"
+      - "apps/atp-agent/**"
 
 jobs:
   build:
@@ -67,7 +67,7 @@ jobs:
         uses: tj-actions/changed-files@v41
         with:
           files: |
-            apps/atp-agent-example/**
+            apps/atp-agent/**
 
       - name: Deploy to Server
         if: steps.changed-files.outputs.any_changed == 'true'
@@ -78,7 +78,7 @@ jobs:
           key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
           port: ${{ secrets.DIGITALOCEAN_PORT }}
           script: |
-            cd /var/www/brain-examples/apps/atp-agent-example
+            cd /var/www/brain-examples/apps/atp-agent
             git pull origin main
             pnpm install
             pm2 restart atp-agent

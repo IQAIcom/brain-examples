@@ -1,7 +1,7 @@
 {
 	"name": "@iqai/atp-agent",
 	"version": "1.0.0",
-	"description": "ATP Agent example",
+	"description": "ATP Agent",
 	"main": "src/index.ts",
 	"type": "module",
 	"private": true,

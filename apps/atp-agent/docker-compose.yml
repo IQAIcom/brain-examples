@@ -4,13 +4,13 @@ services:
   atp-agent:
     build:
       context: ../..
-      dockerfile: apps/atp-agent-example/Dockerfile
+      dockerfile: apps/atp-agent/Dockerfile
     container_name: atp-agent
     restart: unless-stopped
     volumes:
       - type: bind
         source: ./data
-        target: /app/apps/atp-agent-example/data
+        target: /app/apps/atp-agent/data
     env_file:
       - .env
     ports:
