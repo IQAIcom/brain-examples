@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/imageload-agent-example",
+	"name": "@iqai/imageload-agent",
 	"version": "1.0.0",
 	"description": "Agent that posts a daily twitter image and also posts on discord",
 	"main": "src/index.js",

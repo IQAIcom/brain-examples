@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/bridge-agent-example",
+	"name": "@iqai/bridge-agent",
 	"version": "1.0.0",
 	"description": "bridge Agent example",
 	"main": "src/index.js",

@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/fraxlend-agent-example",
+	"name": "@iqai/fraxlend-agent",
 	"version": "1.0.0",
 	"description": "Fraxlend Agent example",
 	"main": "src/index.js",

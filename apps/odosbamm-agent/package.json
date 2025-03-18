@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/odosbamm-agent-example",
+	"name": "@iqai/odosbamm-agent",
 	"version": "1.0.0",
 	"description": "Odos and BAMM Agent example with Client",
 	"main": "src/index.js",

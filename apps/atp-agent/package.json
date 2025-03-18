@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/atp-agent-example",
+	"name": "@iqai/atp-agent",
 	"version": "1.0.0",
 	"description": "ATP Agent example",
 	"main": "src/index.ts",
