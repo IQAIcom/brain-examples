@@ -12,12 +12,10 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
-		"@elizaos/adapter-sqlite": "0.1.9",
-		"@elizaos/core": "0.1.9",
-		"@iqai/agent": "^0.0.6",
+		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
+		"@elizaos/core": "0.25.9",
+		"@iqai/agent": "^0.2.0",
 		"@iqai/plugin-near": "0.1.10",
-		"@types/better-sqlite3": "^7.6.12",
-		"better-sqlite3": "11.8.1",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5"
 	},
@@ -28,6 +26,6 @@
 		"typescript": "^5.4.2"
 	},
 	"engines": {
-		"node": "23.x"
+		"node": ">=22"
 	}
 }

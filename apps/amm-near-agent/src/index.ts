@@ -1,15 +1,9 @@
-import * as fs from "node:fs";
-import * as path from "node:path";
-import { SqliteDatabaseAdapter } from "@elizaos/adapter-sqlite";
+import SqliteAdapter from "@elizaos/adapter-sqlite";
 import { ModelProviderName } from "@elizaos/core";
 import { AgentBuilder } from "@iqai/agent";
 import { createNearPlugin } from "@iqai/plugin-near";
-import Database from "better-sqlite3";
 
 async function main() {
-	// Setup database
-	const databaseAdapter = setupDatabaseAdapter();
-
 	// Setup Near plugin
 	const nearPlugin = await createNearPlugin({
 		accountId: process.env.NEAR_ACCOUNT_ID as string,
@@ -56,7 +50,7 @@ async function main() {
 
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
-		.withDatabase(databaseAdapter)
+		.withDatabase(SqliteAdapter)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
@@ -65,14 +59,6 @@ async function main() {
 		.build();
 
 	await agent.start();
-}
-
-function setupDatabaseAdapter() {
-	const dataDir = path.join(process.cwd(), "./data");
-	fs.mkdirSync(dataDir, { recursive: true });
-	const dbPath = path.join(dataDir, "db.sqlite");
-	const databaseAdapter = new SqliteDatabaseAdapter(new Database(dbPath));
-	return databaseAdapter;
 }
 
 main().catch(console.error);

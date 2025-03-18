@@ -1,5 +1,5 @@
 {
-	"name": "@iqai/atp-agent-example",
+	"name": "@iqai/atp-agent",
 	"version": "1.0.0",
 	"description": "ATP Agent example",
 	"main": "src/index.ts",
@@ -12,15 +12,13 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
-		"@elizaos/adapter-sqlite": "0.1.9",
-		"@elizaos/client-direct": "0.1.9",
-		"@elizaos/core": "0.1.9",
-		"@iqai/agent": "^0.0.6",
-		"@iqai/plugin-atp": "^0.2.0",
-		"@iqai/plugin-heartbeat": "^0.1.11",
-		"@iqai/plugin-sequencer": "^0.1.11",
-		"@types/better-sqlite3": "^7.6.12",
-		"better-sqlite3": "11.8.1",
+		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
+		"@elizaos/client-direct": "0.25.9",
+		"@elizaos/core": "0.25.9",
+		"@iqai/agent": "^0.2.0",
+		"@iqai/plugin-atp": "^0.3.0",
+		"@iqai/plugin-heartbeat": "^0.2.0",
+		"@iqai/plugin-sequencer": "^0.2.0",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
 		"viem": "^2.23.5"
@@ -33,6 +31,6 @@
 	},
 	"packageManager": "pnpm@8.15.6",
 	"engines": {
-		"node": "23.x"
+		"node": ">=22"
 	}
 }
