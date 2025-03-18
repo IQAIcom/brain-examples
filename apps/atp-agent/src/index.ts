@@ -13,6 +13,8 @@ import { http, createPublicClient } from "viem";
 import { erc20Abi } from "viem";
 import { fraxtal } from "viem/chains";
 
+const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
+
 async function main() {
 	// Initialize ATP plugin
 	const atpPlugin = await createAtpPlugin({
@@ -33,8 +35,6 @@ async function main() {
 			},
 		},
 	]);
-
-	const IQ_TOKEN_ADDRESS = "0xcc3023635df54fc0e43f47bc4beb90c3d1fbda9f";
 
 	const publicClient = createPublicClient({
 		chain: fraxtal,
