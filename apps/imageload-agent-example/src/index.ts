@@ -1,19 +1,12 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
 import DirectClient from "@elizaos/client-direct";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
+import imageGenerationPlugin from "@elizaos/plugin-image-generation";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
 
 async function main() {
-	// Initialize Image plugin
-	// const imagePlugin = imageGenerationPlugin({
-	// 	provider: "anthropic",
-	// 	apiKey: process.env.ANTHROPIC_API_KEY,
-	// 	defaultSize: "1024x1024",
-	// 	autoCaption: true
-	//   });
-
 	const sequencerPlugin = await createSequencerPlugin();
 
 	// Initialize Heartbeat plugin
@@ -33,7 +26,12 @@ async function main() {
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
+		.withPlugins([
+			bootstrapPlugin,
+			heartbeatPlugin,
+			sequencerPlugin,
+			imageGenerationPlugin,
+		])
 		.withCharacter({
 			name: "BrainBot ImageLoader",
 			bio: "You are BrainBot, a helpful assistant in posting daily images on twitter.",

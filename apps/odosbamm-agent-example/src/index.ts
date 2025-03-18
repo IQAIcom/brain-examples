@@ -27,12 +27,11 @@ async function main() {
 	// Create agent with plugin
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClient(DirectClient)
-		.withClient(TelegramClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
+		.withClients([DirectClient, TelegramClient])
 		.withPlugins([bammPlugin, bootstrapPlugin, sequencerPlugin, odosPlugin])
 		.withCharacter({
 			name: "BrainBot SwapLender",
