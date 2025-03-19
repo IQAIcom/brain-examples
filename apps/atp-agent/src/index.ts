@@ -26,8 +26,8 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 12 * * *", // Every day at 12:00 PM
-			input: "Get the top agent from atp, calculate 1% of my iq balance and buy that agent with this iq amount, go through sequencer first.",
+			period: "0 */6 * * *", // Every 6 hours
+			input: "Use sequencer to get top ATP agent, buy with 1% IQ if within -5%, sell if +10%, else buy with 1% IQ.",
 			client: "callback",
 			config: {
 				callback: async (res) => console.log(res),
