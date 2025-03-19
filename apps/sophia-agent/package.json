@@ -1,0 +1,31 @@
+{
+	"name": "@iqai/sophia-agent",
+	"version": "0.0.1",
+	"description": "Sophia iq.wiki",
+	"main": "src/index.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"start": "tsx src/index.js",
+		"dev": "tsx watch src/index.ts",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
+		"@elizaos/client-telegram": "github:elizaos-plugins/client-telegram",
+		"@elizaos/client-twitter": "github:elizaos-plugins/client-twitter",
+		"@elizaos/core": "0.25.9",
+		"@iqai/plugin-heartbeat": "^0.3.1",
+		"@iqai/plugin-wiki": "^0.0.2",
+		"@iqai/agent": "^0.2.0",
+		"dotenv": "^16.4.7",
+		"sharp": "^0.33.5"
+	},
+	"devDependencies": {
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.2"
+	},
+	"engines": {
+		"node": ">=22"
+	}
+}
