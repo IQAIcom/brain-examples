@@ -1,38 +1,76 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
-import { ModelProviderName } from "@elizaos/core";
-import { AgentBuilder } from "@iqai/agent";
-import TelegramClient from "@elizaos/client-telegram";
+import telegramPlugin from "@elizaos/client-telegram";
+import twitterPlugin from "@elizaos/client-twitter";
+import { ModelClass, generateText } from "@elizaos/core";
+import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import createHeartbeatPlugin from "@iqai/plugin-heartbeat";
 import createWikiPlugin from "@iqai/plugin-wiki";
 
 async function main() {
-	// Setup database
+	// Initialize plugins
 	const pluginWiki = await createWikiPlugin();
+	const sophiaId = "0x8AF7a19a26d8FBC48dEfB35AEfb15Ec8c407f889";
 	const heartbeat = await createHeartbeatPlugin([
-		// {
-		// 	client: "twitter",
-		// 	period: "*/1 * * * *",
-		// 	input: "post random shit. ensure tweet is shorter than 150 characters",
-		// },
-		// {
-		// 	client: "telegram",
-		// 	config: {
-		// 		chatId: process.env.TELEGRAM_CHAT_ID ?? "",
-		// 	},
-		// 	period: "*/1 * * * *",
-		// 	input: "post random shit GO!",
-		// },
-	]);
+		{
+			clients: [
+				{
+					type: "telegram",
+					chatId: process.env.TELEGRAM_CHAT_ID ?? "",
+				},
+				{
+					type: "twitter",
+				},
+			],
+			period: "* * * * *",
+			input: `get the latest user wikis from ${sophiaId} in past 12 hours and post about it`,
+			onlyFinalOutput: true,
+			formatResponse: async (response, runtime) => {
+				const prompt = `
+				format the given original response in this form. do not use any markdown formatting and the message should always
+				end with the link. also add emojis and you are a nerdy female wiki editor awkward and a degenerate. style the text like one and be witty.
+				The original response is the wiki written by you so convey the message as its written by yourself.
+				NOTE: ensure the response is below 280 characters and the link MUST be in the end. you can alter the wiki summary but make sure the link is not removed/truncated
+				EDGE CASE: if the original response is incomplete or something like this: Error: No wikis found in the last 6 hour(s), post a random greeting or fact (prefer crypto topics) that suits your personality. DO NO MENTION ABOUT NO NEW WIKI.
+				basic structure:
+				# A random greeting (eg: Hello fellow nerds 🤓),
+				# A single line conveying about new wiki with the wiki title
+				# wiki summary
+				# A witty joke/roast (optional/prefer crypto topics)
+				# wiki link
 
+				A proper example:
+				Hey there, trivia fans 🤓,
+
+				Check out my new wiki on Boxcat!
+
+				Boxcat is a meme-tastic play-to-earn universe with epic storylines and interactive fun. Earn rewards just by tapping!
+
+				Why did the meme go to school? To become a little more gif-ted!
+			  https://iq.wiki/wiki/boxcat
+			`;
+				const context = `${prompt} original response: ${response}`;
+
+				// Call generateText with the correct parameter structure
+				const formattedText = await generateText({
+					runtime: runtime,
+					context: context,
+					modelClass: ModelClass.LARGE,
+				});
+
+				return formattedText || response;
+			},
+		},
+	]);
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withPlugins([heartbeat, pluginWiki])
-		.withClients([TelegramClient])
+		.withClient(telegramPlugin)
+		.withClient(twitterPlugin)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
+		.withPlugins([pluginWiki, heartbeat])
 		.withCharacter({
 			name: "Sophia",
 			bio: [
@@ -142,4 +180,5 @@ async function main() {
 
 	await agent.start();
 }
+
 main().catch(console.error);

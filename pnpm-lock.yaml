@@ -163,7 +163,7 @@ importers:
         version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@elizaos/plugin-bootstrap':
         specifier: 0.25.9
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
@@ -203,7 +203,7 @@ importers:
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@elizaos/plugin-bootstrap':
         specifier: 0.25.9
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
@@ -301,16 +301,16 @@ importers:
         version: github.com/elizaos-plugins/client-twitter/1dbcfa726d1e1f0efa6b95946b9e8b04d03167ef(whatwg-url@7.1.0)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.25.9(@types/node@22.13.10)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.2.0
         version: 0.2.0(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-heartbeat':
-        specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
+        specifier: ^0.3.0
+        version: 0.3.0(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-wiki':
         specifier: ^0.0.2
-        version: 0.0.2(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(zod@3.24.2)
+        version: 0.0.2(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -4106,6 +4106,46 @@ packages:
       - yaml
     dev: false
 
+  /@iqai/plugin-heartbeat@0.3.0(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
+    resolution: {integrity: sha512-5nCgWjYIT9Ox0klKa5pKS8/eL1SWFGxFbEURHhrehWXn/HyC85wAUJBvNiWvwCYCHXH6kEhDJwNjATtH16M5Ww==}
+    dependencies:
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+      dedent: 1.5.3
+      node-cron: 3.0.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+    dev: false
+
   /@iqai/plugin-near@0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.42)(react@19.0.0)(svelte@5.23.0)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8):
     resolution: {integrity: sha512-3K6TgyZwPDevRM/glbXt0HwGo1sYlB8WSSTNvoqlX3qQktkmsCIADpP6E8TTYuk7cDmllUJ5PXbPh3vcYVqRKA==}
     dependencies:
@@ -4320,7 +4360,7 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-wiki@0.0.2(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(zod@3.24.2):
+  /@iqai/plugin-wiki@0.0.2(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-LNILtlwPEsNBafit6K7N9QBAO5DJ4kToP9W3tyXGNRpxARyv1rpMjBhYUBGOjfpVuZOr+jtpA1gLjoroFHkceg==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
