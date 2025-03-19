@@ -21,13 +21,13 @@
 		"@iqai/plugin-sequencer": "^0.2.0",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
-		"viem": "^2.23.5"
+		"viem": "^2.23.12"
 	},
 	"devDependencies": {
 		"ts-node": "10.9.2",
 		"tsup": "8.3.6",
 		"tsx": "^4.19.3",
-		"typescript": "^5.7.3"
+		"typescript": "^5.8.2"
 	},
 	"packageManager": "pnpm@8.15.6",
 	"engines": {
