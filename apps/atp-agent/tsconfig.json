@@ -14,9 +14,9 @@
         "noUncheckedIndexedAccess": true,
         "noImplicitOverride": true,
         /* Node Stuff */
-        "allowImportingTsExtensions": true,
+        // "allowImportingTsExtensions": true,
         "module": "NodeNext",
-        "noEmit": true,
+        // "noEmit": true,
         /* If your code doesn't run in the DOM: */
         "lib": [
             "es2022"

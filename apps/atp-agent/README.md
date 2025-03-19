@@ -1,8 +1,8 @@
-# ATP Agent Example
+# ATP Agent
 
 ## Overview
 
-The **ATP Agent Example** the agent use heartbeat plugin to check top agents daily and buy tokens using 1% of his IQ holdings on fraxtal, this is done with addition of a simple custom plugin ie **iqBalancePlugin**
+The **ATP Agent** the agent use heartbeat plugin to check top agents daily and buy tokens using 1% of his IQ holdings on fraxtal, this is done with addition of a simple custom plugin ie **iqBalancePlugin**
 
 ## Plugins Overview
 
@@ -32,7 +32,7 @@ To get started, clone this repository and navigate to the project folder:
 
 ```bash
 git clone https://github.com/IQAIcom/brain-examples.git
-cd brain-examples/apps/atp-agent-example
+cd brain-examples/apps/atp-agent
 ```
 
 Then, follow the installation instructions below.

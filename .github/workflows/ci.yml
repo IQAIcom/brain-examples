@@ -1,0 +1,149 @@
+name: Dynamic Multi-App CI/CD
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint
+
+  detect-app-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      has_changes: ${{ steps.set-matrix.outputs.has_changes }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for proper change detection
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v41
+        with:
+          files: apps/*/**
+
+      - name: Extract changed app directories
+        id: set-matrix
+        run: |
+          APPS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep "^apps/" | awk -F'/' '{print $2}' | sort | uniq | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "Detected changed apps: $APPS"
+          echo "matrix=$APPS" >> $GITHUB_OUTPUT
+
+          # Set a flag to indicate if we have any app changes
+          if [[ "$APPS" == "[]" ]]; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    needs: detect-app-changes
+    if: needs.detect-app-changes.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: ${{ fromJson(needs.detect-app-changes.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+        env:
+          WALLET_PRIVATE_KEY: ${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || secrets.WALLET_PRIVATE_KEY }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SERVER_PORT: 3000
+          USE_OPENAI_EMBEDDING: "TRUE"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NEAR_ACCOUNT_ID: ${{ secrets.NEAR_ACCOUNT_ID }}
+          NEAR_PRIVATE_KEY: ${{ secrets.NEAR_PRIVATE_KEY }}
+
+  deploy:
+    needs: [detect-app-changes, build]
+    if: needs.detect-app-changes.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: ${{ fromJson(needs.detect-app-changes.outputs.matrix) }}
+      fail-fast: false
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Deploy to Server ${{ matrix.app }}
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ matrix.app == 'atp-agent' && secrets.DIGITALOCEAN_HOST_ATP || matrix.app == 'bridge-agent' && secrets.DIGITALOCEAN_HOST_BRIDGE || matrix.app == 'amm-near-agent' && secrets.DIGITALOCEAN_HOST_AMM_NEAR }}
+          username: ${{ secrets.DIGITALOCEAN_USER }}
+          key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
+          port: ${{ secrets.DIGITALOCEAN_PORT }}
+          script: |
+            cd /var/www/brain-examples
+            git fetch origin main
+            git checkout origin/main -- apps/${{ matrix.app }}
+            cd apps/${{ matrix.app }}
+            if [ "${{ matrix.app }}" == "atp-agent" ]; then
+              docker-compose down # Stop existing containers
+              docker-compose up -d --build # Build and start containers
+            else
+              # Install pnpm and pm2 if they are not already installed
+              if ! command -v pnpm &> /dev/null; then
+                npm install -g pnpm
+              fi
+              if ! command -v pm2 &> /dev/null; then
+                npm install -g pm2
+              fi
+              pnpm install
+              pm2 restart ${{ matrix.app }}
+            fi
