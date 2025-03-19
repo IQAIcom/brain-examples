@@ -21,7 +21,7 @@ async function main() {
 					type: "twitter",
 				},
 			],
-			period: "* * * * *",
+			period: "0 */12 * * *",
 			input: `get the latest user wikis from ${sophiaId} in past 12 hours and post about it`,
 			onlyFinalOutput: true,
 			formatResponse: async (response, runtime) => {
