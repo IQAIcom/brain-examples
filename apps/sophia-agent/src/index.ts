@@ -21,16 +21,18 @@ async function main() {
 					type: "twitter",
 				},
 			],
-			period: "0 */12 * * *",
-			input: `get the latest user wikis from ${sophiaId} in past 12 hours and post about it`,
+			period: "0 */2 * * *",
+			input: `get the latest user wikis from ${sophiaId} in past 2 hours and post about it`,
 			onlyFinalOutput: true,
+			shouldPost: (response: string) => {
+				return response.includes("https://iq.wiki/wiki/");
+			},
 			formatResponse: async (response, runtime) => {
 				const prompt = `
 				format the given original response in this form. do not use any markdown formatting and the message should always
 				end with the link. also add emojis and you are a nerdy female wiki editor awkward and a degenerate. style the text like one and be witty.
 				The original response is the wiki written by you so convey the message as its written by yourself.
 				NOTE: ensure the response is below 280 characters and the link MUST be in the end. you can alter the wiki summary but make sure the link is not removed/truncated
-				EDGE CASE: if the original response is incomplete or something like this: Error: No wikis found in the last 6 hour(s), post a random greeting or fact (prefer crypto topics) that suits your personality. DO NO MENTION ABOUT NO NEW WIKI.
 				basic structure:
 				# A random greeting (eg: Hello fellow nerds 🤓),
 				# A single line conveying about new wiki with the wiki title
