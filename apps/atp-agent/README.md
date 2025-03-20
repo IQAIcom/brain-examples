@@ -58,7 +58,6 @@ WALLET_PRIVATE_KEY=your-wallet-private-key
 SERVER_PORT="3000"
 USE_OPENAI_EMBEDDING="TRUE"
 OPENAI_API_KEY="sk-openai-api-key"
-TELEGRAM_BOT_TOKEN="bot-token"
 ```
 
 ## Query Examples
@@ -66,8 +65,14 @@ TELEGRAM_BOT_TOKEN="bot-token"
 - **Sample Queries:**
 
   ```plaintext
-  Check and post top agent, check my IQ balance then buy tokens using 1% of his IQ holdings
+  Use sequencer to get top ATP agent, buy with 1% IQ if within -5%, sell if +10%, else buy with 1% IQ.
   ```
+
+## Results
+
+You can checkout the video of the ATP Agent in action
+[Video 1](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490853/ATP_Agent_Vid_ywnlmr.webm)
+[Video 2](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490852/ATP_Recording_r1whba.webm)
 
 ### More Queries: Try any combination of queries in the following doc
 
