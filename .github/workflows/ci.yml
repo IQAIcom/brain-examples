@@ -124,7 +124,7 @@ jobs:
       - name: Deploy to Server ${{ matrix.app }}
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ matrix.app == 'atp-agent' && secrets.DIGITALOCEAN_HOST_ATP || matrix.app == 'bridge-agent' && secrets.DIGITALOCEAN_HOST_BRIDGE || matrix.app == 'amm-near-agent' && secrets.DIGITALOCEAN_HOST_AMM_NEAR }}
+          host: ${{ matrix.app == 'atp-agent' && secrets.DIGITALOCEAN_HOST_ATP || matrix.app == 'bridge-agent' && secrets.DIGITALOCEAN_HOST_BRIDGE || matrix.app == 'amm-near-agent' && secrets.DIGITALOCEAN_HOST_AMM_NEAR || matrix.app == 'sophia-agent' && secrets.DIGITALOCEAN_HOST_SOPHIA }}
           username: ${{ secrets.DIGITALOCEAN_USER }}
           key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
           port: ${{ secrets.DIGITALOCEAN_PORT }}
