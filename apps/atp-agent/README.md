@@ -74,6 +74,9 @@ You can checkout the video of the ATP Agent in action
 [Video 1](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490853/ATP_Agent_Vid_ywnlmr.webm)
 [Video 2](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490852/ATP_Recording_r1whba.webm)
 
+You can check transaction logs url
+[Transaction Logs](https://fraxscan.com/txs?a=0xE16159317691fe9C9e764db7896698c26DBfc71c)
+
 ### More Queries: Try any combination of queries in the following doc
 
 [ATP Doc](https://brain.iqai.com/plugins/atp)

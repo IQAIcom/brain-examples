@@ -87,12 +87,17 @@ jobs:
         run: pnpm build
         env:
           WALLET_PRIVATE_KEY: ${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || secrets.WALLET_PRIVATE_KEY }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WALLET_ADDRESS: ${{ secrets.WALLET_ADDRESS }}
+          TELEGRAM_CHAT_ID: ${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_CHAT_ID_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_CHAT_ID_SOPHIA || secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || secrets.TELEGRAM_BOT_TOKEN }}
           SERVER_PORT: 3000
           USE_OPENAI_EMBEDDING: "TRUE"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NEAR_ACCOUNT_ID: ${{ secrets.NEAR_ACCOUNT_ID }}
           NEAR_PRIVATE_KEY: ${{ secrets.NEAR_PRIVATE_KEY }}
+          TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
+          TWITTER_PASSWORD: ${{ secrets.TWITTER_PASSWORD }}
+          TWITTER_EMAIL: ${{ secrets.TWITTER_EMAIL }}
 
   deploy:
     needs: [detect-app-changes, build]
@@ -136,12 +141,31 @@ jobs:
 
             cat > .env << EOF
             WALLET_PRIVATE_KEY=${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || matrix.app == 'sophia-agent' && secrets.WALLET_PRIVATE_KEY_SOPHIA || secrets.WALLET_PRIVATE_KEY }}
-            TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
+            WALLET_ADDRESS=${{ secrets.WALLET_ADDRESS }}
+            TELEGRAM_CHAT_ID=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_CHAT_ID_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_CHAT_ID_SOPHIA || secrets.TELEGRAM_CHAT_ID }}
+            TELEGRAM_BOT_TOKEN=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || secrets.TELEGRAM_BOT_TOKEN }}
             SERVER_PORT=3000
             USE_OPENAI_EMBEDDING=TRUE
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
             NEAR_ACCOUNT_ID=${{ secrets.NEAR_ACCOUNT_ID }}
             NEAR_PRIVATE_KEY=${{ secrets.NEAR_PRIVATE_KEY }}
+            TWITTER_USERNAME=${{ secrets.TWITTER_USERNAME }}
+            TWITTER_PASSWORD=${{ secrets.TWITTER_PASSWORD }}
+            TWITTER_EMAIL=${{ secrets.TWITTER_EMAIL }}
+            TWITTER_DRY_RUN=true      # Set to true for testing without posting
+            MAX_TWEET_LENGTH=280       # Default tweet length limit
+            TWITTER_SEARCH_ENABLE=false # Enable search functionality
+            TWITTER_RETRY_LIMIT=5      # Login retry attempts
+            TWITTER_POLL_INTERVAL=60  # Poll interval in seconds
+            # Post Generation Settings
+            ENABLE_TWITTER_POST_GENERATION=false
+            POST_INTERVAL_MIN= 360       # Minimum interval between posts (minutes)
+            POST_INTERVAL_MAX= 380 # Maximum interval between posts (minutes)
+            POST_IMMEDIATELY=false     # Skip approval workflow
+            # Action Processing
+            ENABLE_ACTION_PROCESSING=true
+            ACTION_INTERVAL=5          # Action check interval (minutes)
+            MAX_ACTIONS_PROCESSING=1 
             EOF
 
             chmod 600 .env 
