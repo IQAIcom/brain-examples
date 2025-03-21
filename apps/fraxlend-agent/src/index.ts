@@ -17,13 +17,15 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 12 * * *", // Every day at 12:00 PM
+			period: "0 12 * * *",
 			input:
 				"Check if APR of new pools are greater 3% of his current positions, lend else borrow and show result",
-			client: "telegram",
-			config: {
-				chatId: process.env.TELEGRAM_CHAT_ID as string,
-			},
+			clients: [
+				{
+					type: "telegram",
+					chatId: process.env.TELEGRAM_CHAT_ID as string,
+				},
+			],
 		},
 	]);
 

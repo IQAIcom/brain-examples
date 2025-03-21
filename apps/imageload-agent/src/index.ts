@@ -12,9 +12,13 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 12 * * *", // Every day at 12:00 PM
+			period: "0 12 * * *",
 			input: "Post an AI Cat photo  daily",
-			client: "twitter",
+			clients: [
+				{
+					type: "twitter",
+				},
+			],
 		},
 	]);
 
