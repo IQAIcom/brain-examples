@@ -2,8 +2,6 @@ name: Dynamic Multi-App CI/CD
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   lint-and-test:
@@ -184,7 +182,7 @@ jobs:
 
             chmod 600 .env 
 
-            if [ "${{ matrix.app }}" == "atp-agent" ]; then
+            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ]; then
               docker-compose down # Stop existing containers
               docker-compose up -d --build # Build and start containers
             else
