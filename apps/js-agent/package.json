@@ -1,0 +1,32 @@
+{
+	"name": "@iqai/js-agent",
+	"version": "1.0.0",
+	"description": "Agent that can execute JavaScript code",
+	"main": "src/index.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"start": "tsx src/index.js",
+		"dev": "tsx watch src/index.ts",
+		"check-types": "tsc --noEmit",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@elizaos/client-direct": "0.25.9",
+		"@elizaos/core": "0.25.9",
+		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
+		"@iqai/agent": "^0.2.0",
+		"@iqai/plugin-heartbeat": "^0.3.1",
+		"@iqai/plugin-js": "^0.1.0",
+		"dotenv": "^16.4.7",
+		"sharp": "^0.33.5",
+		"viem": "^2.23.3"
+	},
+	"devDependencies": {
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.2"
+	},
+	"engines": {
+		"node": ">=22"
+	}
+}
