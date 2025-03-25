@@ -26,7 +26,7 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "*/10 13 * * *", // every 10 minutes between 1:00 PM and 2:00 PM
+			period: "*/10 0 0 * * *", // every 10 minutes between midnight and 1am
 			input:
 				"Use sequencer to get top ATP agent then buy with 1% of IQ balance.",
 			clients: [
