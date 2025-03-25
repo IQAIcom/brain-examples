@@ -2,8 +2,6 @@ name: Dynamic Multi-App CI/CD
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
 jobs:
   lint-and-test:
@@ -14,12 +12,12 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "23"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -72,12 +70,12 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "23"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -129,12 +127,12 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "23"
           cache: "pnpm"
 
       - name: Install dependencies
@@ -184,7 +182,7 @@ jobs:
 
             chmod 600 .env 
 
-            if [ "${{ matrix.app }}" == "atp-agent" ]; then
+            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ]; then
               docker-compose down # Stop existing containers
               docker-compose up -d --build # Build and start containers
             else
