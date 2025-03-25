@@ -10,11 +10,10 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/atp-agent/package.json ./apps/atp-agent/
 COPY packages ./packages
 
-# First install to update lockfile if needed
-RUN pnpm install --filter="./apps/atp-agent..."
-
 # Install dependencies globally
 RUN npm install -g pnpm tsx
+# First install to update lockfile if needed
+RUN pnpm install --filter="./apps/atp-agent..."
 RUN pnpm install --filter="./apps/atp-agent..." --frozen-lockfile
 
 # Copy only the ATP agent code
