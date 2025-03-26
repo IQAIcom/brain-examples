@@ -18,7 +18,7 @@
 		"@iqai/agent": "^0.2.0",
 		"@iqai/plugin-atp": "^0.3.0",
 		"@iqai/plugin-heartbeat": "^0.3.1",
-		"@iqai/plugin-sequencer": "^0.2.0",
+		"@iqai/plugin-sequencer": "^0.2.1",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
 		"viem": "^2.23.12"
