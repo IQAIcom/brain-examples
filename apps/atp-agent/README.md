@@ -65,14 +65,22 @@ OPENAI_API_KEY="sk-openai-api-key"
 - **Sample Queries:**
 
   ```plaintext
+  #Example 1: used for this ATP Agent
+  Use sequencer to get top ATP agent then buy with 1% of IQ balance
+
+  #Example 2
   Use sequencer to get top ATP agent, buy with 1% IQ if within -5%, sell if +10%, else buy with 1% IQ.
+
+  #Example 3
+  Use sequencer to get top ATP agent, buy with 1% IQ if within -5%, sell if +10%, but if balance is less than 8000 IQ, sell agent holding else buy with 1% IQ
   ```
 
 ## Results
 
 You can checkout the video of the ATP Agent in action
-[Video 1](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490853/ATP_Agent_Vid_ywnlmr.webm)
-[Video 2](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490852/ATP_Recording_r1whba.webm)
+[Video 1](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742825490/ATP_Agent_Accumulation_Action_gruixv.webm)
+[Video 2](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490853/ATP_Agent_Vid_ywnlmr.webm)
+[Video 3](https://res.cloudinary.com/dyhwugvrd/video/upload/v1742490852/ATP_Recording_r1whba.webm)
 
 You can check transaction logs url
 [Transaction Logs](https://fraxscan.com/txs?a=0xE16159317691fe9C9e764db7896698c26DBfc71c)

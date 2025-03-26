@@ -12,6 +12,8 @@ COPY packages ./packages
 
 # Install dependencies globally
 RUN npm install -g pnpm tsx
+# First install to update lockfile if needed
+RUN pnpm install --filter="./apps/atp-agent..."
 RUN pnpm install --filter="./apps/atp-agent..." --frozen-lockfile
 
 # Copy only the ATP agent code
