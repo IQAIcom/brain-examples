@@ -265,28 +265,19 @@ importers:
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
       '@elizaos/client-direct':
         specifier: ^0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.8.2)(whatwg-url@7.1.0)(ws@8.18.1)
-      '@elizaos/core':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.13)(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
+        version: 0.25.9(react@19.0.0)(typescript@5.8.2)(whatwg-url@7.1.0)(ws@8.18.0)
       '@iqai/agent':
         specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
+        version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
-        version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
+        version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
       '@iqai/plugin-mcp':
         specifier: ^0.2.1
-        version: 0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
-      dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
+        version: 0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
-      viem:
-        specifier: ^2.23.3
-        version: 2.23.12(typescript@5.8.2)(zod@3.24.2)
     devDependencies:
       tsx:
         specifier: ^4.7.1
@@ -1923,12 +1914,12 @@ packages:
       - ws
     dev: false
 
-  /@elizaos/client-direct@0.25.9(react@19.0.0)(typescript@5.8.2)(whatwg-url@7.1.0)(ws@8.18.1):
+  /@elizaos/client-direct@0.25.9(react@19.0.0)(typescript@5.8.2)(whatwg-url@7.1.0)(ws@8.18.0):
     resolution: {integrity: sha512-WxXZVujOPfllaOCxD6Oi7FLv8TRq2ukNFnrAurFSXNx5zAef5y6JdDETBoKPkHocdNhRKiwFtrlmgN2AO0AvPg==}
     peerDependencies:
       whatwg-url: 7.1.0
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@types/body-parser': 1.19.5
       '@types/cors': 2.8.17
       body-parser: 1.20.3
@@ -2405,65 +2396,6 @@ packages:
       js-tiktoken: 1.0.15
       ollama-ai-provider: 0.16.1(zod@3.24.2)
       openai: 4.82.0(ws@8.18.0)(zod@3.24.2)
-      pino: 9.6.0
-      pino-pretty: 13.0.0
-      sql.js: 1.13.0
-      together-ai: 0.7.0
-      unique-names-generator: 4.7.1
-      uuid: 11.0.3
-      viem: 2.21.58(typescript@5.8.2)(zod@3.24.2)
-      vitest: 3.0.9(@types/node@22.13.13)
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - typescript
-      - utf-8-validate
-      - ws
-    dev: false
-
-  /@elizaos/core@0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1):
-    resolution: {integrity: sha512-4ze8DhTLxqLMRDEu3eODMxUjj7XK+CehC8El6HbW+/WXGBknCgeZMP+SH6Y93JtFDnIJFU+Ndzx3W2+E8e/GGg==}
-    dependencies:
-      '@ai-sdk/amazon-bedrock': 1.1.6(zod@3.24.2)
-      '@ai-sdk/anthropic': 1.1.6(zod@3.24.2)
-      '@ai-sdk/google': 1.1.0(zod@3.24.2)
-      '@ai-sdk/groq': 1.1.7(zod@3.24.2)
-      '@ai-sdk/mistral': 1.1.6(zod@3.24.2)
-      '@ai-sdk/openai': 1.1.9(zod@3.24.2)
-      '@electric-sql/pglite': 0.2.17
-      '@fal-ai/client': 1.2.0
-      '@supabase/supabase-js': 2.49.1
-      '@types/uuid': 10.0.0
-      ai: 4.1.16(react@19.0.0)(zod@3.24.2)
-      better-sqlite3: 11.8.1
-      bignumber.js: 9.1.2
-      dotenv: 16.4.5
-      fastembed: 1.14.1
-      glob: 11.0.0
-      handlebars: 4.7.8
-      js-sha1: 0.7.0
-      js-tiktoken: 1.0.15
-      ollama-ai-provider: 0.16.1(zod@3.24.2)
-      openai: 4.82.0(ws@8.18.1)(zod@3.24.2)
       pino: 9.6.0
       pino-pretty: 13.0.0
       sql.js: 1.13.0
@@ -4064,40 +3996,6 @@ packages:
       - ws
     dev: false
 
-  /@iqai/agent@0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.1):
-    resolution: {integrity: sha512-u/ga30eI4/cRycml0yhkUzccfrXm93jZ+NnCP2Os8cbohWPzjjCa0sLlB5dulD5oAIaOK8jGpkWLQG2PZVok0A==}
-    engines: {node: '>=22'}
-    dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
-      dedent: 1.5.3
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - typescript
-      - utf-8-validate
-      - ws
-    dev: false
-
   /@iqai/plugin-atp@0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.43)(react@19.0.0)(svelte@5.25.3)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8):
     resolution: {integrity: sha512-qf8ztHr78yg845FIpjEHfxp6R2R1UX3GTkFCLSYrq/V5fBgnazQNA6mqQgPOZXDt7SaCorMtRZA4YRk8veT8Hg==}
     dependencies:
@@ -4433,46 +4331,6 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-heartbeat@0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
-    resolution: {integrity: sha512-sBjP8Mz1umu+IsSx5S97w0eGy1ZWYPyEV0HYTUD7mdw3NoYwy5dyRp1AUffvHdETNldloHswJETEbQ+Km3wUYA==}
-    dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
   /@iqai/plugin-js@0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
     resolution: {integrity: sha512-DC4IkRWLa+d+Q3ouyacx/A8mraGh4K/Hh2JNq8LO1HcghwFwVOGeaIvfk/fjDsDvznMHRP2nCWjXjDIOcR9pxw==}
     dependencies:
@@ -4513,10 +4371,10 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-mcp@0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
+  /@iqai/plugin-mcp@0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
     resolution: {integrity: sha512-M1xEOWVGC2TDqqZScKAhzaa/Yo++MzonaCYRqJQ/s06s+CtsS/SNos/Q+bszGWSDniMnfALDdPmmGA4ykolBOg==}
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@modelcontextprotocol/sdk': 1.5.0
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
