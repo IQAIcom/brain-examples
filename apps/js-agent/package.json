@@ -12,15 +12,10 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
-		"@elizaos/client-direct": "0.25.9",
-		"@elizaos/core": "0.25.9",
 		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
 		"@iqai/agent": "^0.2.0",
 		"@iqai/plugin-heartbeat": "^0.3.1",
-		"@iqai/plugin-js": "^0.1.0",
-		"dotenv": "^16.4.7",
-		"sharp": "^0.33.5",
-		"viem": "^2.23.3"
+		"@iqai/plugin-js": "^0.1.0"
 	},
 	"devDependencies": {
 		"tsx": "^4.7.1",

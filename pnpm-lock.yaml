@@ -163,7 +163,7 @@ importers:
         version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.25.9(@types/node@22.13.13)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@elizaos/plugin-bootstrap':
         specifier: 0.25.9
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
@@ -203,7 +203,7 @@ importers:
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.25.9(@types/node@22.13.13)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@elizaos/plugin-bootstrap':
         specifier: 0.25.9
         version: 0.25.9(react@19.0.0)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
@@ -241,30 +241,15 @@ importers:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
-      '@elizaos/client-direct':
-        specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.8.2)(whatwg-url@7.1.0)(ws@8.18.1)
-      '@elizaos/core':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.13)(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
+        version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
-        version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
+        version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
       '@iqai/plugin-js':
         specifier: ^0.1.0
-        version: 0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
-      dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
-      sharp:
-        specifier: ^0.33.5
-        version: 0.33.5
-      viem:
-        specifier: ^2.23.3
-        version: 2.23.15(typescript@5.8.2)(zod@3.24.2)
+        version: 0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
     devDependencies:
       tsx:
         specifier: ^4.7.1
@@ -375,7 +360,7 @@ importers:
         version: github.com/elizaos-plugins/client-twitter/1dbcfa726d1e1f0efa6b95946b9e8b04d03167ef(whatwg-url@7.1.0)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
+        version: 0.25.9(@types/node@22.13.13)(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.2.0
         version: 0.2.0(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
@@ -384,7 +369,7 @@ importers:
         version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-wiki':
         specifier: ^0.0.3
-        version: 0.0.3(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(zod@3.24.2)
+        version: 0.0.3(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -2396,6 +2381,65 @@ packages:
       - ws
     dev: false
 
+  /@elizaos/core@0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0):
+    resolution: {integrity: sha512-4ze8DhTLxqLMRDEu3eODMxUjj7XK+CehC8El6HbW+/WXGBknCgeZMP+SH6Y93JtFDnIJFU+Ndzx3W2+E8e/GGg==}
+    dependencies:
+      '@ai-sdk/amazon-bedrock': 1.1.6(zod@3.24.2)
+      '@ai-sdk/anthropic': 1.1.6(zod@3.24.2)
+      '@ai-sdk/google': 1.1.0(zod@3.24.2)
+      '@ai-sdk/groq': 1.1.7(zod@3.24.2)
+      '@ai-sdk/mistral': 1.1.6(zod@3.24.2)
+      '@ai-sdk/openai': 1.1.9(zod@3.24.2)
+      '@electric-sql/pglite': 0.2.17
+      '@fal-ai/client': 1.2.0
+      '@supabase/supabase-js': 2.49.1
+      '@types/uuid': 10.0.0
+      ai: 4.1.16(react@19.0.0)(zod@3.24.2)
+      better-sqlite3: 11.8.1
+      bignumber.js: 9.1.2
+      dotenv: 16.4.5
+      fastembed: 1.14.1
+      glob: 11.0.0
+      handlebars: 4.7.8
+      js-sha1: 0.7.0
+      js-tiktoken: 1.0.15
+      ollama-ai-provider: 0.16.1(zod@3.24.2)
+      openai: 4.82.0(ws@8.18.0)(zod@3.24.2)
+      pino: 9.6.0
+      pino-pretty: 13.0.0
+      sql.js: 1.13.0
+      together-ai: 0.7.0
+      unique-names-generator: 4.7.1
+      uuid: 11.0.3
+      viem: 2.21.58(typescript@5.8.2)(zod@3.24.2)
+      vitest: 3.0.9(@types/node@22.13.13)
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - typescript
+      - utf-8-validate
+      - ws
+    dev: false
+
   /@elizaos/core@0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1):
     resolution: {integrity: sha512-4ze8DhTLxqLMRDEu3eODMxUjj7XK+CehC8El6HbW+/WXGBknCgeZMP+SH6Y93JtFDnIJFU+Ndzx3W2+E8e/GGg==}
     dependencies:
@@ -3986,6 +4030,40 @@ packages:
       - ws
     dev: false
 
+  /@iqai/agent@0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0):
+    resolution: {integrity: sha512-u/ga30eI4/cRycml0yhkUzccfrXm93jZ+NnCP2Os8cbohWPzjjCa0sLlB5dulD5oAIaOK8jGpkWLQG2PZVok0A==}
+    engines: {node: '>=22'}
+    dependencies:
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
+      dedent: 1.5.3
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - typescript
+      - utf-8-validate
+      - ws
+    dev: false
+
   /@iqai/agent@0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.1):
     resolution: {integrity: sha512-u/ga30eI4/cRycml0yhkUzccfrXm93jZ+NnCP2Os8cbohWPzjjCa0sLlB5dulD5oAIaOK8jGpkWLQG2PZVok0A==}
     engines: {node: '>=22'}
@@ -4315,6 +4393,46 @@ packages:
       - yaml
     dev: false
 
+  /@iqai/plugin-heartbeat@0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
+    resolution: {integrity: sha512-sBjP8Mz1umu+IsSx5S97w0eGy1ZWYPyEV0HYTUD7mdw3NoYwy5dyRp1AUffvHdETNldloHswJETEbQ+Km3wUYA==}
+    dependencies:
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
+      dedent: 1.5.3
+      node-cron: 3.0.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+    dev: false
+
   /@iqai/plugin-heartbeat@0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
     resolution: {integrity: sha512-sBjP8Mz1umu+IsSx5S97w0eGy1ZWYPyEV0HYTUD7mdw3NoYwy5dyRp1AUffvHdETNldloHswJETEbQ+Km3wUYA==}
     dependencies:
@@ -4355,10 +4473,10 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-js@0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
+  /@iqai/plugin-js@0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
     resolution: {integrity: sha512-DC4IkRWLa+d+Q3ouyacx/A8mraGh4K/Hh2JNq8LO1HcghwFwVOGeaIvfk/fjDsDvznMHRP2nCWjXjDIOcR9pxw==}
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       dedent: 1.5.3
       isolated-vm: 5.0.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
@@ -4650,7 +4768,7 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-wiki@0.0.3(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(zod@3.24.2):
+  /@iqai/plugin-wiki@0.0.3(graphql@16.10.0)(react@19.0.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-tQ1Q+a6pBnqnZ6ck29W7WTposVaMGt4KReEsThGSR/+AmODJcYadTeCDAjVwQcIlHevx8IvDW8apflCl/daZYQ==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.7.3)(ws@8.18.1)
@@ -12206,7 +12324,6 @@ packages:
 
   /viem@2.23.15(typescript@5.8.2)(zod@3.23.8):
     resolution: {integrity: sha512-2t9lROkSzj/ciEZ08NqAHZ6c+J1wKLwJ4qpUxcHdVHcLBt6GfO9+ycuZycTT05ckfJ6TbwnMXMa3bMonvhtUMw==}
-    requiresBuild: true
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
@@ -12228,29 +12345,6 @@ packages:
       - zod
     dev: false
     optional: true
-
-  /viem@2.23.15(typescript@5.8.2)(zod@3.24.2):
-    resolution: {integrity: sha512-2t9lROkSzj/ciEZ08NqAHZ6c+J1wKLwJ4qpUxcHdVHcLBt6GfO9+ycuZycTT05ckfJ6TbwnMXMa3bMonvhtUMw==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.8.2)(zod@3.24.2)
-      isows: 1.0.6(ws@8.18.1)
-      ox: 0.6.9(typescript@5.8.2)(zod@3.24.2)
-      typescript: 5.8.2
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-    dev: false
 
   /viem@2.23.4(typescript@5.7.3)(zod@3.23.8):
     resolution: {integrity: sha512-UQquuolKlS1w5H5e0Fd1KKoUlIPJryIEBzY5AUhGyV1ka+9O6+3uYVhUzj6RbvGK0PtsMKn2ddwPZFwjNDVU/A==}
