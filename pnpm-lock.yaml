@@ -254,8 +254,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
       '@iqai/plugin-mcp':
-        specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
+        specifier: ^0.2.1
+        version: 0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -4318,8 +4318,8 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-mcp@0.2.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
-    resolution: {integrity: sha512-LxdxbJHQYbIc1gCkAYFbnmwBXzGnV1aCi0o7CNdsF3/0NNFTPv/qXrss/Gjxre2C7Y62UGef6cim7593KLateQ==}
+  /@iqai/plugin-mcp@0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
+    resolution: {integrity: sha512-M1xEOWVGC2TDqqZScKAhzaa/Yo++MzonaCYRqJQ/s06s+CtsS/SNos/Q+bszGWSDniMnfALDdPmmGA4ykolBOg==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.1)
       '@modelcontextprotocol/sdk': 1.5.0
