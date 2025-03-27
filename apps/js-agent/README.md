@@ -76,52 +76,6 @@ USE_OPENAI_EMBEDDING="TRUE"
 OPENAI_API_KEY="sk-openai-api-key"
 ```
 
-## Query Examples
-
-- **Sample Queries:**
-
-  ```plaintext
-  Calculate impermanent loss if ETH price changes by 50%
-  ```
-
-  ```plaintext
-  If I stake 5000 USDC at 5.2% APY, how much will I earn in 3 months?
-  ```
-
-  ```plaintext
-  Compare DCA vs lump sum for $5000 over 5 weeks in a bull market
-  ```
-
-## Results
-
-The JS Agent can produce detailed calculations and analysis, such as:
-
-```bash
-Impermanent Loss Analysis:
-Price Change: +50%
-Impermanent Loss: -2.02%
-Required Fee APY to Break Even: 7.37%
-
-For a $10,000 position, that's a loss of $202 compared to holding.
-```
-
-```bash
-Staking 5000 USDC at 5.2% APY for 3 months:
-Final amount: 5065.00 USDC
-Total interest earned: 65.00 USDC
-Effective interest rate for period: 1.30%
-```
-
-### More Queries
-
-Try any combination of crypto calculation queries. The agent can handle:
-
-- Compound interest calculations
-- Token conversion estimates
-- Risk/reward analysis
-- Break-even calculations
-- Investment strategy simulations
-
 ## Documentation
 
 For more information about the plugins used in this example:
