@@ -19,6 +19,8 @@ Each MCP server provides specialized functionality:
 - **Cryo-mcp**: Connects to a local blockchain node for retrieving and processing on-chain data
 - **File-system**: Provides secure, controlled access to specified filesystem directories
 
+The cryo mcp and the file-system server both go hand in hand with the mcp plugin. The file responses from the cryo mcp server are then passed to the file system server for processing. This is automatically handled by the mcp plugin via tool chaining
+
 ## Setup
 
 To get started, clone this repository and navigate to the project folder:
