@@ -46,12 +46,32 @@ jobs:
       - name: Extract changed app directories
         id: set-matrix
         run: |
-          APPS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep "^apps/" | awk -F'/' '{print $2}' | sort | uniq | jq -R -s -c 'split("\n") | map(select(length > 0))')
-          echo "Detected changed apps: $APPS"
-          echo "matrix=$APPS" >> $GITHUB_OUTPUT
+          # Define excluded apps - add new apps to exclude here
+          EXCLUDED_APPS=("mcp-agent" "js-agent")
 
-          # Set a flag to indicate if we have any app changes
-          if [[ "$APPS" == "[]" ]]; then
+          # Convert to JSON array for filtering
+          EXCLUDED_JSON=$(printf '%s\n' "${EXCLUDED_APPS[@]}" | jq -R . | jq -s .)
+
+          # Get all changed apps
+          ALL_CHANGED_APPS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep "^apps/" | awk -F'/' '{print $2}' | sort | uniq)
+
+          # Filter out excluded apps
+          FILTERED_APPS=$(echo "$ALL_CHANGED_APPS" | while read app; do
+            if [[ -n "$app" ]]; then
+              is_excluded=$(echo "$EXCLUDED_JSON" | jq -c "index(\"$app\") != null")
+              if [[ "$is_excluded" == "false" ]]; then
+                echo "$app"
+              else
+                echo "Excluding app from deployment: $app" >&2
+              fi
+            fi
+          done | jq -R -s -c 'split("\n") | map(select(length > 0))')
+
+          echo "Detected changed apps (after filtering): $FILTERED_APPS"
+          echo "matrix=$FILTERED_APPS" >> $GITHUB_OUTPUT
+
+          # Set a flag to indicate if we have any app changes after filtering
+          if [[ "$FILTERED_APPS" == "[]" ]]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
@@ -177,10 +197,10 @@ jobs:
             # Action Processing
             ENABLE_ACTION_PROCESSING=true
             ACTION_INTERVAL=5          # Action check interval (minutes)
-            MAX_ACTIONS_PROCESSING=1 
+            MAX_ACTIONS_PROCESSING=1
             EOF
 
-            chmod 600 .env 
+            chmod 600 .env
 
             if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ]; then
               docker-compose down # Stop existing containers
