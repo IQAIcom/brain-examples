@@ -46,23 +46,23 @@ jobs:
       - name: Extract changed app directories
         id: set-matrix
         run: |
-          # Define excluded apps - add new apps to exclude here
-          EXCLUDED_APPS=("mcp-agent" "js-agent")
+          # Define included apps - only these apps will be deployed
+          INCLUDED_APPS=("atp-agent" "bridge-agent" "sophia-agent" "amm-near-agent")
 
           # Convert to JSON array for filtering
-          EXCLUDED_JSON=$(printf '%s\n' "${EXCLUDED_APPS[@]}" | jq -R . | jq -s .)
+          INCLUDED_JSON=$(printf '%s\n' "${INCLUDED_APPS[@]}" | jq -R . | jq -s .)
 
           # Get all changed apps
           ALL_CHANGED_APPS=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep "^apps/" | awk -F'/' '{print $2}' | sort | uniq)
 
-          # Filter out excluded apps
+          # Filter to only include apps from our inclusion list
           FILTERED_APPS=$(echo "$ALL_CHANGED_APPS" | while read app; do
             if [[ -n "$app" ]]; then
-              is_excluded=$(echo "$EXCLUDED_JSON" | jq -c "index(\"$app\") != null")
-              if [[ "$is_excluded" == "false" ]]; then
+              is_included=$(echo "$INCLUDED_JSON" | jq -c "index(\"$app\") != null")
+              if [[ "$is_included" == "true" ]]; then
                 echo "$app"
               else
-                echo "Excluding app from deployment: $app" >&2
+                echo "Skipping app (not in inclusion list): $app" >&2
               fi
             fi
           done | jq -R -s -c 'split("\n") | map(select(length > 0))')
