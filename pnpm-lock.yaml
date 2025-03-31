@@ -236,28 +236,6 @@ importers:
         specifier: ^5.4.2
         version: 5.7.3
 
-  apps/js-agent:
-    dependencies:
-      '@elizaos/adapter-sqlite':
-        specifier: github:elizaos-plugins/adapter-sqlite
-        version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
-      '@iqai/agent':
-        specifier: ^0.2.0
-        version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
-      '@iqai/plugin-heartbeat':
-        specifier: ^0.3.1
-        version: 0.3.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
-      '@iqai/plugin-js':
-        specifier: ^0.1.0
-        version: 0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
-    devDependencies:
-      tsx:
-        specifier: ^4.7.1
-        version: 4.19.3
-      typescript:
-        specifier: ^5.4.2
-        version: 5.8.2
-
   apps/mcp-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
@@ -4297,46 +4275,6 @@ packages:
       '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       dedent: 1.5.3
       node-cron: 3.0.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
-  /@iqai/plugin-js@0.1.0(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
-    resolution: {integrity: sha512-DC4IkRWLa+d+Q3ouyacx/A8mraGh4K/Hh2JNq8LO1HcghwFwVOGeaIvfk/fjDsDvznMHRP2nCWjXjDIOcR9pxw==}
-    dependencies:
-      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
-      dedent: 1.5.3
-      isolated-vm: 5.0.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -8858,14 +8796,6 @@ packages:
 
   /isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-
-  /isolated-vm@5.0.3:
-    resolution: {integrity: sha512-GNqX0j7dkwdaNQfFogLLb/tSuPZbXtKlk5ldaJ084ngjaW9/bn34x9FQFL856p20KSZoubIIummmiJf+2hzhCw==}
-    engines: {node: '>=18.0.0'}
-    requiresBuild: true
-    dependencies:
-      prebuild-install: 7.1.3
-    dev: false
 
   /isomorphic-fetch@3.0.0:
     resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
