@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bridge-agent:
+    build: .
+    container_name: bridge-agent
+    restart: unless-stopped
+    environment:
+      - USE_OPENAI_EMBEDDING=${USE_OPENAI_EMBEDDING}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SERVER_PORT=${SERVER_PORT}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - WALLET_PRIVATE_KEY=${WALLET_PRIVATE_KEY}
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
