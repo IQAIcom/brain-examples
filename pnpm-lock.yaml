@@ -150,6 +150,28 @@ importers:
         specifier: ^5.4.2
         version: 5.7.3
 
+  apps/code-runner-agent:
+    dependencies:
+      '@elizaos/adapter-sqlite':
+        specifier: github:elizaos-plugins/adapter-sqlite
+        version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
+      '@elizaos/client-direct':
+        specifier: 0.25.9
+        version: 0.25.9(react@19.0.0)(typescript@5.8.2)(whatwg-url@7.1.0)(ws@8.18.0)
+      '@iqai/agent':
+        specifier: ^0.2.0
+        version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
+      '@iqai/plugin-mcp':
+        specifier: ^0.2.1
+        version: 0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
+    devDependencies:
+      tsx:
+        specifier: ^4.7.1
+        version: 4.19.3
+      typescript:
+        specifier: ^5.4.2
+        version: 5.8.2
+
   apps/fraxlend-agent:
     dependencies:
       '@elizaos/adapter-sqlite':
@@ -6130,7 +6152,7 @@ packages:
   /@types/better-sqlite3@7.6.12:
     resolution: {integrity: sha512-fnQmj8lELIj7BSrZQAdBMHEHX8OZLYIHXqAKT1O7tDfLxaINzf00PMjw22r3N/xXh0w/sGHlO6SVaCQ2mj78lg==}
     dependencies:
-      '@types/node': 22.13.10
+      '@types/node': 22.13.13
     dev: false
 
   /@types/body-parser@1.19.5:
@@ -11517,7 +11539,7 @@ packages:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(tsx@4.19.3)
+      postcss-load-config: 6.0.1(tsx@4.19.2)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
