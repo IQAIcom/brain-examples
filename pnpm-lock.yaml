@@ -162,8 +162,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@iqai/plugin-mcp':
-        specifier: ^0.2.1
-        version: 0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
+        specifier: ^0.2.2
+        version: 0.2.2(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
     devDependencies:
       tsx:
         specifier: ^4.7.1
@@ -4372,6 +4372,47 @@ packages:
       - yaml
     dev: false
 
+  /@iqai/plugin-mcp@0.2.2(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
+    resolution: {integrity: sha512-9puQvF5SvOagEgn9Vr9EnjQ7wTVRy81+s0wctpKb8Tr2R2p5Tlzp/xy65200qwDu5FPvr9iF8aqSs14WbEBfIw==}
+    dependencies:
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
+      '@modelcontextprotocol/sdk': 1.5.0
+      dedent: 1.5.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+    dev: false
+
   /@iqai/plugin-near@0.1.10(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.43)(react@19.0.0)(svelte@5.25.3)(tsx@4.19.2)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.0)(zod@3.23.8):
     resolution: {integrity: sha512-3K6TgyZwPDevRM/glbXt0HwGo1sYlB8WSSTNvoqlX3qQktkmsCIADpP6E8TTYuk7cDmllUJ5PXbPh3vcYVqRKA==}
     dependencies:
@@ -4703,7 +4744,7 @@ packages:
       js-tiktoken: 1.0.19
       openai: 4.85.3(ws@7.5.10)(zod@3.24.2)
       zod: 3.24.2
-      zod-to-json-schema: 3.24.3(zod@3.24.2)
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
     transitivePeerDependencies:
       - encoding
       - ws
@@ -4719,7 +4760,7 @@ packages:
       js-tiktoken: 1.0.19
       openai: 4.85.3(ws@8.18.0)(zod@3.24.2)
       zod: 3.24.2
-      zod-to-json-schema: 3.24.3(zod@3.24.2)
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
     transitivePeerDependencies:
       - encoding
       - ws
@@ -4735,7 +4776,7 @@ packages:
       js-tiktoken: 1.0.19
       openai: 4.85.3(ws@8.18.1)(zod@3.24.2)
       zod: 3.24.2
-      zod-to-json-schema: 3.24.3(zod@3.24.2)
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
     transitivePeerDependencies:
       - encoding
       - ws
@@ -11539,7 +11580,7 @@ packages:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(tsx@4.19.2)
+      postcss-load-config: 6.0.1(tsx@4.19.3)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
