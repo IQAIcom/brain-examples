@@ -15,13 +15,13 @@
 		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
 		"@elizaos/client-direct": "0.25.9",
 		"@elizaos/core": "0.25.9",
-		"@iqai/agent": "^0.2.0",
+		"@iqai/agent": "^0.2.1",
 		"@iqai/plugin-atp": "^0.3.0",
 		"@iqai/plugin-heartbeat": "^0.3.1",
-		"@iqai/plugin-sequencer": "^0.2.1",
+		"@iqai/plugin-sequencer": "^0.2.2",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5",
-		"viem": "^2.23.12"
+		"viem": "^2.24.3"
 	},
 	"devDependencies": {
 		"ts-node": "10.9.2",

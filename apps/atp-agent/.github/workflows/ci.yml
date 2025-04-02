@@ -78,7 +78,7 @@ jobs:
           key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
           port: ${{ secrets.DIGITALOCEAN_PORT }}
           script: |
-            cd /var/www/brain-examples/apps/atp-agent
+            cd /home/ubuntu/brain-examples/apps/atp-agent
             git pull origin main
             pnpm install
             pm2 restart atp-agent

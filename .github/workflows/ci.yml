@@ -166,7 +166,7 @@ jobs:
           key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
           port: ${{ secrets.DIGITALOCEAN_PORT }}
           script: |
-            cd /var/www/brain-examples
+            cd /home/ubuntu/brain-examples
             git fetch origin main
             git checkout origin/main -- apps/${{ matrix.app }}
             cd apps/${{ matrix.app }}
