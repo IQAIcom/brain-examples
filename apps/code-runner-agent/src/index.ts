@@ -12,6 +12,7 @@ async function main() {
 			command: "npx",
 			args: ["-y", "mcp-server-code-runner@latest"],
 		},
+		disableToolChaining: true,
 	});
 
 	// Create agent with plugins

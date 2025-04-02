@@ -162,8 +162,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@iqai/plugin-mcp':
-        specifier: ^0.2.1
-        version: 0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
+        specifier: ^0.2.2
+        version: 0.2.2(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0)
     devDependencies:
       tsx:
         specifier: ^4.7.1
@@ -4333,6 +4333,47 @@ packages:
 
   /@iqai/plugin-mcp@0.2.1(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
     resolution: {integrity: sha512-M1xEOWVGC2TDqqZScKAhzaa/Yo++MzonaCYRqJQ/s06s+CtsS/SNos/Q+bszGWSDniMnfALDdPmmGA4ykolBOg==}
+    dependencies:
+      '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
+      '@modelcontextprotocol/sdk': 1.5.0
+      dedent: 1.5.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.2)
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+    dev: false
+
+  /@iqai/plugin-mcp@0.2.2(react@19.0.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.0):
+    resolution: {integrity: sha512-9puQvF5SvOagEgn9Vr9EnjQ7wTVRy81+s0wctpKb8Tr2R2p5Tlzp/xy65200qwDu5FPvr9iF8aqSs14WbEBfIw==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.0.0)(typescript@5.8.2)(ws@8.18.0)
       '@modelcontextprotocol/sdk': 1.5.0
@@ -11539,7 +11580,7 @@ packages:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(tsx@4.19.2)
+      postcss-load-config: 6.0.1(tsx@4.19.3)
       resolve-from: 5.0.0
       rollup: 4.34.8
       source-map: 0.8.0-beta.0
