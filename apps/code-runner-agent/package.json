@@ -1,7 +1,7 @@
 {
-	"name": "@iqai/js-agent",
-	"version": "1.0.0",
-	"description": "Agent that can execute JavaScript code",
+	"name": "@iqai/code-runner-agent",
+	"version": "0.0.1",
+	"description": "Agent that can execute code",
 	"main": "src/index.js",
 	"type": "module",
 	"private": true,
@@ -12,10 +12,10 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
+		"@elizaos/client-direct": "0.25.9",
 		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
 		"@iqai/agent": "^0.2.0",
-		"@iqai/plugin-heartbeat": "^0.3.1",
-		"@iqai/plugin-js": "^0.1.0"
+		"@iqai/plugin-mcp": "^0.2.1"
 	},
 	"devDependencies": {
 		"tsx": "^4.7.1",
