@@ -8,7 +8,7 @@ import createWikiPlugin from "@iqai/plugin-wiki";
 import { SophiaCharacter } from "./character.ts";
 
 async function main() {
-	// Initialize plugins
+	// Initialize plugins.
 	const pluginWiki = await createWikiPlugin();
 	const heartbeat = await createHeartbeatPlugin([
 		{

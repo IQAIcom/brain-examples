@@ -9,7 +9,7 @@ async function main() {
 		funderPrivateKey: process.env.WALLET_PRIVATE_KEY as string,
 	});
 
-	// Create agent with plugin
+	// Create agent with plugin.
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
 		.withClient(DirectClient)

@@ -12,6 +12,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
+		"@elizaos-plugins/client-telegram": "github:elizaos-plugins/client-telegram",
 		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
 		"@elizaos/client-direct": "0.25.9",
 		"@elizaos/core": "0.25.9",

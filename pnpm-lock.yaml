@@ -54,6 +54,9 @@ importers:
 
   apps/atp-agent:
     dependencies:
+      '@elizaos-plugins/client-telegram':
+        specifier: github:elizaos-plugins/client-telegram
+        version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
