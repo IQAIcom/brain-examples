@@ -12,7 +12,6 @@ import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { http, createPublicClient } from "viem";
 import { erc20Abi } from "viem";
 import { fraxtal } from "viem/chains";
-import TelegramClient from "@elizaos/client-telegram";
 
 const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
 
@@ -27,7 +26,7 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 12 * * *", // Every day at 12:00 PM
+			period: "0 14 * * *", // Every day at 12:00 PM
 			input:
 				"Use sequencer to get top ATP agent then buy with 1% of IQ balance.",
 			clients: [

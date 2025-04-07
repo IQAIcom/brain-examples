@@ -4,7 +4,7 @@ import { AgentBuilder } from "@iqai/agent";
 import { createNearPlugin } from "@iqai/plugin-near";
 
 async function main() {
-	// Setup Near plugin.
+	// Setup Near plugin
 	const nearPlugin = await createNearPlugin({
 		accountId: process.env.NEAR_ACCOUNT_ID as string,
 		accountKey: process.env.NEAR_PRIVATE_KEY as string,
