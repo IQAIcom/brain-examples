@@ -25,19 +25,19 @@ importers:
         version: '@elizaos-plugins/adapter-sqlite@https://codeload.github.com/elizaos-plugins/adapter-sqlite/tar.gz/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)'
       '@elizaos/client-direct':
         specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(whatwg-url@7.1.0)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
+        version: 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(whatwg-url@7.1.0)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
+        version: 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
       '@iqai/agent':
         specifier: ^0.2.1
-        version: 0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
+        version: 0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
       '@iqai/plugin-abi':
         specifier: ^1.0.0
-        version: 1.0.0(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
+        version: 1.0.0(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
-        version: 0.3.1(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
+        version: 0.3.1(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -94,6 +94,9 @@ importers:
 
   apps/atp-agent:
     dependencies:
+      '@elizaos-plugins/client-telegram':
+        specifier: github:elizaos-plugins/client-telegram
+        version: https://codeload.github.com/elizaos-plugins/client-telegram/tar.gz/bb3a5422f18a27f222871ac8e695516ed266efec
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: '@elizaos-plugins/adapter-sqlite@https://codeload.github.com/elizaos-plugins/adapter-sqlite/tar.gz/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)'
@@ -564,8 +567,8 @@ packages:
       zod:
         optional: true
 
-  '@ai-sdk/provider-utils@2.1.0':
-    resolution: {integrity: sha512-rBUabNoyB25PBUjaiMSk86fHNSCqTngNZVvXxv8+6mvw47JX5OexW+ZHRsEw8XKTE8+hqvNFVzctaOrRZ2i9Zw==}
+  '@ai-sdk/provider-utils@2.0.8':
+    resolution: {integrity: sha512-R/wsIqx7Lwhq+ogzkqSOek8foj2wOnyBSGW/CH8IPBla0agbisIE9Ug7R9HDTNiBbIIKVhduB54qQSMPFw0MZA==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -573,8 +576,8 @@ packages:
       zod:
         optional: true
 
-  '@ai-sdk/provider-utils@2.1.2':
-    resolution: {integrity: sha512-ezpQT6kzy/2O4yyn/2YigMqynBYjZIOam3/EMNVzju+Ogj+Z+pf27c/Th78ce0A2ltgrXx6xN14sal/HHZNOOw==}
+  '@ai-sdk/provider-utils@2.1.0':
+    resolution: {integrity: sha512-rBUabNoyB25PBUjaiMSk86fHNSCqTngNZVvXxv8+6mvw47JX5OexW+ZHRsEw8XKTE8+hqvNFVzctaOrRZ2i9Zw==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -605,10 +608,6 @@ packages:
 
   '@ai-sdk/provider@1.0.4':
     resolution: {integrity: sha512-lJi5zwDosvvZER3e/pB8lj1MN3o3S7zJliQq56BRr4e9V3fcRyFtwP0JRxaRS5vHYX3OJ154VezVoQNrk0eaKw==}
-    engines: {node: '>=18'}
-
-  '@ai-sdk/provider@1.0.6':
-    resolution: {integrity: sha512-hwj/gFNxpDgEfTaYzCYoslmw01IY9kWLKl/wf8xuPvHtQIzlfXWmmUwc8PnCwxyt8cKzIuV0dfUghCf68HQ0SA==}
     engines: {node: '>=18'}
 
   '@ai-sdk/provider@1.0.7':
@@ -6574,8 +6573,8 @@ snapshots:
 
   '@ai-sdk/mistral@1.0.9(zod@3.23.8)':
     dependencies:
-      '@ai-sdk/provider': 1.0.6
-      '@ai-sdk/provider-utils': 2.1.2(zod@3.23.8)
+      '@ai-sdk/provider': 1.0.4
+      '@ai-sdk/provider-utils': 2.0.8(zod@3.23.8)
       zod: 3.23.8
 
   '@ai-sdk/mistral@1.1.6(zod@3.24.2)':
@@ -6632,6 +6631,15 @@ snapshots:
     optionalDependencies:
       zod: 3.23.8
 
+  '@ai-sdk/provider-utils@2.0.8(zod@3.23.8)':
+    dependencies:
+      '@ai-sdk/provider': 1.0.4
+      eventsource-parser: 3.0.0
+      nanoid: 3.3.8
+      secure-json-parse: 2.7.0
+    optionalDependencies:
+      zod: 3.23.8
+
   '@ai-sdk/provider-utils@2.1.0(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 1.0.4
@@ -6649,15 +6657,6 @@ snapshots:
       secure-json-parse: 2.7.0
     optionalDependencies:
       zod: 3.24.2
-
-  '@ai-sdk/provider-utils@2.1.2(zod@3.23.8)':
-    dependencies:
-      '@ai-sdk/provider': 1.0.6
-      eventsource-parser: 3.0.0
-      nanoid: 3.3.8
-      secure-json-parse: 2.7.0
-    optionalDependencies:
-      zod: 3.23.8
 
   '@ai-sdk/provider-utils@2.1.6(zod@3.24.2)':
     dependencies:
@@ -6681,10 +6680,6 @@ snapshots:
       json-schema: 0.4.0
 
   '@ai-sdk/provider@1.0.4':
-    dependencies:
-      json-schema: 0.4.0
-
-  '@ai-sdk/provider@1.0.6':
     dependencies:
       json-schema: 0.4.0
 
@@ -7558,47 +7553,6 @@ snapshots:
       - ws
       - yaml
 
-  '@elizaos/client-direct@0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(whatwg-url@7.1.0)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
-      '@types/body-parser': 1.19.5
-      '@types/cors': 2.8.17
-      body-parser: 1.20.3
-      cors: 2.8.5
-      express: 4.21.1
-      multer: 1.4.5-lts.1
-      openai: 4.73.0(zod@3.24.2)
-      path-to-regexp: 1.9.0
-      whatwg-url: 7.1.0
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-
   '@elizaos/client-direct@0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(whatwg-url@7.1.0)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
     dependencies:
       '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
@@ -7887,66 +7841,6 @@ snapshots:
       unique-names-generator: 4.7.1
       uuid: 11.0.3
       viem: 2.21.58(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@5.0.10)(zod@3.24.2)
-      vitest: 3.1.1(@types/node@22.13.17)(tsx@4.19.3)(yaml@2.7.0)
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-
-  '@elizaos/core@0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
-    dependencies:
-      '@ai-sdk/amazon-bedrock': 1.1.6(zod@3.24.2)
-      '@ai-sdk/anthropic': 1.1.6(zod@3.24.2)
-      '@ai-sdk/google': 1.1.0(zod@3.24.2)
-      '@ai-sdk/groq': 1.1.7(zod@3.24.2)
-      '@ai-sdk/mistral': 1.1.6(zod@3.24.2)
-      '@ai-sdk/openai': 1.1.9(zod@3.24.2)
-      '@electric-sql/pglite': 0.2.17
-      '@fal-ai/client': 1.2.0
-      '@supabase/supabase-js': 2.49.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      '@types/uuid': 10.0.0
-      ai: 4.1.16(react@19.1.0)(zod@3.24.2)
-      better-sqlite3: 11.8.1
-      bignumber.js: 9.1.2
-      dotenv: 16.4.5
-      fastembed: 1.14.1
-      glob: 11.0.0
-      handlebars: 4.7.8
-      js-sha1: 0.7.0
-      js-tiktoken: 1.0.15
-      ollama-ai-provider: 0.16.1(zod@3.24.2)
-      openai: 4.82.0(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.2)
-      pino: 9.6.0
-      pino-pretty: 13.0.0
-      sql.js: 1.13.0
-      together-ai: 0.7.0
-      unique-names-generator: 4.7.1
-      uuid: 11.0.3
-      viem: 2.21.58(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.24.2)
       vitest: 3.1.1(@types/node@22.13.17)(tsx@4.19.3)(yaml@2.7.0)
       zod: 3.24.2
     transitivePeerDependencies:
@@ -9015,45 +8909,6 @@ snapshots:
       - ws
       - yaml
 
-  '@iqai/agent@0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
-      '@opentelemetry/auto-instrumentations-node': 0.57.0(@opentelemetry/api@1.9.0)
-      '@opentelemetry/sdk-node': 0.200.0(@opentelemetry/api@1.9.0)
-      '@opentelemetry/sdk-trace-base': 2.0.0(@opentelemetry/api@1.9.0)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@opentelemetry/api'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-
   '@iqai/agent@0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
     dependencies:
       '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
@@ -9093,9 +8948,9 @@ snapshots:
       - ws
       - yaml
 
-  '@iqai/plugin-abi@1.0.0(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
+  '@iqai/plugin-abi@1.0.0(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
     dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
+      '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
       dedent: 1.5.3
       tsup: 8.3.6(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.2)(yaml@2.7.0)
       viem: 2.25.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.24.2)
@@ -9305,44 +9160,6 @@ snapshots:
       dedent: 1.5.3
       node-cron: 3.0.3
       tsup: 8.3.6(postcss@8.5.3)(tsx@4.19.3)(typescript@5.7.3)(yaml@2.7.0)
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-
-  '@iqai/plugin-heartbeat@0.3.1(@types/node@22.13.17)(bufferutil@4.0.9)(postcss@8.5.3)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)':
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.13.17)(bufferutil@4.0.9)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(yaml@2.7.0)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      tsup: 8.3.6(postcss@8.5.3)(tsx@4.19.3)(typescript@5.8.2)(yaml@2.7.0)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@microsoft/api-extractor'
@@ -13364,7 +13181,7 @@ snapshots:
       uuid: 10.0.0
       yaml: 2.7.0
       zod: 3.24.2
-      zod-to-json-schema: 3.24.3(zod@3.24.2)
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
     optionalDependencies:
       axios: 1.7.9
       handlebars: 4.7.8
@@ -13386,7 +13203,7 @@ snapshots:
       uuid: 10.0.0
       yaml: 2.7.0
       zod: 3.24.2
-      zod-to-json-schema: 3.24.3(zod@3.24.2)
+      zod-to-json-schema: 3.24.5(zod@3.24.2)
     optionalDependencies:
       axios: 1.7.9
       handlebars: 4.7.8
@@ -13699,21 +13516,6 @@ snapshots:
       formdata-node: 4.4.1
       node-fetch: 2.7.0
     optionalDependencies:
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - encoding
-
-  openai@4.82.0(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.2):
-    dependencies:
-      '@types/node': 18.19.76
-      '@types/node-fetch': 2.6.12
-      abort-controller: 3.0.0
-      agentkeepalive: 4.6.0
-      form-data-encoder: 1.7.2
-      formdata-node: 4.4.1
-      node-fetch: 2.7.0
-    optionalDependencies:
-      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       zod: 3.24.2
     transitivePeerDependencies:
       - encoding
