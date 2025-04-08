@@ -12,6 +12,7 @@ import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { http, createPublicClient } from "viem";
 import { erc20Abi } from "viem";
 import { fraxtal } from "viem/chains";
+import TelegramClient from "@elizaos-plugins/client-telegram";
 
 const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
 
@@ -26,13 +27,13 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 14 * * *", // Every day at 12:00 PM
-			input:
-				"Use sequencer to get top ATP agent then buy with 1% of IQ balance.",
+			period: "0 12 * * *", // Every day at 12:00 PM
+			input: 
+				"Use sequencer to get top ATP agent then buy with 1% of IQ balance and post log on telegram",
 			clients: [
 				{
-					type: "callback",
-					callback: async (res) => console.log(res),
+					type: "telegram",
+					chatId: process.env.TELEGRAM_CHAT_ID as string,
 				},
 			],
 		},
@@ -89,7 +90,8 @@ async function main() {
 	// Create agent with plugin
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClient(DirectClient)
+		// .withClient(DirectClient)
+		.withClient(TelegramClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,

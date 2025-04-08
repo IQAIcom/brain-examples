@@ -15,20 +15,23 @@
 		"@elizaos-plugins/client-telegram": "github:elizaos-plugins/client-telegram",
 		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
 		"@elizaos/client-direct": "0.25.9",
+		"@elizaos/client-telegram": "0.25.6-alpha.1",
 		"@elizaos/core": "0.25.9",
 		"@iqai/agent": "^0.2.1",
 		"@iqai/plugin-atp": "^0.3.0",
 		"@iqai/plugin-heartbeat": "^0.3.1",
 		"@iqai/plugin-sequencer": "^0.2.2",
+		"add": "^2.0.6",
 		"dotenv": "^16.4.7",
+		"pnpm": "^10.8.0",
 		"sharp": "^0.33.5",
-		"viem": "^2.24.3"
+		"viem": "^2.26.2"
 	},
 	"devDependencies": {
 		"ts-node": "10.9.2",
 		"tsup": "8.3.6",
 		"tsx": "^4.19.3",
-		"typescript": "^5.8.2"
+		"typescript": "^5.8.3"
 	},
 	"packageManager": "pnpm@8.15.6",
 	"engines": {
