@@ -202,7 +202,7 @@ jobs:
 
             chmod 600 .env
 
-            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ]; then
+            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ] || [ "${{ matrix.app }}" == "abi-agent" ]; then
               docker-compose down # Stop existing containers
               docker-compose up -d --build # Build and start containers
             else
