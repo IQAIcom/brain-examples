@@ -1,0 +1,34 @@
+{
+	"name": "@iqai/ab-agent",
+	"version": "1.0.0",
+	"description": "AB Agent",
+	"main": "src/index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"start": "tsx src/index.ts",
+		"dev": "tsx watch src/index.ts",
+		"check-types": "tsc --noEmit",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
+		"@elizaos/client-direct": "0.25.9",
+		"@elizaos/core": "0.25.9",
+		"@iqai/agent": "^0.2.1",
+		"@iqai/plugin-abi": "^1.0.0",
+		"@iqai/plugin-heartbeat": "^0.3.1",
+		"dotenv": "^16.4.7",
+		"viem": "^2.25.0"
+	},
+	"devDependencies": {
+		"ts-node": "10.9.2",
+		"tsup": "8.3.6",
+		"tsx": "^4.19.3",
+		"typescript": "^5.8.2"
+	},
+	"packageManager": "pnpm@8.15.6",
+	"engines": {
+		"node": "23.x"
+	}
+}

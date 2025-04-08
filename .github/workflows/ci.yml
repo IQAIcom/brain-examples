@@ -47,7 +47,7 @@ jobs:
         id: set-matrix
         run: |
           # Define included apps - only these apps will be deployed
-          INCLUDED_APPS=("atp-agent" "bridge-agent" "sophia-agent" "amm-near-agent")
+          INCLUDED_APPS=("atp-agent" "bridge-agent" "sophia-agent" "amm-near-agent" "abi-agent")
 
           # Convert to JSON array for filtering
           INCLUDED_JSON=$(printf '%s\n' "${INCLUDED_APPS[@]}" | jq -R . | jq -s .)
@@ -161,7 +161,7 @@ jobs:
       - name: Deploy to Server ${{ matrix.app }}
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ matrix.app == 'atp-agent' && secrets.DIGITALOCEAN_HOST_ATP || matrix.app == 'bridge-agent' && secrets.DIGITALOCEAN_HOST_BRIDGE || matrix.app == 'amm-near-agent' && secrets.DIGITALOCEAN_HOST_AMM_NEAR || matrix.app == 'sophia-agent' && secrets.DIGITALOCEAN_HOST_SOPHIA }}
+          host: ${{ matrix.app == 'atp-agent' && secrets.DIGITALOCEAN_HOST_ATP || matrix.app == 'bridge-agent' && secrets.DIGITALOCEAN_HOST_BRIDGE || matrix.app == 'amm-near-agent' && secrets.DIGITALOCEAN_HOST_AMM_NEAR || matrix.app == 'sophia-agent' && secrets.DIGITALOCEAN_HOST_SOPHIA || matrix.app == 'abi-agent' && secrets.DIGITALOCEAN_HOST_ABI }}
           username: ${{ secrets.DIGITALOCEAN_USER }}
           key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
           port: ${{ secrets.DIGITALOCEAN_PORT }}
@@ -172,7 +172,7 @@ jobs:
             cd apps/${{ matrix.app }}
 
             cat > .env << EOF
-            WALLET_PRIVATE_KEY=${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || matrix.app == 'sophia-agent' && secrets.WALLET_PRIVATE_KEY_SOPHIA || secrets.WALLET_PRIVATE_KEY }}
+            WALLET_PRIVATE_KEY=${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || matrix.app == 'sophia-agent' && secrets.WALLET_PRIVATE_KEY_SOPHIA || matrix.app == 'abi-agent' && secrets.WALLET_PRIVATE_KEY_ABI || secrets.WALLET_PRIVATE_KEY }}
             WALLET_ADDRESS=${{ secrets.WALLET_ADDRESS }}
             TELEGRAM_CHAT_ID=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_CHAT_ID_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_CHAT_ID_SOPHIA || secrets.TELEGRAM_CHAT_ID }}
             TELEGRAM_BOT_TOKEN=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || secrets.TELEGRAM_BOT_TOKEN }}
@@ -202,7 +202,7 @@ jobs:
 
             chmod 600 .env
 
-            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ]; then
+            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ] || [ "${{ matrix.app }}" == "abi-agent" ]; then
               docker-compose down # Stop existing containers
               docker-compose up -d --build # Build and start containers
             else

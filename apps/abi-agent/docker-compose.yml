@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  abi-agent:
+    build:
+      context: ../..
+      dockerfile: apps/abi-agent/Dockerfile
+    container_name: abi-agent
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/apps/abi-agent/data
+    env_file:
+      - .env
+    ports:
+      - "3000:3000" 
