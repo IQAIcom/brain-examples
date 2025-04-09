@@ -204,6 +204,10 @@ jobs:
 
             if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ] || [ "${{ matrix.app }}" == "abi-agent" ]; then
               docker-compose down # Stop existing containers
+              docker image prune -a -f # Remove unused images
+              docker container prune -f # Remove stopped containers
+              docker volume prune -f # Remove unused volumes
+              docker builder prune -a -f # Remove unused build cache
               docker-compose up -d --build # Build and start containers
             else
               # Install pnpm and pm2 if they are not already installed
