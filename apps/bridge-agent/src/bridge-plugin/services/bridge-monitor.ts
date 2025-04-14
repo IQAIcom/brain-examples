@@ -16,8 +16,11 @@ import {
 	MIN_IQ_THRESHOLD,
 } from "../lib/constants.ts";
 import { withRetry } from "../lib/helpers.ts";
-import type { BridgeEvent, BridgeStats, IQBridgeMonitorParams } from "../types.ts";
-
+import type {
+	BridgeEvent,
+	BridgeStats,
+	IQBridgeMonitorParams,
+} from "../types.ts";
 
 export class BridgeMonitorService {
 	private ethClient: PublicClient;
@@ -31,16 +34,14 @@ export class BridgeMonitorService {
 	private walletService: WalletService;
 	private unwatch: (() => void) | null = null;
 	private lastKnownNonce: number | null = null;
-	private maxRetries: number = 3;
+	private maxRetries = 3;
 
 	private stats: BridgeStats = {
 		isMonitoring: false,
 		funderBalance: 0n,
 	};
 
-	constructor(
-		opts: IQBridgeMonitorParams,
-	) {		
+	constructor(opts: IQBridgeMonitorParams) {
 		this.walletService = new WalletService(opts.funderPrivateKey);
 
 		if (opts.fundingAmount) this.fundingAmount = opts.fundingAmount;
@@ -100,16 +101,17 @@ export class BridgeMonitorService {
 				abi: BRIDGE_EVENT_ABI,
 				eventName: "ERC20BridgeInitiated",
 				onLogs: (logs) => {
-					elizaLogger.info(`Received ${logs.length} logs from watchContractEvent`);
+					elizaLogger.info(
+						`Received ${logs.length} logs from watchContractEvent`,
+					);
 					this.handleBridgeEvents(logs);
 				},
-				fromBlock: 22032073n,
 			});
 
 			this.isMonitoring = true;
 			this.stats.isMonitoring = true;
 			elizaLogger.info(
-				"Bridge monitoring active for ERC20BridgeInitiated events"
+				"Bridge monitoring active for ERC20BridgeInitiated events",
 			);
 		} catch (error) {
 			elizaLogger.error(
@@ -177,10 +179,7 @@ export class BridgeMonitorService {
 		}
 	}
 
-	private async processBridgeTransaction(
-		userAddress: string,
-		amount: bigint,
-	) {
+	private async processBridgeTransaction(userAddress: string, amount: bigint) {
 		try {
 			elizaLogger.info(
 				`Processing bridge transaction for ${userAddress} with ${formatEther(amount)} IQ`,
@@ -208,21 +207,18 @@ export class BridgeMonitorService {
 		}
 	}
 
-	private async fundUserAddress(
-		userAddress: string,
-		frxEthBalance: bigint,
-	) {
+	private async fundUserAddress(userAddress: string, frxEthBalance: bigint) {
 		const fundingAmount = this.fundingAmount - frxEthBalance;
-		
+
 		await withRetry(
 			async () => this.executeFunding(userAddress, fundingAmount),
 			{
 				maxRetries: this.maxRetries,
-				logPrefix: `Funding ${userAddress}`
-			}
+				logPrefix: `Funding ${userAddress}`,
+			},
 		);
 	}
-	
+
 	private async executeFunding(userAddress: string, fundingAmount: bigint) {
 		try {
 			if (!this.walletClient || !this.walletClient.account) {
@@ -239,7 +235,7 @@ export class BridgeMonitorService {
 				);
 				return false;
 			}
-			
+
 			// Get the current nonce if we don't have one
 			if (this.lastKnownNonce === null) {
 				this.lastKnownNonce = await this.fraxtalClient.getTransactionCount({
@@ -256,7 +252,7 @@ export class BridgeMonitorService {
 			});
 
 			this.lastKnownNonce++;
-			
+
 			elizaLogger.info(`Funding transaction initiated: ${hash}`);
 
 			const receipt = await this.fraxtalClient.waitForTransactionReceipt({
@@ -275,19 +271,17 @@ export class BridgeMonitorService {
 					`Successfully funded ${userAddress} with ${formatEther(fundingAmount)} ETH on Fraxtal (tx: ${hash})`,
 				);
 				return true;
-			} else {
-				elizaLogger.error(`Funding transaction failed: ${hash}`);
-				return false;
 			}
+			elizaLogger.error(`Funding transaction failed: ${hash}`);
+			return false;
 		} catch (error) {
 			const errorMsg = (error as Error).message;
-			
 
 			if (errorMsg.includes("Nonce")) {
 				elizaLogger.warn(`Nonce issue detected: ${errorMsg}`);
 				this.lastKnownNonce = null;
 			}
-			
+
 			elizaLogger.error(`Error funding user address: ${errorMsg}`);
 			throw error;
 		}
