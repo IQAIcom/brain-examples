@@ -202,7 +202,7 @@ jobs:
 
             chmod 600 .env
 
-            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ] || [ "${{ matrix.app }}" == "abi-agent" ]; then
+            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ] || [ "${{ matrix.app }}" == "amm-near-agent" ]; then
               docker-compose down # Stop existing containers
               docker image prune -a -f # Remove unused images
               docker container prune -f # Remove stopped containers
