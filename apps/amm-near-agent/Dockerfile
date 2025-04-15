@@ -16,7 +16,7 @@ RUN npm install -g pnpm tsx
 RUN pnpm install --filter="./apps/amm-near-agent..."
 RUN pnpm install --filter="./apps/amm-near-agent..." --frozen-lockfile
 
-# Copy only the Amm-Near agent code
+# Copy only the Amm-Near agent code.
 COPY apps/amm-near-agent ./apps/amm-near-agent
 
 # Create data directory for SQLite with proper permissions
