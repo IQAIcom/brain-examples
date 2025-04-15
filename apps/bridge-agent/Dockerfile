@@ -1,17 +1,19 @@
-FROM node:20-alpine
+FROM node:23-slim
+
 WORKDIR /app
 
-# Install git using Alpine package manager
-RUN apk add --no-cache git
+# Install dependencies for native modules
+RUN apt-get update && apt-get install -y git \
+  && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
-RUN npm install -g pnpm
+# Install dependencies.
 COPY package.json ./
 COPY tsconfig.json ./
-RUN pnpm install
+# copy the env file
+COPY .env ./
+# COPY pnpm-lock.yaml ./
 
-# Add build dependencies for native modules
-RUN apk add --no-cache make gcc g++ python3
+RUN npm install
 
 # Copy source code
 COPY src/ ./src/
@@ -19,13 +21,5 @@ COPY src/ ./src/
 # Create data directory
 RUN mkdir -p ./data
 
-# Set environment variables (these will be overridden by actual env vars)
-ENV USE_OPENAI_EMBEDDING="TRUE"
-ENV OPENAI_API_KEY=""
-ENV SERVER_PORT="3000"
-ENV TELEGRAM_BOT_TOKEN=""
-ENV TELEGRAM_CHAT_ID=""
-ENV WALLET_PRIVATE_KEY=""
-
 # Run the application
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]
