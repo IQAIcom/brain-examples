@@ -7,7 +7,7 @@ import telegramPlugin from "@elizaos/client-telegram";
 async function main() {
 	const iqBridgeMonitorPlugin = await createIQBridgeMonitorPlugin({
 		funderPrivateKey: process.env.WALLET_PRIVATE_KEY as string,
-		tgChatId: process.env.TG_CHAT_ID as string,
+		tgChatId: process.env.TELEGRAM_CHAT_ID as string,
 	});
 
 	// Create agent with plugin.
