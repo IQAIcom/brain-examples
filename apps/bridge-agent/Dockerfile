@@ -1,15 +1,17 @@
-FROM node:23-alpine
+FROM node:20-alpine
 WORKDIR /app
 
-# Install dependencies for native modules
-RUN apt-get update && apt-get install -y git \
-  && rm -rf /var/lib/apt/lists/*
+# Install git using Alpine package manager
+RUN apk add --no-cache git
 
 # Install dependencies
 RUN npm install -g pnpm
 COPY package.json ./
 COPY tsconfig.json ./
 RUN pnpm install
+
+# Add build dependencies for native modules
+RUN apk add --no-cache make gcc g++ python3
 
 # Copy source code
 COPY src/ ./src/
@@ -26,4 +28,4 @@ ENV TELEGRAM_CHAT_ID=""
 ENV WALLET_PRIVATE_KEY=""
 
 # Run the application
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
