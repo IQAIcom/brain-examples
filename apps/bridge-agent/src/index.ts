@@ -1,18 +1,19 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
-import DirectClient from "@elizaos/client-direct";
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createIQBridgeMonitorPlugin } from "../src/bridge-plugin/index.ts";
+import telegramPlugin from "@elizaos/client-telegram";
 
 async function main() {
 	const iqBridgeMonitorPlugin = await createIQBridgeMonitorPlugin({
 		funderPrivateKey: process.env.WALLET_PRIVATE_KEY as string,
+		tgChatId: process.env.TG_CHAT_ID as string,
 	});
 
 	// Create agent with plugin.
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClient(DirectClient)
+		.withClient(telegramPlugin)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
