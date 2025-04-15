@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git \
   && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
+# Install dependencies.
 COPY package.json ./
 COPY tsconfig.json ./
 # copy the env file
