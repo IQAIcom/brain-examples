@@ -20,8 +20,8 @@ RUN pnpm install --filter="./apps/atp-agent..." --frozen-lockfile
 COPY apps/atp-agent ./apps/atp-agent
 
 # Create data directory for SQLite with proper permissions
-RUN mkdir -p /app/apps/fraxlend-agent/data && \
-    chown -R node:node /app/apps/fraxlend-agent/data
+RUN mkdir -p /app/apps/atp-agent/data && \
+    chown -R node:node /app/apps/atp-agent/data
 
 # Set working directory to the app
 WORKDIR /app/apps/atp-agent

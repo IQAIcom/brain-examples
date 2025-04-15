@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y git \
 # Install dependencies
 COPY package.json ./
 COPY tsconfig.json ./
+# copy the env file
+COPY .env ./
+# COPY pnpm-lock.yaml ./
+
 RUN npm install
 
 # Copy source code
@@ -18,11 +22,11 @@ COPY src/ ./src/
 RUN mkdir -p ./data
 
 # Set environment variables (these will be overridden by actual env vars)
-ENV USE_OPENAI_EMBEDDING="TRUE"
-ENV OPENAI_API_KEY=""
-ENV SERVER_PORT="3000"
-ENV TELEGRAM_BOT_TOKEN=""
-ENV WALLET_PRIVATE_KEY=""
+# ENV USE_OPENAI_EMBEDDING="TRUE"
+# ENV OPENAI_API_KEY=""
+# ENV SERVER_PORT="3000"
+# ENV TELEGRAM_BOT_TOKEN=""
+# ENV WALLET_PRIVATE_KEY=""
 
 # Run the application
 CMD ["npm", "start"]
