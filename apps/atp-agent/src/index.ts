@@ -17,7 +17,7 @@ import TelegramClient from "@elizaos-plugins/client-telegram";
 const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
 
 async function main() {
-	// Initialize ATP plugin
+	// Initialize ATP plugin.
 	const atpPlugin = await createAtpPlugin({
 		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
 	});
