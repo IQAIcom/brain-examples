@@ -106,8 +106,8 @@ jobs:
         env:
           WALLET_PRIVATE_KEY: ${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || secrets.WALLET_PRIVATE_KEY }}
           WALLET_ADDRESS: ${{ secrets.WALLET_ADDRESS }}
-          TELEGRAM_CHAT_ID: ${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_CHAT_ID_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_CHAT_ID_SOPHIA || secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_BOT_TOKEN: ${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || matrix.app == 'bridge-agent' && secrets.TELEGRAM_BOT_TOKEN_BRIDGE || secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{secrets.TELEGRAM_CHAT_ID}}
+          TELEGRAM_BOT_TOKEN: ${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || matrix.app == 'bridge-agent' && secrets.TELEGRAM_BOT_TOKEN_BRIDGE }}
           SERVER_PORT: 3000
           USE_OPENAI_EMBEDDING: "TRUE"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -174,8 +174,8 @@ jobs:
             cat > .env << EOF
             WALLET_PRIVATE_KEY=${{ matrix.app == 'atp-agent' && secrets.WALLET_PRIVATE_KEY_ATP || matrix.app == 'bridge-agent' && secrets.WALLET_PRIVATE_KEY_BRIDGE || matrix.app == 'sophia-agent' && secrets.WALLET_PRIVATE_KEY_SOPHIA || matrix.app == 'abi-agent' && secrets.WALLET_PRIVATE_KEY_ABI || secrets.WALLET_PRIVATE_KEY }}
             WALLET_ADDRESS=${{ secrets.WALLET_ADDRESS }}
-            TELEGRAM_CHAT_ID=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_CHAT_ID_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_CHAT_ID_SOPHIA || secrets.TELEGRAM_CHAT_ID }}
-            TELEGRAM_BOT_TOKEN=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || matrix.app == 'bridge-agent' && secrets.TELEGRAM_BOT_TOKEN_BRIDGE || secrets.TELEGRAM_BOT_TOKEN }}
+            TELEGRAM_CHAT_ID=${{secrets.TELEGRAM_CHAT_ID}}
+            TELEGRAM_BOT_TOKEN=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || matrix.app == 'bridge-agent' && secrets.TELEGRAM_BOT_TOKEN_BRIDGE }}
             SERVER_PORT=3000
             USE_OPENAI_EMBEDDING=TRUE
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
@@ -191,8 +191,8 @@ jobs:
             TWITTER_POLL_INTERVAL=60  # Poll interval in seconds
             # Post Generation Settings
             ENABLE_TWITTER_POST_GENERATION=false
-            POST_INTERVAL_MIN= 360       # Minimum interval between posts (minutes)
-            POST_INTERVAL_MAX= 380 # Maximum interval between posts (minutes)
+            POST_INTERVAL_MIN=360       # Minimum interval between posts (minutes)
+            POST_INTERVAL_MAX=380       # Maximum interval between posts (minutes)
             POST_IMMEDIATELY=false     # Skip approval workflow
             # Action Processing
             ENABLE_ACTION_PROCESSING=true
@@ -202,21 +202,10 @@ jobs:
 
             chmod 600 .env
 
-            if [ "${{ matrix.app }}" == "atp-agent" ] || [ "${{ matrix.app }}" == "bridge-agent" ] || [ "${{ matrix.app }}" == "amm-near-agent" ]; then
-              docker-compose down # Stop existing containers
-              docker image prune -a -f # Remove unused images
-              docker container prune -f # Remove stopped containers
-              docker volume prune -f # Remove unused volumes
-              docker builder prune -a -f # Remove unused build cache
-              docker-compose up -d --build # Build and start containers
-            else
-              # Install pnpm and pm2 if they are not already installed
-              if ! command -v pnpm &> /dev/null; then
-                npm install -g pnpm
-              fi
-              if ! command -v pm2 &> /dev/null; then
-                npm install -g pm2
-              fi
-              pnpm install
-              pm2 restart ${{ matrix.app }}
-            fi
+            docker-compose down # Stop existing containers
+            docker image prune -a -f # Remove unused images
+            docker container prune -f # Remove stopped containers
+            docker volume prune -f # Remove unused volumes
+            docker builder prune -a -f # Remove unused build cache
+            docker-compose up -d --build # Build and start containers
+

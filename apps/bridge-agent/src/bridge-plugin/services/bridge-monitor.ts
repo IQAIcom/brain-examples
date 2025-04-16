@@ -6,7 +6,7 @@ import {
 } from "viem";
 import { WalletService } from "./wallet.ts";
 import { fraxtal } from "viem/chains";
-import { elizaLogger } from "@elizaos/core";
+import { elizaLogger, type IAgentRuntime } from "@elizaos/core";
 
 import {
 	BRIDGE_ADDRESS,
@@ -32,7 +32,9 @@ export class BridgeMonitorService {
 	private bridgeAddress: Address = BRIDGE_ADDRESS as Address;
 	private isMonitoring = false;
 	private walletService: WalletService;
+	private tgChatId: string;
 	private unwatch: (() => void) | null = null;
+	private logToTg!: (chatId: string, content: string) => void;
 	private lastKnownNonce: number | null = null;
 	private maxRetries = 3;
 
@@ -43,7 +45,7 @@ export class BridgeMonitorService {
 
 	constructor(opts: IQBridgeMonitorParams) {
 		this.walletService = new WalletService(opts.funderPrivateKey);
-
+		this.tgChatId = opts.tgChatId;
 		if (opts.fundingAmount) this.fundingAmount = opts.fundingAmount;
 		if (opts.minIQThreshold) this.minIQThreshold = opts.minIQThreshold;
 
@@ -65,17 +67,7 @@ export class BridgeMonitorService {
   - Min IQ threshold: ${formatEther(this.minIQThreshold)} IQ`);
 	}
 
-	async initialize() {
-		try {
-			await this.startMonitoring();
-			elizaLogger.info("🚀 IQ Bridge Monitor initialized successfully");
-		} catch (error) {
-			elizaLogger.error("❌ Failed to initialize IQ Bridge Monitor", { error });
-			throw error;
-		}
-	}
-
-	async startMonitoring() {
+	async startMonitoring(runtime: IAgentRuntime) {
 		if (this.isMonitoring) {
 			elizaLogger.info("Bridge monitor is already running");
 			return;
@@ -96,6 +88,16 @@ export class BridgeMonitorService {
 		);
 
 		try {
+			const telegramClient = (runtime.clients as any)?.telegram;
+			if (!telegramClient) {
+				throw new Error("🛑 Telegram client not initialized");
+			}
+
+			this.logToTg = (chatId: string, message: string) => {
+				telegramClient.messageManager.bot.telegram.sendMessage(chatId, message);
+			};
+
+			this.logToTg(this.tgChatId, "Bridge monitor started 💫");
 			this.unwatch = this.ethClient.watchContractEvent({
 				address: this.bridgeAddress,
 				abi: BRIDGE_EVENT_ABI,
@@ -117,6 +119,10 @@ export class BridgeMonitorService {
 			elizaLogger.error(
 				`Failed to set up event monitoring: ${(error as Error).message}`,
 			);
+			this.logToTg(
+				this.tgChatId,
+				`❌ Failed to set up event monitoring: ${(error as Error).message}`,
+			);
 			throw error;
 		}
 	}
@@ -131,6 +137,7 @@ export class BridgeMonitorService {
 		this.isMonitoring = false;
 		this.stats.isMonitoring = false;
 		elizaLogger.info("Bridge monitoring stopped");
+		this.logToTg(this.tgChatId, "Bridge monitor stopped 🛑");
 	}
 
 	private async handleBridgeEvents(logs: any[]) {
@@ -165,6 +172,12 @@ export class BridgeMonitorService {
 				if (amount >= this.minIQThreshold) {
 					const recipientAddress =
 						to === "0x0000000000000000000000000000000000000000" ? from : to;
+
+					this.logToTg(
+						this.tgChatId,
+						`🌉 IQ Bridge detected: ${formatEther(amount)} IQ from ${from.slice(0, 6)}...${from.slice(-4)}`,
+					);
+
 					await this.processBridgeTransaction(recipientAddress, amount);
 				} else {
 					elizaLogger.info(
@@ -233,6 +246,10 @@ export class BridgeMonitorService {
 				elizaLogger.error(
 					`Funding wallet balance too low: ${formatEther(this.stats.funderBalance)} ETH. Skipping funding.`,
 				);
+				this.logToTg(
+					this.tgChatId,
+					`⚠️ Funding wallet balance too low: ${formatEther(this.stats.funderBalance)} ETH`,
+				);
 				return false;
 			}
 
@@ -270,6 +287,10 @@ export class BridgeMonitorService {
 				elizaLogger.info(
 					`Successfully funded ${userAddress} with ${formatEther(fundingAmount)} ETH on Fraxtal (tx: ${hash})`,
 				);
+				this.logToTg(
+					this.tgChatId,
+					`💰 Funded ${userAddress.slice(0, 6)}...${userAddress.slice(-4)} with ${formatEther(fundingAmount)} ETH`,
+				);
 				return true;
 			}
 			elizaLogger.error(`Funding transaction failed: ${hash}`);
@@ -283,6 +304,12 @@ export class BridgeMonitorService {
 			}
 
 			elizaLogger.error(`Error funding user address: ${errorMsg}`);
+			if (!errorMsg.includes("Nonce")) {
+				this.logToTg(
+					this.tgChatId,
+					`❌ Error funding user: ${errorMsg.slice(0, 100)}`,
+				);
+			}
 			throw error;
 		}
 	}
