@@ -11,7 +11,7 @@ The AMM Near Agent is a specialized AI agent that facilitates trading between tw
 1. A user initiates a token swap via the smart contract
 2. The contract interrupts the transaction and delegates output calculation to the NEAR AI agent
 3. The agent processes swap details, performs calculations, and responds to the contract
-4. The contract resumes the transaction, finalizes the swap, and transfers tokens to the user
+4. The contract resumes the transaction, finalizes the swap, and transfers tokens to the user.
 
 ## 🚀 Running This Example
 
@@ -59,8 +59,8 @@ We've deployed the NEAR contract on mainnet, which you can view at [https://near
 - [Agent response to the swap transaction](https://nearblocks.io/txns/CJ7Vb9Pvm7gGjruF9PdS3DB9K5gYFqorqUG3koWgX8ao)
 - [FT Transfer](https://nearblocks.io/txns/QXQUMTMKmYH9L55HzWygb9oYnzUyUcpA9jCduvVaxA9#execution#ACuByCKyJ3qhFJCcK7JBv74usyGYAcqb5Skf8pgxiqvp)
 
-
 ## 📚 Additional Resources
+
 - [Brain Near Plugin](https://brain.iqai.com/plugins/near)
 - [NEAR Protocol Documentation](https://docs.near.org/docs/develop/basics/create-account)
 - [Setting up a NEAR account](https://docs.near.org/docs/develop/basics/create-account)

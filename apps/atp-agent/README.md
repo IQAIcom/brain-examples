@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **ATP Agent** the agent use heartbeat plugin to check top agents daily and buy tokens using 1% of his IQ holdings on fraxtal, this is done with addition of a simple custom plugin ie **iqBalancePlugin**
+The **ATP Agent** the agent use heartbeat plugin to check top agents daily and buy tokens using 1% of his IQ holdings on fraxtal, this is done with addition of a simple custom plugin ie **iqBalancePlugin**.
 
 ## Plugins Overview
 
