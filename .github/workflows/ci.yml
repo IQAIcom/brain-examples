@@ -119,7 +119,7 @@ jobs:
           TWITTER_DRY_RUN: "true" # Set to true for testing without posting
           MAX_TWEET_LENGTH: 280 # Default tweet length limit
           TWITTER_SEARCH_ENABLE: "false" # Enable search functionality
-          TWITTER_RETRY_LIMIT: 5 # Login retry attempts
+          TWITTER_RETRY_LIMIT: 8 # Login retry attempts
           TWITTER_POLL_INTERVAL: 60 # Poll interval in seconds
           # Post Generation Settings
           ENABLE_TWITTER_POST_GENERATION: "false"
@@ -187,7 +187,7 @@ jobs:
             TWITTER_DRY_RUN=true      # Set to true for testing without posting
             MAX_TWEET_LENGTH=280       # Default tweet length limit
             TWITTER_SEARCH_ENABLE=false # Enable search functionality
-            TWITTER_RETRY_LIMIT=5      # Login retry attempts
+            TWITTER_RETRY_LIMIT=8      # Login retry attempts
             TWITTER_POLL_INTERVAL=60  # Poll interval in seconds
             # Post Generation Settings
             ENABLE_TWITTER_POST_GENERATION=false
