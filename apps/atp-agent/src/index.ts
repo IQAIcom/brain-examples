@@ -1,6 +1,4 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
-import DirectClient from "@elizaos/client-direct";
-
 import {
 	AgentBuilder,
 	ModelProviderName,
@@ -27,7 +25,7 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 12 * * *", // Every day at 12:00 PM
+			period: "0 */3 * * *", // Every 3h
 			input: 
 				"Use sequencer to get top ATP agent then buy with 1% of IQ balance and post log on telegram",
 			clients: [
@@ -90,7 +88,6 @@ async function main() {
 	// Create agent with plugin
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		// .withClient(DirectClient)
 		.withClient(TelegramClient)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
@@ -101,13 +98,6 @@ async function main() {
 			name: "BrainBot Trader",
 			bio: "You are BrainBot, a helpful assistant in trading.",
 			username: "brainbot_trader",
-			messageExamples: [],
-			lore: [],
-			style: {
-				all: [],
-				chat: [],
-				post: [],
-			},
 		})
 		.build();
 
