@@ -110,8 +110,8 @@ importers:
         specifier: ^0.2.1
         version: 0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
       '@iqai/plugin-atp':
-        specifier: ^0.3.0
-        version: 0.3.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2)
+        specifier: ^0.4.0
+        version: 0.4.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
         version: 0.3.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
@@ -4888,8 +4888,8 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-atp@0.3.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2):
-    resolution: {integrity: sha512-Ly+h+a8DkLEOEl4i7tmpM8tsfCokJocU3mOyaYZhQD+f5SnSxey9S/337VE5SEsqzQtybVy8/Tp6RHdyL68U4Q==}
+  /@iqai/plugin-atp@0.4.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2):
+    resolution: {integrity: sha512-MiGUyuH1+ZyFd5GHvuwSxJddMSMhXS5zJXVCRa4UvsI6LOn7XaMavzdyKnu+GR4wglc3845wO02po+GJlGWHdA==}
     dependencies:
       '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
       dedent: 1.5.3

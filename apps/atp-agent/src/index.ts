@@ -1,3 +1,4 @@
+import { generateText, ModelClass } from "@elizaos/core";
 import SqliteAdapter from "@elizaos/adapter-sqlite";
 import {
 	AgentBuilder,
@@ -25,15 +26,28 @@ async function main() {
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
-			period: "0 */3 * * *", // Every 3h
-			input: 
-				"Use sequencer to get top ATP agent then buy with 1% of IQ balance and post log on telegram",
+			period: "0 */3 * * *", // Every 3 hours
+			input: `
+				Use sequencer to get top ATP agent then buy with 1% of IQ balance.
+				Do not use any markdown formatting.
+				Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
+				An example of response:
+
+				🌟 ATP Agent Purchase Log
+
+				✅ Buy Transaction Successful
+
+				💰 Amount: 41.47 IQ
+				🤖 Agent: DK the AI DeFi Trader
+				🔗 View on Explorer: https://fraxscan.com/tx/0x8ea6f6cacc4535f102a638c11980b4eec5ba205d244356db5c7f13d443519d5f
+				`,
 			clients: [
 				{
 					type: "telegram",
 					chatId: process.env.TELEGRAM_CHAT_ID as string,
 				},
 			],
+			onlyFinalOutput: true,
 		},
 	]);
 
