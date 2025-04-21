@@ -12,7 +12,7 @@ async function main() {
 		agentTokenContract: process.env.AGENT_TOKEN_CONTRACT as string,
 	});
 	const atpPlugin = await createAtpPlugin({
-		walletPrivateKey: process.env.WALLET_PRIVATE_KEY as string,
+		walletPrivateKey: "not-needed",
 		apiKey: process.env.ATP_API_KEY as string,
 	});
 	// Create agent with plugin.
