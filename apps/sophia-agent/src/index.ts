@@ -44,12 +44,12 @@ async function main() {
 						3. Check out the latest wiki: Boxcat. Discover how to earn rewards by tapping and exploring memes. \n
 						   🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
 						   🔗 https://iq.wiki/wiki/boxcat
-				Step-3. Post the neatly worded announcement from the step-2 (excluding the txn-link in the content) as a new log on the atp site to the agent 0xDe408a409E67e1294d7978B6E9404b8e59d341a3 with the provided polygonscan link as transaction link.
+				Step-3. Post the neatly worded announcement from the step-2 (excluding the txn-link in the content) as a new log on the atp site to the agent ${process.env.AGENT_TOKEN_CONTRACT} with the provided polygonscan link as transaction link.
 					An example execution command to the tool would be structured as:
 					 Add log for the agent ${process.env.AGENT_TOKEN_CONTRACT} with the content as:
 					 New wiki published: Boxcat – a meme universe where you play, earn, and have fun. Read more: https://iq.wiki/wiki/boxcat
 
-					 and the transaction link as: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
+					 and the transaction hash as: 0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
 				Step-4. Return the announcement generated in step-2 as the output finally, with the wiki link and txn link included
         `,
 			shouldPost: (response: string) => {
