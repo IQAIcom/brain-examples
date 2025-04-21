@@ -10,6 +10,8 @@ services:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
       - WALLET_PRIVATE_KEY=${WALLET_PRIVATE_KEY}
+      - ATP_API_KEY=${ATP_API_KEY_AIDEN}
+      - AGENT_TOKEN_CONTRACT=${AGENT_TOKEN_CONTRACT_AIDEN}
     volumes:
       - ./data:/app/data
     ports:
