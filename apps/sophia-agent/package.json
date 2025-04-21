@@ -16,7 +16,7 @@
 		"@elizaos/client-twitter": "github:elizaos-plugins/client-twitter",
 		"@elizaos/core": "0.25.9",
 		"@iqai/agent": "^0.2.1",
-		"@iqai/plugin-atp": "^0.4.0",
+		"@iqai/plugin-atp": "^0.4.1",
 		"@iqai/plugin-heartbeat": "^0.3.1",
 		"@iqai/plugin-sequencer": "^0.2.2",
 		"@iqai/plugin-wiki": "^0.0.4",
