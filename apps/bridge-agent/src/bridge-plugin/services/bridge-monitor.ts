@@ -6,7 +6,12 @@ import {
 } from "viem";
 import { WalletService } from "./wallet.ts";
 import { fraxtal } from "viem/chains";
-import { elizaLogger, type IAgentRuntime } from "@elizaos/core";
+import {
+	elizaLogger,
+	getEmbeddingZeroVector,
+	type IAgentRuntime,
+	type Memory,
+} from "@elizaos/core";
 
 import {
 	BRIDGE_ADDRESS,
@@ -21,6 +26,8 @@ import type {
 	BridgeStats,
 	IQBridgeMonitorParams,
 } from "../types.ts";
+import { z } from "zod";
+const FRAXTAL_EXPLORER = "https://fraxscan.com";
 
 export class BridgeMonitorService {
 	private ethClient: PublicClient;
@@ -33,8 +40,10 @@ export class BridgeMonitorService {
 	private isMonitoring = false;
 	private walletService: WalletService;
 	private tgChatId: string;
+	private agentTokenContract: string;
 	private unwatch: (() => void) | null = null;
 	private logToTg!: (chatId: string, content: string) => void;
+	private logToAtp!: (content: string, txnHash: string) => void;
 	private lastKnownNonce: number | null = null;
 	private maxRetries = 3;
 
@@ -46,6 +55,8 @@ export class BridgeMonitorService {
 	constructor(opts: IQBridgeMonitorParams) {
 		this.walletService = new WalletService(opts.funderPrivateKey);
 		this.tgChatId = opts.tgChatId;
+		this.agentTokenContract = opts.agentTokenContract;
+		elizaLogger.info(`Agent token contract: ${this.agentTokenContract}`);
 		if (opts.fundingAmount) this.fundingAmount = opts.fundingAmount;
 		if (opts.minIQThreshold) this.minIQThreshold = opts.minIQThreshold;
 
@@ -95,6 +106,34 @@ export class BridgeMonitorService {
 
 			this.logToTg = (chatId: string, message: string) => {
 				telegramClient.messageManager.bot.telegram.sendMessage(chatId, message);
+			};
+
+			this.logToAtp = async (content: string, txnHash: string) => {
+				elizaLogger.info(`Logging to ATP: ${content} ${txnHash}`);
+				const addLogAction = runtime.actions.find(
+					(a) => a.name === "ATP_ADD_AGENT_LOG",
+				);
+				if (!addLogAction) {
+					elizaLogger.info("ATP_ADD_AGENT_LOG action not found");
+					return;
+				}
+				const memory: Memory = {
+					userId: "aiden-my-name-is-aiden",
+					agentId: runtime.agentId,
+					content: {
+						text: `
+						 Add a new log to the ATP agent ${this.agentTokenContract} with the following content:
+						 ${content}
+						 The log should be associated with the following transaction hash:
+						 ${txnHash}
+						`,
+						action: "ATP_ADD_AGENT_LOG",
+					},
+					roomId: "aiden-this-is-aiden-room",
+					embedding: getEmbeddingZeroVector(),
+				};
+				await runtime.messageManager.createMemory(memory);
+				return await addLogAction.handler(runtime, memory);
 			};
 
 			this.logToTg(this.tgChatId, "Bridge monitor started 💫");
@@ -169,19 +208,26 @@ export class BridgeMonitorService {
   - Amount: ${formatEther(amount)} IQ
   - Transaction: ${log.transactionHash}`);
 
+				// Format IQ amount with 2 decimal places
+				const formattedAmount = Number(formatEther(amount)).toFixed(2);
+
+				this.logToTg(
+					this.tgChatId,
+					`🌉 IQ Bridge detected: ${formattedAmount} IQ from ${from}`,
+				);
+
 				if (amount >= this.minIQThreshold) {
 					const recipientAddress =
 						to === "0x0000000000000000000000000000000000000000" ? from : to;
-
-					this.logToTg(
-						this.tgChatId,
-						`🌉 IQ Bridge detected: ${formatEther(amount)} IQ from ${from.slice(0, 6)}...${from.slice(-4)}`,
-					);
 
 					await this.processBridgeTransaction(recipientAddress, amount);
 				} else {
 					elizaLogger.info(
 						`Skipping funding: Amount ${formatEther(amount)} IQ is below threshold of ${formatEther(this.minIQThreshold)} IQ`,
+					);
+					this.logToTg(
+						this.tgChatId,
+						`ℹ️ Skipping funding: Amount ${formattedAmount} IQ is below threshold of ${formatEther(this.minIQThreshold)} IQ`,
 					);
 				}
 			} catch (error) {
@@ -211,6 +257,10 @@ export class BridgeMonitorService {
 			} else {
 				elizaLogger.info(
 					`User ${userAddress} already has sufficient ETH on Fraxtal. No funding needed.`,
+				);
+				this.logToTg(
+					this.tgChatId,
+					`ℹ️ User ${userAddress} already has sufficient frxETH. No funding needed.`,
 				);
 			}
 		} catch (error) {
@@ -248,7 +298,7 @@ export class BridgeMonitorService {
 				);
 				this.logToTg(
 					this.tgChatId,
-					`⚠️ Funding wallet balance too low: ${formatEther(this.stats.funderBalance)} ETH`,
+					`⚠️ Funding wallet balance too low: ${formatEther(this.stats.funderBalance)} frxETH`,
 				);
 				return false;
 			}
@@ -284,16 +334,33 @@ export class BridgeMonitorService {
 					timestamp: Date.now(),
 				};
 
+				// Format ETH amount with limited decimals
+				const formattedFundingAmount = Number(
+					formatEther(fundingAmount),
+				).toFixed(4);
+				const txLink = `${FRAXTAL_EXPLORER}/tx/${hash}`;
+
 				elizaLogger.info(
 					`Successfully funded ${userAddress} with ${formatEther(fundingAmount)} ETH on Fraxtal (tx: ${hash})`,
 				);
 				this.logToTg(
 					this.tgChatId,
-					`💰 Funded ${userAddress.slice(0, 6)}...${userAddress.slice(-4)} with ${formatEther(fundingAmount)} ETH`,
+					`💰 Funded ${userAddress} with ${formattedFundingAmount} frxETH\n${txLink}`,
 				);
+
+				// Log to ATP with professional message
+				this.logToAtp(
+					`Transferred ${formattedFundingAmount} frxETH to ${userAddress} in Fraxtal to ensure bridge experience is seamless.`,
+					hash,
+				);
+
 				return true;
 			}
 			elizaLogger.error(`Funding transaction failed: ${hash}`);
+			this.logToTg(
+				this.tgChatId,
+				`❌ Funding transaction failed: ${FRAXTAL_EXPLORER}/tx/${hash}`,
+			);
 			return false;
 		} catch (error) {
 			const errorMsg = (error as Error).message;
