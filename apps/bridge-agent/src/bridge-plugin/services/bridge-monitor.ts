@@ -136,7 +136,6 @@ export class BridgeMonitorService {
 				return await addLogAction.handler(runtime, memory);
 			};
 
-			this.logToTg(this.tgChatId, "Bridge monitor started 💫");
 			this.unwatch = this.ethClient.watchContractEvent({
 				address: this.bridgeAddress,
 				abi: BRIDGE_EVENT_ABI,
@@ -158,10 +157,6 @@ export class BridgeMonitorService {
 			elizaLogger.error(
 				`Failed to set up event monitoring: ${(error as Error).message}`,
 			);
-			this.logToTg(
-				this.tgChatId,
-				`❌ Failed to set up event monitoring: ${(error as Error).message}`,
-			);
 			throw error;
 		}
 	}
@@ -176,7 +171,6 @@ export class BridgeMonitorService {
 		this.isMonitoring = false;
 		this.stats.isMonitoring = false;
 		elizaLogger.info("Bridge monitoring stopped");
-		this.logToTg(this.tgChatId, "Bridge monitor stopped 🛑");
 	}
 
 	private async handleBridgeEvents(logs: any[]) {
