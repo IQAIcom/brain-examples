@@ -1,6 +1,7 @@
 export interface IQBridgeMonitorParams {
 	funderPrivateKey: string;
 	tgChatId: string;
+	agentTokenContract: string;
 	fundingAmount?: bigint;
 	minIQThreshold?: bigint;
 	checkIntervalMs?: number;
