@@ -1,15 +1,20 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
 import telegramPlugin from "@elizaos/client-telegram";
-import twitterPlugin from "@elizaos/client-twitter";
-import { ModelClass, generateText } from "@elizaos/core";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import createHeartbeatPlugin from "@iqai/plugin-heartbeat";
 import createWikiPlugin from "@iqai/plugin-wiki";
 import { SophiaCharacter } from "./character.ts";
-
+import createAtpPlugin from "@iqai/plugin-atp";
+import createSequencerPlugin from "@iqai/plugin-sequencer";
+import { elizaLogger } from "@elizaos/core";
 async function main() {
 	// Initialize plugins.
 	const pluginWiki = await createWikiPlugin();
+	const sequencer = await createSequencerPlugin();
+	const pluginAtp = await createAtpPlugin({
+		walletPrivateKey: "not-needed",
+		apiKey: process.env.ATP_API_KEY as string,
+	});
 	const heartbeat = await createHeartbeatPlugin([
 		{
 			clients: [
@@ -17,62 +22,51 @@ async function main() {
 					type: "telegram",
 					chatId: process.env.TELEGRAM_CHAT_ID ?? "",
 				},
-				{
-					type: "twitter",
-				},
 			],
 			period: "0 */2 * * *",
-			input:
-				"get the latest user wikis from 0x8AF7a19a26d8FBC48dEfB35AEfb15Ec8c407f889 in past 2 hours and post about it",
-			onlyFinalOutput: true,
+			input: `
+			  GO THROUGH SEQUENCER AND FOLLOW THE BELOW INSTRUCTIONS.
+        Step-1.get the latest user wiki from 0x8AF7a19a26d8FBC48dEfB35AEfb15Ec8c407f889 in past 2 hours.
+        Step-2.If a new wiki is found, generate a short announcement. Each announcement should be unique and slightly different in structure or style—avoid using the same template repeatedly. Vary greetings, sentence order, and phrasing to keep announcements fresh.
+					Each announcement must:
+					- Clearly mention the wiki title and a brief summary (can be reworded, but must convey the main idea).
+					- Always end with the wiki link (never truncated or removed).
+					- Be under 280 characters.
+					- Not use markdown formatting.
+
+					Examples:
+						1. New wiki published: Boxcat – a meme universe where you play, earn, and have fun. \n
+						   🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
+						   🔗 Read more: https://iq.wiki/wiki/boxcat \n
+						2. Just updated: Boxcat wiki! Dive into the world of meme-powered rewards and interactive stories. \n
+						   🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
+						   🔗 Details: https://iq.wiki/wiki/boxcat \n
+						3. Check out the latest wiki: Boxcat. Discover how to earn rewards by tapping and exploring memes. \n
+						   🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
+						   🔗 https://iq.wiki/wiki/boxcat
+				Step-3. Post the neatly worded announcement from the step-2 (excluding the txn-link in the content) as a new log on the atp site to the agent 0xDe408a409E67e1294d7978B6E9404b8e59d341a3 with the provided polygonscan link as transaction link.
+					An example execution command to the tool would be structured as:
+					 Add log for the agent ${process.env.AGENT_TOKEN_CONTRACT} with the content as:
+					 New wiki published: Boxcat – a meme universe where you play, earn, and have fun. Read more: https://iq.wiki/wiki/boxcat
+
+					 and the transaction link as: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
+				Step-4. Return the announcement generated in step-2 as the output finally, with the wiki link and txn link included
+        `,
 			shouldPost: (response: string) => {
+				elizaLogger.info("response: ", response);
 				return response.includes("https://iq.wiki/wiki/");
-			},
-			formatResponse: async (response, runtime) => {
-				const prompt = `
-				format the given original response in this form. do not use any markdown formatting and the message should always
-				end with the link. also add emojis and you are a nerdy female wiki editor awkward and a degenerate. style the text like one and be witty.
-				The original response is the wiki written by you so convey the message as its written by yourself.
-				NOTE: ensure the response is below 280 characters and the link MUST be in the end. you can alter the wiki summary but make sure the link is not removed/truncated
-				basic structure:
-				# A random greeting (eg: Hello fellow nerds 🤓),
-				# A single line conveying about new wiki with the wiki title
-				# wiki summary
-				# A witty joke/roast (optional/prefer crypto topics)
-				# wiki link
-
-				A proper example:
-				Hey there, trivia fans 🤓,
-
-				Check out my new wiki on Boxcat!
-
-				Boxcat is a meme-tastic play-to-earn universe with epic storylines and interactive fun. Earn rewards just by tapping!
-
-				Why did the meme go to school? To become a little more gif-ted!
-			  https://iq.wiki/wiki/boxcat
-			`;
-				const context = `${prompt} original response: ${response}`;
-
-				// Call generateText with the correct parameter structure
-				const formattedText = await generateText({
-					runtime: runtime,
-					context: context,
-					modelClass: ModelClass.LARGE,
-				});
-
-				return formattedText || response;
 			},
 		},
 	]);
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClients([telegramPlugin, twitterPlugin])
+		.withClients([telegramPlugin])
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([pluginWiki, heartbeat])
+		.withPlugins([pluginWiki, heartbeat, pluginAtp, sequencer])
 		.withCharacter(SophiaCharacter)
 		.build();
 
