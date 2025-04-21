@@ -17,13 +17,14 @@
     "@elizaos/core": "0.25.9",
     "@elizaos/plugin-bootstrap": "0.25.9",
     "@iqai/agent": "^0.2.0",
-    "@iqai/plugin-atp": "^0.2.0",
+    "@iqai/plugin-atp": "^0.4.1",
     "@iqai/plugin-heartbeat": "^0.3.1",
     "@iqai/plugin-sequencer": "^0.2.0",
     "dedent": "^1.5.3",
     "dotenv": "^16.4.7",
     "sharp": "^0.33.5",
-    "viem": "^2.23.3"
+    "viem": "^2.23.3",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "ts-node": "10.9.2",
