@@ -49,6 +49,7 @@ async function main() {
 					 New wiki published: Boxcat – a meme universe where you play, earn, and have fun. Read more: https://iq.wiki/wiki/boxcat
 
 					 and the transaction hash as: 0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
+					 with the chainId as: 137 (polygon)
 				Step-4. Return the announcement generated in step-2 as the output finally, with the wiki link and txn link included
         `,
 			shouldPost: (response: string) => {
