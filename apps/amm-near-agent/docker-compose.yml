@@ -1,17 +1,9 @@
-version: '3.8'
-
 services:
   amm-near-agent:
-    build:
-      context: ../..
-      dockerfile: apps/amm-near-agent/Dockerfile
+    build: .
     container_name: amm-near-agent
     restart: unless-stopped
-    volumes:
-      - type: bind
-        source: ./data
-        target: /app/apps/amm-near-agent/data
     env_file:
       - .env
     ports:
-      - "3000:3000"
+      - "${SERVER_PORT}:${SERVER_PORT}"
