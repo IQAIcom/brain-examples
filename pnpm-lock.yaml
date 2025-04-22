@@ -160,7 +160,7 @@ importers:
         version: 0.2.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-atp':
         specifier: ^0.4.1
-        version: 0.4.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.3)
+        version: 0.4.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
         version: 0.3.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
@@ -178,10 +178,7 @@ importers:
         version: 0.33.5
       viem:
         specifier: ^2.23.3
-        version: 2.23.10(typescript@5.7.3)(zod@3.24.3)
-      zod:
-        specifier: ^3.24.3
-        version: 3.24.3
+        version: 2.23.10(typescript@5.7.3)(zod@3.24.2)
     devDependencies:
       ts-node:
         specifier: 10.9.2
@@ -4888,13 +4885,13 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-atp@0.4.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.3):
+  /@iqai/plugin-atp@0.4.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-NzRIuneNyfE7/dBHKgyLwqQV3KpK6U3QFgdyGdJvpJLSsziuCJp70rIDigmIZ1StpKhWz9jCREkEPw5lERYr3Q==}
     dependencies:
       '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.26.2(typescript@5.7.3)(zod@3.24.3)
+      viem: 2.26.2(typescript@5.7.3)(zod@3.24.2)
       vitest: 3.1.1(@types/node@22.14.0)(tsx@4.19.3)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -8469,7 +8466,7 @@ packages:
       '@supabase/node-fetch': 2.6.15
       '@types/phoenix': 1.6.6
       '@types/ws': 8.5.14
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -8829,7 +8826,7 @@ packages:
       '@vitest/spy': 3.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      vite: 6.2.5(@types/node@22.14.0)(tsx@4.19.2)
+      vite: 6.2.5(@types/node@22.14.0)(tsx@4.19.3)
     dev: false
 
   /@vitest/pretty-format@2.1.5:
@@ -9105,22 +9102,6 @@ packages:
     dependencies:
       typescript: 5.7.3
       zod: 3.24.2
-    dev: false
-
-  /abitype@1.0.8(typescript@5.7.3)(zod@3.24.3):
-    resolution: {integrity: sha512-ZeiI6h3GnW06uYDLx0etQtX/p8E24UaHHBj57RSjK7YBFe7iuVn07EDpOeP451D06sF27VOz9JJPlIKJmXgkEg==}
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>=5.0.4'
-      zod: ^3 >=3.22.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-      zod:
-        optional: true
-    dependencies:
-      typescript: 5.7.3
-      zod: 3.24.3
     dev: false
 
   /abitype@1.0.8(typescript@5.8.2)(zod@3.24.2):
@@ -11500,7 +11481,7 @@ packages:
     peerDependencies:
       ws: '*'
     dependencies:
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.1
     dev: false
 
   /isstream@0.1.2:
@@ -12411,7 +12392,7 @@ packages:
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
       node-fetch: 2.7.0
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.1
       zod: 3.24.2
     transitivePeerDependencies:
       - encoding
@@ -12587,27 +12568,6 @@ packages:
       '@scure/bip32': 1.6.2
       '@scure/bip39': 1.5.4
       abitype: 1.0.8(typescript@5.7.3)(zod@3.24.2)
-      eventemitter3: 5.0.1
-      typescript: 5.7.3
-    transitivePeerDependencies:
-      - zod
-    dev: false
-
-  /ox@0.6.9(typescript@5.7.3)(zod@3.24.3):
-    resolution: {integrity: sha512-wi5ShvzE4eOcTwQVsIPdFr+8ycyX+5le/96iAJutaZAvCes1J0+RvpEPg5QDPDiaR0XQQAvZVl7AwqQcINuUug==}
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>=5.4.0'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@adraffy/ens-normalize': 1.11.0
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.7.3)(zod@3.24.3)
       eventemitter3: 5.0.1
       typescript: 5.7.3
     transitivePeerDependencies:
@@ -14822,31 +14782,7 @@ packages:
       isows: 1.0.6(ws@8.18.1)
       ox: 0.6.9(typescript@5.7.3)(zod@3.24.2)
       typescript: 5.7.3
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /viem@2.23.10(typescript@5.7.3)(zod@3.24.3):
-    resolution: {integrity: sha512-va6Wde+v96PdfzdPEspCML1MjAqe+88O8BD+R9Kun/4s5KMUNcqfHbXdZP0ZZ2Zms80styvH2pDRAqCho6TqkA==}
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.7.3)(zod@3.24.3)
-      isows: 1.0.6(ws@8.18.1)
-      ox: 0.6.9(typescript@5.7.3)(zod@3.24.3)
-      typescript: 5.7.3
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -14915,30 +14851,7 @@ packages:
       isows: 1.0.6(ws@8.18.1)
       ox: 0.6.9(typescript@5.7.3)(zod@3.24.2)
       typescript: 5.7.3
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /viem@2.26.2(typescript@5.7.3)(zod@3.24.3):
-    resolution: {integrity: sha512-+yXSl1n+jV/Kn/zpETiNq0WOcINXti29nxdPIONvvNh+Es0VfeusW8bb2okVfa55pmuc8kOCOpB5wq3ZIUCTSA==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.7.3)(zod@3.24.3)
-      isows: 1.0.6(ws@8.18.1)
-      ox: 0.6.9(typescript@5.7.3)(zod@3.24.3)
-      typescript: 5.7.3
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      ws: 8.18.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -15611,6 +15524,19 @@ packages:
 
   /ws@8.18.0:
     resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
+
+  /ws@8.18.1:
+    resolution: {integrity: sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1

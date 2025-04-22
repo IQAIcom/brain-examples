@@ -26,7 +26,6 @@ import type {
 	BridgeStats,
 	IQBridgeMonitorParams,
 } from "../types.ts";
-import { z } from "zod";
 const FRAXTAL_EXPLORER = "https://fraxscan.com";
 
 export class BridgeMonitorService {
