@@ -12,7 +12,6 @@ async function main() {
 	const pluginWiki = await createWikiPlugin();
 	const sequencer = await createSequencerPlugin();
 	const pluginAtp = await createAtpPlugin({
-		walletPrivateKey: "not-needed",
 		apiKey: process.env.ATP_API_KEY as string,
 	});
 	const heartbeat = await createHeartbeatPlugin([
