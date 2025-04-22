@@ -402,8 +402,8 @@ importers:
         specifier: ^0.2.1
         version: 0.2.1(@opentelemetry/api@1.9.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
       '@iqai/plugin-atp':
-        specifier: ^0.4.1
-        version: 0.4.1(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)(zod@3.24.2)
+        specifier: ^0.4.2
+        version: 0.4.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)(zod@3.24.2)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
         version: 0.3.1(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
@@ -5040,8 +5040,8 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-atp@0.4.1(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)(zod@3.24.2):
-    resolution: {integrity: sha512-NzRIuneNyfE7/dBHKgyLwqQV3KpK6U3QFgdyGdJvpJLSsziuCJp70rIDigmIZ1StpKhWz9jCREkEPw5lERYr3Q==}
+  /@iqai/plugin-atp@0.4.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)(zod@3.24.2):
+    resolution: {integrity: sha512-+4RTJrJD5h9SIO0FIVkislC6dNPdGCmx3A9P2u4leLbM8RN6Qv8+dwuOKyWdSlCpNl4gGetLMQC1kwdpk4WM3g==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
       dedent: 1.5.3
@@ -14474,7 +14474,7 @@ packages:
       esbuild: 0.24.2
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(tsx@4.19.2)
+      postcss-load-config: 6.0.1(tsx@4.19.3)
       resolve-from: 5.0.0
       rollup: 4.39.0
       source-map: 0.8.0-beta.0
