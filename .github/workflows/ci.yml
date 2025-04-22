@@ -108,6 +108,8 @@ jobs:
           WALLET_ADDRESS: ${{ secrets.WALLET_ADDRESS }}
           TELEGRAM_CHAT_ID: ${{secrets.TELEGRAM_CHAT_ID}}
           TELEGRAM_BOT_TOKEN: ${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || matrix.app == 'bridge-agent' && secrets.TELEGRAM_BOT_TOKEN_BRIDGE }}
+          ATP_API_KEY: ${{ matrix.app == 'sophia-agent' && secrets.ATP_API_KEY_SOPHIA || matrix.app == 'bridge-agent' && secrets.ATP_API_KEY_AIDEN }}
+          AGENT_TOKEN_CONTRACT : ${{ matrix.app == 'sophia-agent' && secrets.AGENT_TOKEN_CONTRACT_SOPHIA || matrix.app == 'bridge-agent' && secrets.AGENT_TOKEN_CONTRACT_AIDEN }}
           SERVER_PORT: 3000
           USE_OPENAI_EMBEDDING: "TRUE"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -176,6 +178,8 @@ jobs:
             WALLET_ADDRESS=${{ secrets.WALLET_ADDRESS }}
             TELEGRAM_CHAT_ID=${{secrets.TELEGRAM_CHAT_ID}}
             TELEGRAM_BOT_TOKEN=${{ matrix.app == 'atp-agent' && secrets.TELEGRAM_BOT_TOKEN_ATP || matrix.app == 'sophia-agent' && secrets.TELEGRAM_BOT_TOKEN_SOPHIA || matrix.app == 'bridge-agent' && secrets.TELEGRAM_BOT_TOKEN_BRIDGE }}
+            ATP_API_KEY=${{ matrix.app == 'sophia-agent' && secrets.ATP_API_KEY_SOPHIA || matrix.app == 'bridge-agent' && secrets.ATP_API_KEY_AIDEN }}
+            AGENT_TOKEN_CONTRACT=${{ matrix.app == 'sophia-agent' && secrets.AGENT_TOKEN_CONTRACT_SOPHIA || matrix.app == 'bridge-agent' && secrets.AGENT_TOKEN_CONTRACT_AIDEN }}
             SERVER_PORT=3000
             USE_OPENAI_EMBEDDING=TRUE
             OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}

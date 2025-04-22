@@ -3,28 +3,7 @@ services:
     build: .
     container_name: sophia-agent
     restart: unless-stopped
-    environment:
-      - USE_OPENAI_EMBEDDING=${USE_OPENAI_EMBEDDING}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - SERVER_PORT=${SERVER_PORT}
-      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
-      - TWITTER_USERNAME=${TWITTER_USERNAME}
-      - TWITTER_PASSWORD=${TWITTER_PASSWORD}
-      - TWITTER_EMAIL=${TWITTER_EMAIL}
-      - TWITTER_DRY_RUN=true
-      - MAX_TWEET_LENGTH=280
-      - TWITTER_SEARCH_ENABLE=false
-      - TWITTER_RETRY_LIMIT=5
-      - TWITTER_POLL_INTERVAL=60
-      - ENABLE_TWITTER_POST_GENERATION=false
-      - POST_INTERVAL_MIN=360
-      - POST_INTERVAL_MAX=380
-      - POST_IMMEDIATELY=false
-      - ENABLE_ACTION_PROCESSING=true
-      - ACTION_INTERVAL=5
-      - MAX_ACTIONS_PROCESSING=1
-    volumes:
-      - ./data:/app/data
+    env_file:
+      - .env
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
