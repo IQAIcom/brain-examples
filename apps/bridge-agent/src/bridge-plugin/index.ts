@@ -1,5 +1,4 @@
 import type { Plugin } from "@elizaos/core";
-import { elizaLogger } from "@elizaos/core";
 import { BridgeMonitorService } from "./services/bridge-monitor.ts";
 import type { IQBridgeMonitorParams } from "./types.ts";
 import { getBridgeStatusAction } from "./actions/bridge-status.ts";
