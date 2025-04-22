@@ -1,5 +1,4 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
-import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createIQBridgeMonitorPlugin } from "../src/bridge-plugin/index.ts";
 import telegramPlugin from "@elizaos/client-telegram";
@@ -23,7 +22,7 @@ async function main() {
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([bootstrapPlugin, iqBridgeMonitorPlugin, atpPlugin])
+		.withPlugins([iqBridgeMonitorPlugin, atpPlugin])
 		.withCharacter({
 			name: "bridge helper",
 			bio: "You are BrainBot, a helpful assistant in trading.",
