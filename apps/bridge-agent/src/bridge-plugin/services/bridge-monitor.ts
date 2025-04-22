@@ -125,6 +125,7 @@ export class BridgeMonitorService {
 						 ${content}
 						 The log should be associated with the following transaction hash:
 						 ${txnHash}
+						 with the chainId as: 237 (fraxtal)
 						`,
 						action: "ATP_ADD_AGENT_LOG",
 					},
