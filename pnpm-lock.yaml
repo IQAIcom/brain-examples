@@ -152,24 +152,12 @@ importers:
       '@elizaos/core':
         specifier: 0.25.9
         version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      '@elizaos/plugin-bootstrap':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1)
       '@iqai/agent':
-        specifier: ^0.2.0
-        version: 0.2.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
+        specifier: ^0.2.1
+        version: 0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-atp':
-        specifier: ^0.2.0
-        version: 0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.43)(react@19.1.0)(svelte@5.25.8)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8)
-      '@iqai/plugin-heartbeat':
-        specifier: ^0.3.1
-        version: 0.3.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      '@iqai/plugin-sequencer':
-        specifier: ^0.2.0
-        version: 0.2.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      dedent:
-        specifier: ^1.5.3
-        version: 1.5.3
+        specifier: ^0.4.3
+        version: 0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -178,7 +166,7 @@ importers:
         version: 0.33.5
       viem:
         specifier: ^2.23.3
-        version: 2.23.10(typescript@5.7.3)(zod@3.23.8)
+        version: 2.23.10(typescript@5.7.3)(zod@3.24.2)
     devDependencies:
       ts-node:
         specifier: 10.9.2
@@ -397,22 +385,22 @@ importers:
         version: github.com/elizaos-plugins/client-twitter/1dbcfa726d1e1f0efa6b95946b9e8b04d03167ef(whatwg-url@7.1.0)
       '@elizaos/core':
         specifier: 0.25.9
-        version: 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/agent':
         specifier: ^0.2.1
-        version: 0.2.1(@opentelemetry/api@1.9.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.2.1(@opentelemetry/api@1.9.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-atp':
         specifier: ^0.4.3
-        version: 0.4.3(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)(zod@3.24.2)
+        version: 0.4.3(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
-        version: 0.3.1(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.3.1(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-sequencer':
         specifier: ^0.2.2
-        version: 0.2.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.2.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-wiki':
         specifier: ^0.0.4
-        version: 0.0.4(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+        version: 0.0.4(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -2771,68 +2759,6 @@ packages:
       - yaml
     dev: false
 
-  /@elizaos/core@0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0):
-    resolution: {integrity: sha512-4ze8DhTLxqLMRDEu3eODMxUjj7XK+CehC8El6HbW+/WXGBknCgeZMP+SH6Y93JtFDnIJFU+Ndzx3W2+E8e/GGg==}
-    dependencies:
-      '@ai-sdk/amazon-bedrock': 1.1.6(zod@3.24.2)
-      '@ai-sdk/anthropic': 1.1.6(zod@3.24.2)
-      '@ai-sdk/google': 1.1.0(zod@3.24.2)
-      '@ai-sdk/groq': 1.1.7(zod@3.24.2)
-      '@ai-sdk/mistral': 1.1.6(zod@3.24.2)
-      '@ai-sdk/openai': 1.1.9(zod@3.24.2)
-      '@electric-sql/pglite': 0.2.17
-      '@fal-ai/client': 1.2.0
-      '@supabase/supabase-js': 2.49.4
-      '@types/uuid': 10.0.0
-      ai: 4.1.16(react@19.1.0)(zod@3.24.2)
-      better-sqlite3: 11.8.1
-      bignumber.js: 9.1.2
-      dotenv: 16.4.5
-      fastembed: 1.14.1
-      glob: 11.0.0
-      handlebars: 4.7.8
-      js-sha1: 0.7.0
-      js-tiktoken: 1.0.15
-      ollama-ai-provider: 0.16.1(zod@3.24.2)
-      openai: 4.82.0(ws@8.18.0)(zod@3.24.2)
-      pino: 9.6.0
-      pino-pretty: 13.0.0
-      sql.js: 1.13.0
-      together-ai: 0.7.0
-      unique-names-generator: 4.7.1
-      uuid: 11.0.3
-      viem: 2.21.58(typescript@5.7.3)(zod@3.24.2)
-      vitest: 3.1.1(@types/node@22.14.0)(tsx@4.19.3)
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
   /@elizaos/core@0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-4ze8DhTLxqLMRDEu3eODMxUjj7XK+CehC8El6HbW+/WXGBknCgeZMP+SH6Y93JtFDnIJFU+Ndzx3W2+E8e/GGg==}
     dependencies:
@@ -2995,42 +2921,6 @@ packages:
       - typeorm
       - typescript
       - vue
-      - ws
-      - yaml
-    dev: false
-
-  /@elizaos/plugin-bootstrap@0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(whatwg-url@7.1.0)(ws@8.18.1):
-    resolution: {integrity: sha512-HBk/5E79IJ9B6XFGg8rzMrXDfEctP+IcWYE5SqhqgxgfeEe4YFHpFRzmNlLanpU9zEqFTfxep4N/TCvTgyus2Q==}
-    peerDependencies:
-      whatwg-url: 7.1.0
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      whatwg-url: 7.1.0
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
       - ws
       - yaml
     dev: false
@@ -4675,43 +4565,6 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/agent@0.2.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
-    resolution: {integrity: sha512-u/ga30eI4/cRycml0yhkUzccfrXm93jZ+NnCP2Os8cbohWPzjjCa0sLlB5dulD5oAIaOK8jGpkWLQG2PZVok0A==}
-    engines: {node: '>=22'}
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      dedent: 1.5.3
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
   /@iqai/agent@0.2.0(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-u/ga30eI4/cRycml0yhkUzccfrXm93jZ+NnCP2Os8cbohWPzjjCa0sLlB5dulD5oAIaOK8jGpkWLQG2PZVok0A==}
     engines: {node: '>=22'}
@@ -4758,6 +4611,48 @@ packages:
       zod: 3.24.2
     transitivePeerDependencies:
       - '@edge-runtime/vm'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+    dev: false
+
+  /@iqai/agent@0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
+    resolution: {integrity: sha512-gfRjSHW1sL1VT6DbaWRJAKJCxYUcpEk1LA1TufZqSzr9rHCjQh3upB68W7M/6zRwL6k9iyhZ7jMn8BW/oVJsvw==}
+    engines: {node: '>=22'}
+    dependencies:
+      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
+      '@opentelemetry/auto-instrumentations-node': 0.57.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-node': 0.200.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-trace-base': 2.0.0(@opentelemetry/api@1.9.0)
+      dedent: 1.5.3
+      node-cron: 3.0.3
+      zod: 3.24.2
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@opentelemetry/api'
       - '@types/debug'
       - '@types/node'
       - '@vitest/browser'
@@ -4870,11 +4765,11 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/agent@0.2.1(@opentelemetry/api@1.9.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0):
+  /@iqai/agent@0.2.1(@opentelemetry/api@1.9.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-gfRjSHW1sL1VT6DbaWRJAKJCxYUcpEk1LA1TufZqSzr9rHCjQh3upB68W7M/6zRwL6k9iyhZ7jMn8BW/oVJsvw==}
     engines: {node: '>=22'}
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@opentelemetry/auto-instrumentations-node': 0.57.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-node': 0.200.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 2.0.0(@opentelemetry/api@1.9.0)
@@ -4953,51 +4848,6 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-atp@0.2.0(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.43)(react@19.1.0)(svelte@5.25.8)(tsx@4.19.3)(typescript@5.7.3)(vue@3.5.13)(ws@8.18.1)(zod@3.23.8):
-    resolution: {integrity: sha512-qf8ztHr78yg845FIpjEHfxp6R2R1UX3GTkFCLSYrq/V5fBgnazQNA6mqQgPOZXDt7SaCorMtRZA4YRk8veT8Hg==}
-    dependencies:
-      '@elizaos/core': 0.1.9(@google-cloud/vertexai@1.9.3)(@langchain/core@0.3.43)(axios@1.7.9)(react@19.1.0)(svelte@5.25.8)(vue@3.5.13)(ws@8.18.1)
-      dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.26.2(typescript@5.7.3)(zod@3.23.8)
-    transitivePeerDependencies:
-      - '@google-cloud/vertexai'
-      - '@langchain/anthropic'
-      - '@langchain/aws'
-      - '@langchain/cohere'
-      - '@langchain/core'
-      - '@langchain/google-genai'
-      - '@langchain/google-vertexai'
-      - '@langchain/groq'
-      - '@langchain/mistralai'
-      - '@langchain/ollama'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - aws-crt
-      - axios
-      - babel-plugin-macros
-      - bufferutil
-      - cheerio
-      - debug
-      - encoding
-      - jiti
-      - peggy
-      - postcss
-      - react
-      - solid-js
-      - sswr
-      - supports-color
-      - svelte
-      - tsx
-      - typeorm
-      - typescript
-      - utf-8-validate
-      - vue
-      - ws
-      - yaml
-      - zod
-    dev: false
-
   /@iqai/plugin-atp@0.4.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-MiGUyuH1+ZyFd5GHvuwSxJddMSMhXS5zJXVCRa4UvsI6LOn7XaMavzdyKnu+GR4wglc3845wO02po+GJlGWHdA==}
     dependencies:
@@ -5040,10 +4890,52 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-atp@0.4.3(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)(zod@3.24.2):
+  /@iqai/plugin-atp@0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-DdyD3wc2YiMRospB2zIffHNoSenJp7iIh1QgDrIYy2yV5ZtKDM2LjWH9U9NP5YOsyuvRoTDRKQ6pfSPZ4jv/Hg==}
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
+      dedent: 1.5.3
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
+      viem: 2.26.2(typescript@5.7.3)(zod@3.24.2)
+      vitest: 3.1.1(@types/node@22.14.0)(tsx@4.19.3)
+    transitivePeerDependencies:
+      - '@edge-runtime/vm'
+      - '@microsoft/api-extractor'
+      - '@swc/core'
+      - '@types/debug'
+      - '@types/node'
+      - '@vitest/browser'
+      - '@vitest/ui'
+      - aws-crt
+      - babel-plugin-macros
+      - bufferutil
+      - encoding
+      - happy-dom
+      - jiti
+      - jsdom
+      - less
+      - lightningcss
+      - msw
+      - postcss
+      - react
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - typescript
+      - utf-8-validate
+      - ws
+      - yaml
+      - zod
+    dev: false
+
+  /@iqai/plugin-atp@0.4.3(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
+    resolution: {integrity: sha512-DdyD3wc2YiMRospB2zIffHNoSenJp7iIh1QgDrIYy2yV5ZtKDM2LjWH9U9NP5YOsyuvRoTDRKQ6pfSPZ4jv/Hg==}
+    dependencies:
+      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
       viem: 2.26.2(typescript@5.7.3)(zod@3.24.2)
@@ -5170,46 +5062,6 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-heartbeat@0.3.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
-    resolution: {integrity: sha512-sBjP8Mz1umu+IsSx5S97w0eGy1ZWYPyEV0HYTUD7mdw3NoYwy5dyRp1AUffvHdETNldloHswJETEbQ+Km3wUYA==}
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
   /@iqai/plugin-heartbeat@0.3.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.2)(ws@8.18.1):
     resolution: {integrity: sha512-sBjP8Mz1umu+IsSx5S97w0eGy1ZWYPyEV0HYTUD7mdw3NoYwy5dyRp1AUffvHdETNldloHswJETEbQ+Km3wUYA==}
     dependencies:
@@ -5257,46 +5109,6 @@ packages:
       dedent: 1.5.3
       node-cron: 3.0.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.3)
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
-  /@iqai/plugin-heartbeat@0.3.1(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0):
-    resolution: {integrity: sha512-sBjP8Mz1umu+IsSx5S97w0eGy1ZWYPyEV0HYTUD7mdw3NoYwy5dyRp1AUffvHdETNldloHswJETEbQ+Km3wUYA==}
-    dependencies:
-      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
-      dedent: 1.5.3
-      node-cron: 3.0.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@microsoft/api-extractor'
@@ -5583,47 +5395,6 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-sequencer@0.2.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
-    resolution: {integrity: sha512-ZC9PEWeQuIkgpgminO7qVyIxuYn4MkvroIoxSt0GwYd+C5P6J2i3V/g6pJP70/tBVJ6/aaU7uPHUiwHN4Zc4Jw==}
-    dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
-      dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      vitest: 3.0.9(@types/node@22.14.0)
-      zod: 3.24.2
-    transitivePeerDependencies:
-      - '@edge-runtime/vm'
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/debug'
-      - '@types/node'
-      - '@vitest/browser'
-      - '@vitest/ui'
-      - aws-crt
-      - babel-plugin-macros
-      - bufferutil
-      - encoding
-      - happy-dom
-      - jiti
-      - jsdom
-      - less
-      - lightningcss
-      - msw
-      - postcss
-      - react
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - utf-8-validate
-      - ws
-      - yaml
-    dev: false
-
   /@iqai/plugin-sequencer@0.2.0(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-ZC9PEWeQuIkgpgminO7qVyIxuYn4MkvroIoxSt0GwYd+C5P6J2i3V/g6pJP70/tBVJ6/aaU7uPHUiwHN4Zc4Jw==}
     dependencies:
@@ -5747,10 +5518,10 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-sequencer@0.2.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0):
+  /@iqai/plugin-sequencer@0.2.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-FdyWkPvX80/KKztIEa9ZXaTYNaEpd/R30NsWrYEj6FoiuQ8pcMRLAaYtE3Va4k+ReZrlrdQGG0W4I2/W1IOoyA==}
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
       vitest: 3.1.1(@types/node@22.14.0)(tsx@4.19.3)
@@ -5788,10 +5559,10 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-wiki@0.0.4(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0):
+  /@iqai/plugin-wiki@0.0.4(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
     resolution: {integrity: sha512-5Yv7lB6bjlQOP2e7C4G7FpGxVfkgG14zhquvAZp82Gjnw70xZ7lth9ymycf1+ncBoP0/jtBvR7Bz3ADh5jPYNA==}
     dependencies:
-      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.0)
+      '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
       gql.tada: 1.8.10(graphql@16.10.0)(typescript@5.7.3)
       graphql: 16.10.0
@@ -14996,30 +14767,6 @@ packages:
       typescript: 5.8.3
       webauthn-p256: 0.0.10
       ws: 8.18.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-    dev: false
-
-  /viem@2.23.10(typescript@5.7.3)(zod@3.23.8):
-    resolution: {integrity: sha512-va6Wde+v96PdfzdPEspCML1MjAqe+88O8BD+R9Kun/4s5KMUNcqfHbXdZP0ZZ2Zms80styvH2pDRAqCho6TqkA==}
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@noble/curves': 1.8.1
-      '@noble/hashes': 1.7.1
-      '@scure/bip32': 1.6.2
-      '@scure/bip39': 1.5.4
-      abitype: 1.0.8(typescript@5.7.3)(zod@3.23.8)
-      isows: 1.0.6(ws@8.18.1)
-      ox: 0.6.9(typescript@5.7.3)(zod@3.23.8)
-      typescript: 5.7.3
-      ws: 8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
