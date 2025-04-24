@@ -43,13 +43,20 @@ async function main() {
 						3. Check out the latest wiki: Boxcat. Discover how to earn rewards by tapping and exploring memes. \n
 						   🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
 						   🔗 https://iq.wiki/wiki/boxcat
-				Step-3. Post the neatly worded announcement from the step-2 (excluding the txn-link in the content) as a new log on the atp site to the agent ${process.env.AGENT_TOKEN_CONTRACT} with the provided polygonscan link as transaction link.
-					An example execution command to the tool would be structured as:
+				Step-3. Post the neatly worded announcement from the step-2 (excluding the txn-link in the content) as a new log on the atp site to the agent ${process.env.AGENT_TOKEN_CONTRACT} with the provided polygonscan link as transaction link and chainId as 137.
+				  STRUCTURE THE COMMAND AS:
+						Add log for the agent ${process.env.AGENT_TOKEN_CONTRACT} with the content:
+						{INSERT THE ANNOUNCEMENT HERE}
+						with transaction hash: {INSERT THE TRANSACTION HASH HERE}
+						with chainId: 137
+					IT IS IMPORTANT YOU MENTION THE TRANSACTION HASH AND CHAIN ID (ALWAYS 137) IN THE COMMAND.
+
+					An example execution command to the tool would be:
 					 Add log for the agent ${process.env.AGENT_TOKEN_CONTRACT} with the content as:
 					 New wiki published: Boxcat – a meme universe where you play, earn, and have fun. Read more: https://iq.wiki/wiki/boxcat
 
-					 and the transaction hash as: 0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
-					 with the chainId as: 137 (polygon)
+					 with transaction hash: 0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
+					 with chainId: 137
 				Step-4. Return the announcement generated in step-2 as the output finally, with the wiki link and txn link included
         `,
 			shouldPost: (response: string) => {
