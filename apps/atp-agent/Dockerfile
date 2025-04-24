@@ -1,24 +1,30 @@
-FROM node:20-slim
+FROM --platform=linux/amd64 node:23-slim
 
 WORKDIR /app
 
-# Install dependencies for native modules
-RUN apt-get update && apt-get install -y git \
-    && rm -rf /var/lib/apt/lists/*
+# Install build dependencies
+RUN apt-get update && apt-get install -y make g++ git
 
-# Install dependencies
-COPY package.json ./
-COPY tsconfig.json ./
-# copy the env file
-COPY .env ./
+# Copy package management files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY apps/atp-agent/package.json ./apps/atp-agent/
+COPY packages ./packages
 
-RUN npm install
+# Install dependencies globally
+RUN npm install -g pnpm tsx
+# First install to update lockfile if needed
+RUN pnpm install --filter="./apps/atp-agent..."
+RUN pnpm install --filter="./apps/atp-agent..." --frozen-lockfile
 
-# Copy source code
-COPY src/ ./src/
+# Copy only the ATP agent code
+COPY apps/atp-agent ./apps/atp-agent
 
-# Create data directory
-RUN mkdir -p ./data
+# Create data directory for SQLite with proper permissions
+RUN mkdir -p /app/apps/atp-agent/data && \
+    chown -R node:node /app/apps/atp-agent/data
 
-# Run the application
-CMD ["npm", "start"]
+# Set working directory to the app
+WORKDIR /app/apps/atp-agent
+
+# Run the app
+CMD ["tsx", "src/index.ts"]

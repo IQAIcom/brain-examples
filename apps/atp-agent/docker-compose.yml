@@ -1,8 +1,16 @@
+version: '3.8'
+
 services:
   atp-agent:
-    build: .
+    build:
+      context: ../..
+      dockerfile: apps/atp-agent/Dockerfile
     container_name: atp-agent
     restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ./data
+        target: /app/apps/atp-agent/data
     env_file:
       - .env
     ports:

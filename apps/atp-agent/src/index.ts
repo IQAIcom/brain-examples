@@ -28,18 +28,18 @@ async function main() {
 		{
 			period: "0 */3 * * *", // Every 3 hours
 			input: `
-				Use sequencer to get top ATP agent then buy with 1% of IQ balance.
+				Use sequencer to get top ATP agents, then buy randomly any of the top 3 ATP agent with 10% of IQ balance.
 				Do not use any markdown formatting.
 				Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
-				An example of response:
+				An example of response format is as follows:
 
 				🌟 ATP Agent Purchase Log
 
 				✅ Buy Transaction Successful
-
+				
 				💰 Amount: 41.47 IQ
 				🤖 Agent: DK the AI DeFi Trader
-				🔗 View on Explorer: https://fraxscan.com/tx/0x8ea6f6cacc4535f102a638c11980b4eec5ba205d244356db5c7f13d443519d5f
+				🔗 View on Explorer: https://fraxscan.com/txs?a=0xE16159317691fe9C9e764db7896698c26DBfc71c
 				`,
 			clients: [
 				{
