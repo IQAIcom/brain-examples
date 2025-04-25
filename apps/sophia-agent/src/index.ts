@@ -19,7 +19,7 @@ async function main() {
 			clients: [
 				{
 					type: "telegram",
-					chatId: process.env.TELEGRAM_CHAT_ID ?? "",
+					chatId: process.env.TELEGRAM_CHAT_ID as string,
 				},
 			],
 			period: "0 */2 * * *",
@@ -57,7 +57,8 @@ async function main() {
 
 					 with transaction hash: 0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9
 					 with chainId: 137
-				Step-4. Return the announcement generated in step-2 as the output finally, with the wiki link and txn link included
+				Step-4. Return the announcement generated in step-2 finally.
+				DO NOT HALLUCINATE AND ONLY RETURN THE ANNOUNCEMENT GENERATED IN STEP-2 CONTAINING THE WIKI LINK AND TXN LINK
         `,
 			shouldPost: (response: string) => {
 				elizaLogger.info("response: ", response);
