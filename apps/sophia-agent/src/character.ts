@@ -178,9 +178,11 @@ export const SophiaCharacter: Partial<Character> = {
 	clientConfig: {
 		telegram: {
 			shouldIgnoreBotMessages: true,
-			shouldIgnoreDirectMessages: false,
-			shouldRespondOnlyToMentions: false,
-			shouldOnlyJoinInAllowedGroups: false,
+			shouldIgnoreDirectMessages: true,
+			shouldRespondOnlyToMentions: true,
+			// The below code is not working as expected.
+			// shouldOnlyJoinInAllowedGroups: true,
+			// allowedGroupIds: [process.env.TELEGRAM_CHAT_ID as string],
 			messageSimilarityThreshold: 0.8,
 		},
 	},

@@ -1,4 +1,3 @@
-import { generateText, ModelClass } from "@elizaos/core";
 import SqliteAdapter from "@elizaos/adapter-sqlite";
 import {
 	AgentBuilder,
@@ -36,7 +35,7 @@ async function main() {
 				🌟 ATP Agent Purchase Log
 
 				✅ Buy Transaction Successful
-				
+
 				💰 Amount: 41.47 IQ
 				🤖 Agent: DK the AI DeFi Trader
 				🔗 View on Explorer: https://fraxscan.com/txs?a=0xE16159317691fe9C9e764db7896698c26DBfc71c
@@ -112,6 +111,17 @@ async function main() {
 			name: "BrainBot Trader",
 			bio: "You are BrainBot, a helpful assistant in trading.",
 			username: "brainbot_trader",
+			clientConfig: {
+				telegram: {
+					shouldIgnoreBotMessages: true,
+					shouldIgnoreDirectMessages: true,
+					shouldRespondOnlyToMentions: true,
+					// The below code is not working as expected.
+					// shouldOnlyJoinInAllowedGroups: true,
+					// allowedGroupIds: [process.env.TELEGRAM_CHAT_ID as string],
+					messageSimilarityThreshold: 0.8,
+				},
+			},
 		})
 		.build();
 
