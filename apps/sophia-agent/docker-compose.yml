@@ -26,7 +26,7 @@ services:
       - MAX_ACTIONS_PROCESSING=1
       - ATP_API_KEY=${ATP_API_KEY}
       - AGENT_TOKEN_CONTRACT=${AGENT_TOKEN_CONTRACT}
-      - ATP_USE_DEV=true
+      - ATP_USE_DEV=${ATP_USE_DEV}
     ports:
       - "3000:3000"
     volumes:
