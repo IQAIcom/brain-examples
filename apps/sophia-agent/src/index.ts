@@ -11,7 +11,7 @@ import { startServer } from "./http-server.ts";
 async function main() {
 	// bypass health checks
 	startServer();
-	// Initialize plugins.
+	// Initialize plugins
 	const pluginWiki = await createWikiPlugin();
 	const sequencer = await createSequencerPlugin();
 	const pluginAtp = await createAtpPlugin({
