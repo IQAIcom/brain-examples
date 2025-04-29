@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y git \
 # Install dependencies
 COPY package.json ./
 COPY tsconfig.json ./
-# copy the env file
-COPY .env ./
 
 RUN npm install
 
