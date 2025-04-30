@@ -14,6 +14,7 @@
 		"@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
 		"@elizaos/client-telegram": "github:elizaos-plugins/client-telegram",
 		"@elizaos/client-twitter": "github:elizaos-plugins/client-twitter",
+		"@elizaos/client-direct": "github:elizaos-plugins/client-direct",
 		"@elizaos/core": "0.25.9",
 		"@iqai/agent": "^0.2.1",
 		"@iqai/plugin-atp": "^0.4.3",
