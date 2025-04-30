@@ -101,8 +101,8 @@ importers:
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
       '@elizaos/client-direct':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(whatwg-url@7.1.0)(ws@8.18.1)
+        specifier: github:elizaos-plugins/client-direct
+        version: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.24.2)
       '@elizaos/core':
         specifier: 0.25.9
         version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
@@ -158,6 +158,9 @@ importers:
       '@iqai/plugin-atp':
         specifier: ^0.4.3
         version: 0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
+      dedent:
+        specifier: ^1.5.3
+        version: 1.5.3
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -8837,7 +8840,7 @@ packages:
       '@vitest/spy': 3.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      vite: 6.2.5(@types/node@22.14.0)(tsx@4.19.2)
+      vite: 6.2.5(@types/node@22.14.0)(tsx@4.19.3)
     dev: false
 
   /@vitest/pretty-format@2.1.5:
