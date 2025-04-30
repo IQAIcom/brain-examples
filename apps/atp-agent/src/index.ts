@@ -11,6 +11,7 @@ import { http, createPublicClient } from "viem";
 import { erc20Abi } from "viem";
 import { fraxtal } from "viem/chains";
 import TelegramClient from "@elizaos-plugins/client-telegram";
+import { DirectClientInterface } from "@elizaos/client-direct";
 
 const IQ_TOKEN_ADDRESS = "0x6EFB84bda519726Fa1c65558e520B92b51712101";
 
@@ -101,7 +102,7 @@ async function main() {
 	// Create agent with plugin
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClient(TelegramClient)
+		.withClients([TelegramClient, DirectClientInterface])
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
