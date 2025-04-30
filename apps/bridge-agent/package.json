@@ -17,6 +17,7 @@
     "@elizaos/core": "0.25.9",
     "@iqai/agent": "^0.2.1",
     "@iqai/plugin-atp": "^0.4.3",
+    "dedent": "^1.5.3",
     "dotenv": "^16.4.7",
     "sharp": "^0.33.5",
     "viem": "^2.23.3"
