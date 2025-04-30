@@ -178,7 +178,7 @@ export const SophiaCharacter: Partial<Character> = {
 	clientConfig: {
 		telegram: {
 			shouldIgnoreBotMessages: true,
-			shouldIgnoreDirectMessages: true,
+			shouldIgnoreDirectMessages: false,
 			shouldRespondOnlyToMentions: true,
 			// The below code is not working as expected.
 			// shouldOnlyJoinInAllowedGroups: true,
