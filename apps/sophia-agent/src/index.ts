@@ -7,11 +7,8 @@ import { SophiaCharacter } from "./character.ts";
 import createAtpPlugin from "@iqai/plugin-atp";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { elizaLogger } from "@elizaos/core";
-// import { startServer } from "./http-server.ts";
 import { DirectClientInterface } from "@elizaos/client-direct";
 async function main() {
-	// bypass health checks
-	// startServer();
 	// Initialize plugins
 	const pluginWiki = await createWikiPlugin();
 	const sequencer = await createSequencerPlugin();
