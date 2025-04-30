@@ -3,6 +3,7 @@ import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createIQBridgeMonitorPlugin } from "../src/bridge-plugin/index.ts";
 import telegramPlugin from "@elizaos/client-telegram";
 import createAtpPlugin from "@iqai/plugin-atp";
+import { DirectClientInterface } from "@elizaos/client-direct";
 
 async function main() {
 	const iqBridgeMonitorPlugin = await createIQBridgeMonitorPlugin({
@@ -17,7 +18,7 @@ async function main() {
 	// Create agent with plugin.
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClient(telegramPlugin)
+		.withClients([telegramPlugin, DirectClientInterface])
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,

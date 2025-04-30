@@ -149,6 +149,9 @@ importers:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
+      '@elizaos/client-direct':
+        specifier: github:elizaos-plugins/client-direct
+        version: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.24.2)
       '@elizaos/client-telegram':
         specifier: github:elizaos-plugins/client-telegram
         version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
