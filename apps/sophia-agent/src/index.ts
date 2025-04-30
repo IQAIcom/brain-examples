@@ -1,5 +1,5 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
-import telegramPlugin from "@elizaos/client-telegram";
+import TelegramClient from "@elizaos/client-telegram";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import createHeartbeatPlugin from "@iqai/plugin-heartbeat";
 import createWikiPlugin from "@iqai/plugin-wiki";
@@ -70,8 +70,7 @@ async function main() {
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClient(DirectClientInterface)
-		.withClients([telegramPlugin])
+		.withClients([TelegramClient, DirectClientInterface])
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
