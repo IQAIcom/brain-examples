@@ -1,31 +1,33 @@
-FROM --platform=linux/amd64 node:23-slim
+FROM node:23-slim AS base
 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+# Install build essentials and Python for native addons
+RUN apt-get update && apt-get install -y --no-install-recommends python3 build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN corepack enable && corepack prepare pnpm@latest --activate \
+    && npm install -g turbo
+
+# ---- Prune: Generate minimal monorepo for the target app ----
+FROM base AS pruner
+WORKDIR /repo
+COPY . .
+# Prune the monorepo for the target app
+# Output is in /repo/out/full
+RUN turbo prune @iqai/fraxlend-agent --docker
+
+# ---- Runner: Build and run the final application ----
+FROM base AS runner
 WORKDIR /app
 
-# Install build dependencies
-RUN apt-get update && apt-get install -y python3 make g++ curl git
+COPY --from=pruner /repo/out/json/pnpm-lock.yaml .
 
-# Copy package management files
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY apps/fraxlend-agent-example/package.json ./apps/fraxlend-agent-example/
-COPY packages ./packages
+COPY --from=pruner /repo/out/full .
 
-# Install dependencies globally
-RUN npm install -g pnpm tsx
-RUN pnpm install --filter="./apps/fraxlend-agent-example..." --frozen-lockfile
+RUN pnpm install --frozen-lockfile --prod=false
 
-# Copy only the fraxlend agent code
-COPY apps/fraxlend-agent-example ./apps/fraxlend-agent-example
+WORKDIR /app/apps/fraxlend-agent
 
-# Create data directory for SQLite with proper permissions
-RUN mkdir -p /app/apps/fraxlend-agent-example/data && \
-    chown -R node:node /app/apps/fraxlend-agent-example/data
-
-# Set working directory to the app
-WORKDIR /app/apps/fraxlend-agent-example
-
-# Switch to non-root user
-USER node
-
-# Run the app
-CMD ["tsx", "src/index.ts"]
+CMD ["pnpm", "run", "start"]
