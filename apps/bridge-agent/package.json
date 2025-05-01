@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@elizaos/adapter-sqlite": "github:elizaos-plugins/adapter-sqlite",
-    "@elizaos/client-telegram": "github:elizaos-plugins/client-telegram",
+    "@elizaos/client-telegram": "github:GPSxtreme/client-telegram",
     "@elizaos/client-direct": "github:elizaos-plugins/client-direct",
     "@elizaos/core": "0.25.9",
     "@iqai/agent": "^0.2.1",
