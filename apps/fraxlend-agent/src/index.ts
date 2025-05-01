@@ -5,6 +5,7 @@ import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import { createFraxlendPlugin } from "@iqai/plugin-fraxlend";
 import { createHeartbeatPlugin } from "@iqai/plugin-heartbeat";
+import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { fraxtal } from "viem/chains";
 
 async function main() {
@@ -14,16 +15,23 @@ async function main() {
 		walletPrivateKey: process.env.WALLET_PRIVATE_KEY,
 	});
 
+	// Initialize Sequencer plugin
+  	const sequencerPlugin = await createSequencerPlugin();
+
 	// Initialize Heartbeat plugin
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
 			period: "0 12 * * *",
 			input:
-				"Check if APR of new pools are greater 3% of his current positions, lend else borrow and show result",
+				"Use sequencer to Check if APR of new pools are greater 3% of his current positions then lend else borrow",
 			clients: [
 				{
-					type: "telegram",
-					chatId: process.env.TELEGRAM_CHAT_ID as string,
+					type: "callback",
+					callback: async (data: any) => {
+						// Handle the callback data here
+						console.log("Callback data:", data);
+					}
+					
 				},
 			],
 		},
@@ -38,7 +46,7 @@ async function main() {
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
 		)
-		.withPlugins([fraxlendPlugin, bootstrapPlugin, heartbeatPlugin])
+		.withPlugins([fraxlendPlugin, bootstrapPlugin, heartbeatPlugin, sequencerPlugin])
 		.withCharacter({
 			name: "BrainBot Lender",
 			bio: "You are BrainBot, a helpful assistant in lending.",
