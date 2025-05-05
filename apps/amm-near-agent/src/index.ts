@@ -1,4 +1,5 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
+import { DirectClientInterface } from "@elizaos/client-direct";
 import { ModelProviderName } from "@elizaos/core";
 import { AgentBuilder } from "@iqai/agent";
 import { createNearPlugin } from "@iqai/plugin-near";
@@ -51,6 +52,7 @@ async function main() {
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
+		.withClient(DirectClientInterface)
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,

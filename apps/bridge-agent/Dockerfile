@@ -1,25 +1,33 @@
-FROM node:23-slim
+FROM node:23-slim AS base
 
-WORKDIR /app
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 
-# Install dependencies for native modules
-RUN apt-get update && apt-get install -y git \
+# Install build essentials and Python for native addons
+RUN apt-get update && apt-get install -y --no-install-recommends python3 build-essential \
   && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies.
-COPY package.json ./
-COPY tsconfig.json ./
-# copy the env file
-COPY .env ./
-# COPY pnpm-lock.yaml ./
+RUN corepack enable && corepack prepare pnpm@latest --activate \
+  && npm install -g turbo
 
-RUN npm install
+# ---- Prune: Generate minimal monorepo for the target app ----
+FROM base AS pruner
+WORKDIR /repo
+COPY . .
+# Prune the monorepo for the target app
+# Output is in /repo/out/full
+RUN turbo prune @iqai/bridge-agent --docker
 
-# Copy source code
-COPY src/ ./src/
+# ---- Runner: Build and run the final application ----
+FROM base AS runner
+WORKDIR /app
 
-# Create data directory
-RUN mkdir -p ./data
+COPY --from=pruner /repo/out/json/pnpm-lock.yaml .
 
-# Run the application
-CMD ["npm", "start"]
+COPY --from=pruner /repo/out/full .
+
+RUN pnpm install --frozen-lockfile --prod=false
+
+WORKDIR /app/apps/bridge-agent
+
+CMD ["pnpm", "run", "start"]

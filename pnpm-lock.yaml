@@ -63,6 +63,9 @@ importers:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
+      '@elizaos/client-direct':
+        specifier: github:elizaos-plugins/client-direct
+        version: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.23.8)
       '@elizaos/core':
         specifier: 0.25.9
         version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.2)(typescript@5.7.3)(ws@8.18.1)
@@ -94,15 +97,15 @@ importers:
 
   apps/atp-agent:
     dependencies:
-      '@elizaos-plugins/client-telegram':
-        specifier: github:elizaos-plugins/client-telegram
-        version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
       '@elizaos/client-direct':
-        specifier: 0.25.9
-        version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(whatwg-url@7.1.0)(ws@8.18.1)
+        specifier: github:elizaos-plugins/client-direct
+        version: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.24.2)
+      '@elizaos/client-telegram':
+        specifier: github:GPSxtreme/client-telegram
+        version: github.com/GPSxtreme/client-telegram/e78216430d7c8f9b1c23a126015f35f7be85295e
       '@elizaos/core':
         specifier: 0.25.9
         version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
@@ -110,8 +113,8 @@ importers:
         specifier: ^0.2.1
         version: 0.2.1(@opentelemetry/api@1.9.0)(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
       '@iqai/plugin-atp':
-        specifier: ^0.4.0
-        version: 0.4.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2)
+        specifier: ^0.4.3
+        version: 0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2)
       '@iqai/plugin-heartbeat':
         specifier: ^0.3.1
         version: 0.3.1(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
@@ -146,9 +149,12 @@ importers:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
+      '@elizaos/client-direct':
+        specifier: github:elizaos-plugins/client-direct
+        version: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.24.2)
       '@elizaos/client-telegram':
-        specifier: github:elizaos-plugins/client-telegram
-        version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
+        specifier: github:GPSxtreme/client-telegram
+        version: github.com/GPSxtreme/client-telegram/e78216430d7c8f9b1c23a126015f35f7be85295e
       '@elizaos/core':
         specifier: 0.25.9
         version: 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
@@ -158,6 +164,9 @@ importers:
       '@iqai/plugin-atp':
         specifier: ^0.4.3
         version: 0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2)
+      dedent:
+        specifier: ^1.5.3
+        version: 1.5.3
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -377,9 +386,12 @@ importers:
       '@elizaos/adapter-sqlite':
         specifier: github:elizaos-plugins/adapter-sqlite
         version: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0)
+      '@elizaos/client-direct':
+        specifier: github:elizaos-plugins/client-direct
+        version: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.24.2)
       '@elizaos/client-telegram':
-        specifier: github:elizaos-plugins/client-telegram
-        version: github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec
+        specifier: github:GPSxtreme/client-telegram
+        version: github.com/GPSxtreme/client-telegram/e78216430d7c8f9b1c23a126015f35f7be85295e
       '@elizaos/client-twitter':
         specifier: github:elizaos-plugins/client-twitter
         version: github.com/elizaos-plugins/client-twitter/1dbcfa726d1e1f0efa6b95946b9e8b04d03167ef(whatwg-url@7.1.0)
@@ -4848,13 +4860,13 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-atp@0.4.0(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2):
-    resolution: {integrity: sha512-MiGUyuH1+ZyFd5GHvuwSxJddMSMhXS5zJXVCRa4UvsI6LOn7XaMavzdyKnu+GR4wglc3845wO02po+GJlGWHdA==}
+  /@iqai/plugin-atp@0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
+    resolution: {integrity: sha512-DdyD3wc2YiMRospB2zIffHNoSenJp7iIh1QgDrIYy2yV5ZtKDM2LjWH9U9NP5YOsyuvRoTDRKQ6pfSPZ4jv/Hg==}
     dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.3)
-      viem: 2.26.2(typescript@5.8.3)(zod@3.24.2)
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
+      viem: 2.26.2(typescript@5.7.3)(zod@3.24.2)
       vitest: 3.1.1(@types/node@22.14.0)(tsx@4.19.3)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -4890,13 +4902,13 @@ packages:
       - zod
     dev: false
 
-  /@iqai/plugin-atp@0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)(zod@3.24.2):
+  /@iqai/plugin-atp@0.4.3(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)(zod@3.24.2):
     resolution: {integrity: sha512-DdyD3wc2YiMRospB2zIffHNoSenJp7iIh1QgDrIYy2yV5ZtKDM2LjWH9U9NP5YOsyuvRoTDRKQ6pfSPZ4jv/Hg==}
     dependencies:
-      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
+      '@elizaos/core': 0.25.9(@types/node@22.14.0)(react@19.1.0)(tsx@4.19.3)(typescript@5.8.3)(ws@8.18.1)
       dedent: 1.5.3
-      tsup: 8.3.6(tsx@4.19.3)(typescript@5.7.3)
-      viem: 2.26.2(typescript@5.7.3)(zod@3.24.2)
+      tsup: 8.3.6(tsx@4.19.3)(typescript@5.8.3)
+      viem: 2.26.2(typescript@5.8.3)(zod@3.24.2)
       vitest: 3.1.1(@types/node@22.14.0)(tsx@4.19.3)
     transitivePeerDependencies:
       - '@edge-runtime/vm'
@@ -8592,7 +8604,7 @@ packages:
   /@types/express-serve-static-core@5.0.6:
     resolution: {integrity: sha512-3xhRnjJPkULekpSzgtoNYYcTWgEZkp4myc+Saevii5JPnHNvHMRlBSHDbs7Bh1iPPoVTERHEZXyhyLbMEsExsA==}
     dependencies:
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       '@types/qs': 6.9.18
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -8708,14 +8720,14 @@ packages:
     resolution: {integrity: sha512-x2EM6TJOybec7c52BX0ZspPodMsQUd5L6PRwOunVyVUhXiBSKf3AezDL8Dgvgt5o0UfKNfuA0eMLr2wLT4AiBA==}
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
     dev: false
 
   /@types/serve-static@1.15.7:
     resolution: {integrity: sha512-W8Ym+h8nhuRwaKPaDw34QUkwsGi6Rc4yYqvKFo5rm2FUEhCFbzVWrxXUxuKK8TASjWsysJY0nsmNCGhCOIsrOw==}
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.13.13
+      '@types/node': 22.14.0
       '@types/send': 0.17.4
     dev: false
 
@@ -15654,6 +15666,18 @@ packages:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
     dev: false
 
+  github.com/GPSxtreme/client-telegram/e78216430d7c8f9b1c23a126015f35f7be85295e:
+    resolution: {tarball: https://codeload.github.com/GPSxtreme/client-telegram/tar.gz/e78216430d7c8f9b1c23a126015f35f7be85295e}
+    name: '@elizaos-plugins/client-telegram'
+    version: 0.25.6-alpha.1
+    dependencies:
+      '@telegraf/types': 7.1.0
+      telegraf: 4.16.3
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+    dev: false
+
   github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1(whatwg-url@7.1.0):
     resolution: {tarball: https://codeload.github.com/elizaos-plugins/adapter-sqlite/tar.gz/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1}
     id: github.com/elizaos-plugins/adapter-sqlite/4331b224eb995ff39cc996a8f2bbbf62ddd8cdf1
@@ -15666,6 +15690,58 @@ packages:
       better-sqlite3: 11.8.1
       sqlite-vec: 0.1.6
       whatwg-url: 7.1.0
+    dev: false
+
+  github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.23.8):
+    resolution: {tarball: https://codeload.github.com/elizaos-plugins/client-direct/tar.gz/fa3505256571087404b564e5b9f3ab492d0dd1ce}
+    id: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce
+    name: '@elizaos/client-direct'
+    version: 0.25.6-alpha.1
+    peerDependencies:
+      whatwg-url: 7.1.0
+    dependencies:
+      '@types/body-parser': 1.19.5
+      '@types/cors': 2.8.17
+      '@types/express': 5.0.0
+      body-parser: 1.20.3
+      cors: 2.8.5
+      discord.js: 14.16.3
+      express: 4.21.1
+      multer: 1.4.5-lts.1
+      openai: 4.73.0(zod@3.23.8)
+      whatwg-url: 7.1.0
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
+      - zod
+    dev: false
+
+  github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce(whatwg-url@7.1.0)(zod@3.24.2):
+    resolution: {tarball: https://codeload.github.com/elizaos-plugins/client-direct/tar.gz/fa3505256571087404b564e5b9f3ab492d0dd1ce}
+    id: github.com/elizaos-plugins/client-direct/fa3505256571087404b564e5b9f3ab492d0dd1ce
+    name: '@elizaos/client-direct'
+    version: 0.25.6-alpha.1
+    peerDependencies:
+      whatwg-url: 7.1.0
+    dependencies:
+      '@types/body-parser': 1.19.5
+      '@types/cors': 2.8.17
+      '@types/express': 5.0.0
+      body-parser: 1.20.3
+      cors: 2.8.5
+      discord.js: 14.16.3
+      express: 4.21.1
+      multer: 1.4.5-lts.1
+      openai: 4.73.0(zod@3.24.2)
+      whatwg-url: 7.1.0
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
+      - zod
     dev: false
 
   github.com/elizaos-plugins/client-telegram/bb3a5422f18a27f222871ac8e695516ed266efec:

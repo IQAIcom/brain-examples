@@ -1,9 +1,0 @@
-services:
-  sophia-agent:
-    build: .
-    container_name: sophia-agent
-    restart: unless-stopped
-    env_file:
-      - .env
-    ports:
-      - "${SERVER_PORT}:${SERVER_PORT}"

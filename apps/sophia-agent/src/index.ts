@@ -1,5 +1,5 @@
 import SqliteAdapter from "@elizaos/adapter-sqlite";
-import telegramPlugin from "@elizaos/client-telegram";
+import TelegramClient from "@elizaos/client-telegram";
 import { AgentBuilder, ModelProviderName } from "@iqai/agent";
 import createHeartbeatPlugin from "@iqai/plugin-heartbeat";
 import createWikiPlugin from "@iqai/plugin-wiki";
@@ -7,8 +7,9 @@ import { SophiaCharacter } from "./character.ts";
 import createAtpPlugin from "@iqai/plugin-atp";
 import createSequencerPlugin from "@iqai/plugin-sequencer";
 import { elizaLogger } from "@elizaos/core";
+import { DirectClientInterface } from "@elizaos/client-direct";
 async function main() {
-	// Initialize plugins.
+	// Initialize plugins
 	const pluginWiki = await createWikiPlugin();
 	const sequencer = await createSequencerPlugin();
 	const pluginAtp = await createAtpPlugin({
@@ -69,7 +70,7 @@ async function main() {
 	// Build agent using builder pattern
 	const agent = new AgentBuilder()
 		.withDatabase(SqliteAdapter)
-		.withClients([telegramPlugin])
+		.withClients([TelegramClient, DirectClientInterface])
 		.withModelProvider(
 			ModelProviderName.OPENAI,
 			process.env.OPENAI_API_KEY as string,
