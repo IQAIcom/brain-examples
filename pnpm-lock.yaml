@@ -411,8 +411,8 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       '@iqai/plugin-wiki':
-        specifier: ^0.0.4
-        version: 0.0.4(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
+        specifier: ^0.1.0
+        version: 0.1.0(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -5571,8 +5571,8 @@ packages:
       - yaml
     dev: false
 
-  /@iqai/plugin-wiki@0.0.4(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
-    resolution: {integrity: sha512-5Yv7lB6bjlQOP2e7C4G7FpGxVfkgG14zhquvAZp82Gjnw70xZ7lth9ymycf1+ncBoP0/jtBvR7Bz3ADh5jPYNA==}
+  /@iqai/plugin-wiki@0.1.0(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1):
+    resolution: {integrity: sha512-fSr7WdfyP7KVkk6Gr3oxNTQTK9d1OmyhNDtGwiiILpT/jHteiwxA877FuLOpYaYvSTy6aCNP12GlVzA6v1VcaQ==}
     dependencies:
       '@elizaos/core': 0.25.9(react@19.1.0)(tsx@4.19.3)(typescript@5.7.3)(ws@8.18.1)
       dedent: 1.5.3
