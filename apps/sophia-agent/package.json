@@ -20,7 +20,7 @@
 		"@iqai/plugin-atp": "^0.4.3",
 		"@iqai/plugin-heartbeat": "^0.3.1",
 		"@iqai/plugin-sequencer": "^0.2.2",
-		"@iqai/plugin-wiki": "^0.0.4",
+		"@iqai/plugin-wiki": "^0.1.0",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5"
 	},
