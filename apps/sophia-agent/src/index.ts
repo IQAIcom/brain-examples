@@ -53,10 +53,10 @@ async function main() {
 					Examples for edited wikis:
 						1. Wiki updated: Boxcat – with 52 new words and revisions to content and tags sections. \n
 							 🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
-							 🔗 Read more: https://iq.wiki/wiki/boxcat \n
+							 🔗 Read more: https://iq.wiki/revision/866f337b-092c-480b-8f20-cbe521989d3b \n
 						2. Fresh updates to Boxcat wiki! Changes include new content sections and improved descriptions. \n
 							 🔗 Transaction: https://polygonscan.com/tx/0xcf46f119878f88ffbdb74b3c6c2d2be8b79ec2b1381ea6388b4ab70ed733d2d9 \n
-							 🔗 Details: https://iq.wiki/wiki/boxcat \n
+							 🔗 Details: https://iq.wiki/revision/866f337b-092c-480b-8f20-cbe521989d3b \n
 				Step-3. Post the neatly worded announcement from step-2 (excluding the txn-link in the content) as a new log on the atp site to the agent ${process.env.AGENT_TOKEN_CONTRACT} with the provided polygonscan link as transaction link and chainId as 137.
 					STRUCTURE THE COMMAND AS:
 						Add log for the agent ${process.env.AGENT_TOKEN_CONTRACT} with the content:
