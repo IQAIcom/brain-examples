@@ -32,7 +32,7 @@ async function main() {
 				Clause Condition: If the agent was already bought in the last 6 hours, skip it and pick another one.
 				Do not use any markdown formatting.
 				Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
-				An example of response format is as follows:I dey I dey I dey
+				An example of response format is as follows:
 
 				🌟 ATP Agent Purchase Log
 
