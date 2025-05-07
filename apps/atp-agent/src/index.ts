@@ -28,7 +28,7 @@ async function main() {
 		{
 			period: "0 */3 * * *", // Every 3 hours
 			input: `
-				Use sequencer to get top ATP agents, then pick randomly any one of the top 5 ATP agent and buy it with 10% of IQ balance.
+				Use sequencer to get top ATP agents, then pick randomly any one of the top 5 ATP agent and buy it with 1% of IQ balance.
 				Clause Condition: If the agent was already bought in the last 6 hours, skip it and pick another one.
 				Do not use any markdown formatting.
 				Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
