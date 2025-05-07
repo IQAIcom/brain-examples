@@ -23,9 +23,9 @@ async function main() {
 					chatId: process.env.TELEGRAM_CHAT_ID as string,
 				},
 			],
-			period: "*/20 * * * *",
+			period: "*/10 * * * *",
 			input:
-				"Get all wiki activities by user 0x8AF7a19a26d8FBC48dEfB35AEfb15Ec8c407f889 in the past 20 minutes.",
+				"Get all wiki activities by user 0x8AF7a19a26d8FBC48dEfB35AEfb15Ec8c407f889 in the past 10 minutes.",
 			onlyFinalOutput: true,
 			shouldPost: (response: string) => {
 				elizaLogger.info("response: ", response);
