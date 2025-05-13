@@ -40,7 +40,7 @@ async function main() {
 
 				💰 Amount: 41.47 IQ
 				🤖 Agent: DK the AI DeFi Trader
-				🔗 View on Explorer: https://fraxscan.com/txs?a=0xE16159317691fe9C9e764db7896698c26DBfc71c
+				🔗 View on Explorer: https://fraxscan.com/tx/0x3bd56d424cceb12f8a20ed4e0c3a457a950422152cf5c112ff9df86d05c99c4f
 				`,
 			clients: [
 				{
