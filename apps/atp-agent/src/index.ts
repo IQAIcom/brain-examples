@@ -105,8 +105,8 @@ async function main() {
 		.withDatabase(SqliteAdapter)
 		.withClients([TelegramClient, DirectClientInterface])
 		.withModelProvider(
-			ModelProviderName.OPENAI,
-			process.env.OPENAI_API_KEY as string,
+			ModelProviderName.GOOGLE,
+			process.env.GOOGLE_API_KEY as string,
 		)
 		.withPlugins([atpPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
 		.withCharacter({
