@@ -54,8 +54,8 @@ async function main() {
 		.withDatabase(SqliteAdapter)
 		.withClient(DirectClientInterface)
 		.withModelProvider(
-			ModelProviderName.OPENAI,
-			process.env.OPENAI_API_KEY as string,
+			ModelProviderName.GOOGLE,
+			process.env.GOOGLE_API_KEY as string,
 		)
 		.withPlugin(nearPlugin)
 		.build();
