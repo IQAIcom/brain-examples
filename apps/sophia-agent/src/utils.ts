@@ -74,6 +74,7 @@ export async function processWikiActivity(
 			- Do not include markdown formatting
 			- Do not include the transaction link
 			- End with "Read more: <link>" where the link is ${isCreated ? sourceUrl : sourceUrl.replace("/wiki/", "/revision/")}
+			- IMPORTANT: The "Read more: <link>" part, including the full URL, must NOT be truncated or shortened in any way.
 
 			Format your response as a single paragraph with no prefix or additional text.
 		`;
@@ -85,18 +86,11 @@ export async function processWikiActivity(
 			modelClass: ModelClass.MEDIUM,
 		});
 
-		// Ensure announcement is not too long
-		const trimmedAnnouncement =
-			announcement.length > 180
-				? `${announcement.substring(0, 177)}...`
-				: announcement;
-
-		elizaLogger.info(
-			`Generated announcement for ${title}: ${trimmedAnnouncement}`,
-		);
+		elizaLogger.info(`Generated announcement for ${title}: ${announcement}`);
+		elizaLogger.info(`Source URL for ${title}: ${sourceUrl}`);
 
 		// Post to ATP
-		await postToAtp(runtime, trimmedAnnouncement, txnHash);
+		await postToAtp(runtime, announcement, txnHash);
 	} catch (error) {
 		throw new Error(
 			`Failed to process wiki activity: ${error instanceof Error ? error.message : String(error)}`,
