@@ -27,7 +27,7 @@ async function main() {
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
 			period: "0 */3 * * *", // Every 3 hours
-			input: `use sequencer to get top ATP agents, then pick randomly any one of the top 5 ATP agent and buy it with 1IQ.
+			input: `use sequencer to get top ATP agents, then pick randomly any one of the top 5 ATP agent and buy it with 1% of IQ balance.
 					Do not use any markdown formatting.
 					Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
 					An example of the response format is as follows:
