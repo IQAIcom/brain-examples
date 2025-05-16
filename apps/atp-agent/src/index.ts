@@ -27,21 +27,19 @@ async function main() {
 	const heartbeatPlugin = await createHeartbeatPlugin([
 		{
 			period: "0 */3 * * *", // Every 3 hours
-			input: `
-				Use sequencer to get top ATP agents, then pick randomly any one of the top 5 ATP agent and buy it with 1% of IQ balance.
-				Clause Condition: If the agent was already bought in the last 6 hours, skip it and pick another agent.
-				Do not use any markdown formatting.
-				Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
-				An example of the response format is as follows:
+			input: `use sequencer to get top ATP agents, then pick randomly any one of the top 5 ATP agent and buy it with 1IQ.
+					Do not use any markdown formatting.
+					Use proper formatting of the response. Retain only relevant information and ignore unnecessary information.
+					An example of the response format is as follows:
 
-				🌟 ATP Agent Purchase Log
+					🌟 ATP Agent Purchase Log
 
-				✅ Buy Transaction Successful
+					✅ Buy Transaction Successful
 
-				💰 Amount: {Amount bought}
-				🤖 Agent: (Agent Name)
-				🔗 View on Explorer: https://fraxscan.com/tx/(txn_hash)
-				`,
+					💰 Amount: {Amount bought}
+					🤖 Agent: {Agent Name}
+					🔗 View on Explorer: https://fraxscan.com/tx/{txn_hash}
+			`,
 			clients: [
 				{
 					type: "telegram",
@@ -55,6 +53,25 @@ async function main() {
 	const publicClient = createPublicClient({
 		chain: fraxtal,
 		transport: http(),
+	});
+
+	const randomnessPlugin = createSimplePlugin({
+		name: "randomness",
+		description: "This plugin generates random numbers between 1 and 5.",
+		actions: [
+			{
+				name: "RANDOM_AGENT_RANK",
+				description: "Generate a random number between 1 and 5",
+				similes: ["random agent", "pick random top agent", "pick random agent rank"],
+				handler: async (opts) => {
+					const randomNumber = Math.floor(Math.random() * 5) + 1;
+					opts.callback?.({
+						text: `Random Agent Rank: ${randomNumber}`,
+					});
+					return true;
+				},
+			},
+		],
 	});
 
 	const iqBalancePlugin = createSimplePlugin({
@@ -108,7 +125,7 @@ async function main() {
 			ModelProviderName.GOOGLE,
 			process.env.GOOGLE_API_KEY as string,
 		)
-		.withPlugins([atpPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin])
+		.withPlugins([atpPlugin, sequencerPlugin, iqBalancePlugin, heartbeatPlugin, randomnessPlugin])
 		.withCharacter({
 			name: "BrainBot Trader",
 			bio: "You are BrainBot, a helpful assistant in trading.",
