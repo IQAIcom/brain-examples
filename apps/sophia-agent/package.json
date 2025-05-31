@@ -19,7 +19,7 @@
 		"@iqai/agent": "^0.2.1",
 		"@iqai/plugin-atp": "^0.4.3",
 		"@iqai/plugin-heartbeat": "^0.3.1",
-		"@iqai/plugin-wiki": "^0.1.1",
+		"@iqai/plugin-wiki": "^0.1.2",
 		"dotenv": "^16.4.7",
 		"sharp": "^0.33.5"
 	},
