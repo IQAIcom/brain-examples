@@ -7,7 +7,7 @@ export const IQ_ADDRESSES = {
 	fraxtal: "0x6EFB84bda519726Fa1c65558e520B92b51712101" as `0x${string}`,
 };
 
-export const FUNDING_AMOUNT = parseEther("0.0001");
+export const FUNDING_AMOUNT = parseEther("0.01");
 export const MIN_IQ_THRESHOLD = parseEther("1500");
 
 export const BRIDGE_EVENT_ABI = [
